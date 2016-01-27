@@ -1,11 +1,11 @@
 module.exports = {
   entry: [
     'babel-polyfill',
-    __dirname + '/src/client.js'
+    __dirname + '/src/index.js'
   ],
   devtool: 'source-map',
   output: {
-    path: __dirname + '/lib',
+    path: __dirname + '/webpack-build',
     filename: 'heroiclabs-sdk.js',
     library: '[name]',
     libraryTarget: 'umd',
