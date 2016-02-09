@@ -1,6 +1,6 @@
-import {Request} from './request';
+import {ApiRequest} from './request';
 
-export class PingRequest extends Request {
+export class PingRequest extends ApiRequest {
   constructor() {
     super('GET', '/v0/');
   }

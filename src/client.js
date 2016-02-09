@@ -23,8 +23,13 @@ export class Client {
 
       if (request.queryParams) {
         uri += '?';
+        let counter = 0;
         for (let key of request.queryParams) {
           uri += encodeURIComponent(key) + '=' + encodeURIComponent(request.queryParams[key]);
+          counter++;
+          if (counter < request.queryParams.length) {
+            uri += '&';
+          }
         }
       }
 
@@ -32,16 +37,30 @@ export class Client {
       xhr.onreadystatechange = () => {
         xhr.onload = () => {
           if (xhr.status >= 200 && xhr.status < 300) {
-            resolve(new Response(xhr));
+            if (request.responseCallback != null) {
+              let response = new Response(xhr, request, request.responseCallback(xhr));
+              response.freeze();
+              resolve(response);
+            } else {
+              let response = new Response(xhr, request);
+              response.freeze();
+              resolve(response);
+            }
           } else {
-            reject(new Response(xhr));
+            let response = new Response(xhr, request);
+            response.freeze();
+            reject(response);
           }
         };
         xhr.onerror = function () {
-          reject(new Response(xhr));
+          let response = new Response(xhr, request);
+          response.freeze();
+          reject(response);
         };
         xhr.ontimeout = function () {
-          reject(new Response(xhr));
+          let response = new Response(xhr, request);
+          response.freeze();
+          reject(response);
         };
       };
 
@@ -58,8 +77,9 @@ export class Client {
 }
 
 export class Response {
-  constructor(jsXHR, body) {
+  constructor(jsXHR, request, body) {
     this.xhr = jsXHR;
+    this.request = request;
     this.body = jsXHR.responseBody;
     if (body != null) {
       this.body = body;
