@@ -6,12 +6,12 @@ export class MessageListRequest extends ApiRequest {
   }
 
   since(timestamp) {
-    super.queryParams.since = timestamp;
+    this._queryParams.since = timestamp;
     return this;
   }
 
   withBody() {
-    super.queryParams['with_body'] = true;
+    this._queryParams['with_body'] = true;
     return this;
   }
 }
@@ -22,7 +22,7 @@ export class MessageReadRequest extends ApiRequest {
   }
 
   withNoBody() {
-    super.queryParams['with_body'] = false;
+    this._queryParams['with_body'] = false;
     return this;
   }
 }

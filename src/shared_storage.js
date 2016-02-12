@@ -31,22 +31,22 @@ export class SharedStorageSearchRequest extends ApiRequest {
   }
 
   filterKey(key) {
-    super.queryParams['filter_key'] = key;
+    this._queryParams['filter_key'] = key;
     return this;
   }
 
   sort(key) {
-    super.queryParams.sort = key;
+    this._queryParams.sort = key;
     return this;
   }
 
   offset(offset) {
-    super.queryParams.offset = offset;
+    this._queryParams.offset = offset;
     return this;
   }
 
   limit(limit) {
-    super.queryParams.limit = limit;
+    this._queryParams.limit = limit;
     return this;
   }
 }

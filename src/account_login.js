@@ -6,16 +6,20 @@ class LoginRequest extends AccountsRequest {
     var body = {'access_token': accessToken};
     var url = '/v0/gamer/login/' + provider;
     super('POST', url, null, body);
-    super.responseCallback = function (xhr) {
-      var session = new Session(xhr.responseBody.token);
-      session.freeze();
+    this._responseCallback = function (xhr) {
+      var body = JSON.parse(xhr.responseText);
+      var session = new Session(body.token);
+      Object.freeze(session);
       return session;
     };
   }
 
   session(session) {
-    if (!session.hasOwnProperty('token')) { throw new Error('Invalid Session Object'); }
-    super.session = session;
+    if (session != null && !session.hasOwnProperty('_token')) {
+      throw new Error('Invalid Session Object');
+    }
+
+    this._session = session;
     return this;
   }
 }
@@ -43,14 +47,20 @@ export class LoginAnonymousRequest extends AccountsRequest {
     var body = {'id': id};
     var url = '/v0/gamer/login/anonymous';
     super('POST', url, null, body);
-    super.responseCallback = function (xhr) {
-      return new Session(xhr.responseBody.token);
+    this._responseCallback = function (xhr) {
+      var body = JSON.parse(xhr.responseText);
+      var session = new Session(body.token);
+      Object.freeze(session);
+      return session;
     };
   }
 
   session(session) {
-    if (!session.hasOwnProperty('token')) { throw new Error('Invalid Session Object'); }
-    super.session = session;
+    if (session != null && !session.hasOwnProperty('_token')) {
+      throw new Error('Invalid Session Object');
+    }
+
+    this._session = session;
     return this;
   }
 }
@@ -60,14 +70,20 @@ export class LoginEmailRequest extends AccountsRequest {
     var body = {'email': email, 'password': password};
     var url = '/v0/gamer/login/email';
     super('POST', url, null, body);
-    super.responseCallback = function (xhr) {
-      return new Session(xhr.responseBody.token);
+    this._responseCallback = function (xhr) {
+      var body = JSON.parse(xhr.responseText);
+      var session = new Session(body.token);
+      Object.freeze(session);
+      return session;
     };
   }
 
   session(session) {
-    if (!session.hasOwnProperty('token')) { throw new Error('Invalid Session Object'); }
-    super.session = session;
+    if (session != null && !session.hasOwnProperty('_token')) {
+      throw new Error('Invalid Session Object');
+    }
+
+    this._session = session;
     return this;
   }
 }
@@ -77,24 +93,30 @@ export class CreateEmailRequest extends AccountsRequest {
     var body = {'email': email, 'password': password, 'confirm_password': confirmPassword};
     var url = '/v0/gamer/account/email/create';
     super('POST', url, null, body);
-    super.responseCallback = function (xhr) {
-      return new Session(xhr.responseBody.token);
+    this._responseCallback = function (xhr) {
+      var body = JSON.parse(xhr.responseText);
+      var session = new Session(body.token);
+      Object.freeze(session);
+      return session;
     };
   }
 
   name(name) {
-    super.body.name = name;
+    this._body.name = name;
     return this;
   }
 
   nickname(nickname) {
-    super.body.nickname = nickname;
+    this._body.nickname = nickname;
     return this;
   }
 
   session(session) {
-    if (!session.hasOwnProperty('token')) { throw new Error('Invalid Session Object'); }
-    super.session = session;
+    if (session != null && !session.hasOwnProperty('_token')) {
+      throw new Error('Invalid Session Object');
+    }
+
+    this._session = session;
     return this;
   }
 }

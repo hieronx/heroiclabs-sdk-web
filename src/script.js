@@ -7,12 +7,12 @@ export class ExecuteScriptRequest extends ApiRequest {
   }
 
   session(session) {
-    super.session = session;
+    this._session = session;
     return this;
   }
 
   data(data) {
-    super.body = data;
+    this._body = data;
     return this;
   }
 }

@@ -57,12 +57,12 @@ export class MatchCreateRequest extends ApiRequest {
   }
 
   addGamer(gamer) {
-    super.body.gamers.push(gamer);
+    this._body.gamers.push(gamer);
     return this;
   }
 
   addFilter(filter) {
-    super.body.filters.push(filter);
+    this._body.filters.push(filter);
     return this;
   }
 }
@@ -74,7 +74,7 @@ export class MatchMakeRequest extends ApiRequest {
   }
 
   addFilter(filter) {
-    super.body.filters.push(filter);
+    this._body.filters.push(filter);
     return this;
   }
 }

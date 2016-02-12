@@ -6,7 +6,11 @@ export class PingRequest extends ApiRequest {
   }
 
   session(session) {
-    super.session = session;
+    if (session != null && !session.hasOwnProperty('_token')) {
+      throw new Error('Invalid Session Object');
+    }
+
+    this._session = session;
     return this;
   }
 }

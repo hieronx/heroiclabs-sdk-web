@@ -33,11 +33,3 @@ export class LinkAnonymousRequest extends AccountsRequest {
     super('POST', url, session, body);
   }
 }
-
-export class LinkEmailRequest extends AccountsRequest {
-  constructor(session, email) {
-    var body = {'email': email};
-    var url = '/v0/gamer/link/email';
-    super('POST', url, session, body);
-  }
-}

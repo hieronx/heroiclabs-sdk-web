@@ -2,10 +2,10 @@
 
 export {Client, Response} from './client';
 export {PingRequest} from './ping';
-export {ServerRequestRequest} from './server';
+export {ServerRequest} from './server';
 export {LoginTangoRequest, LoginFacebookRequest, LoginGoogleRequest, LoginAnonymousRequest, LoginEmailRequest, CreateEmailRequest, EmailPasswordResetRequest} from './account_login';
 export {CheckTangoRequest, CheckFacebookRequest, CheckGoogleRequest, CheckAnonymousRequest, CheckEmailRequest} from './account_check';
-export {LinkTangoRequest, LinkFacebookRequest, LinkGoogleRequest, LinkAnonymousRequest, LinkEmailRequest} from './account_link';
+export {LinkTangoRequest, LinkFacebookRequest, LinkGoogleRequest, LinkAnonymousRequest} from './account_link';
 export {UnlinkTangoRequest, UnlinkFacebookRequest, UnlinkGoogleRequest, UnlinkAnonymousRequest, UnlinkEmailRequest} from './account_unlink';
 export {GameGetRequest} from './game';
 export {GamerGetRequest, GamerUpdateRequest} from './gamer';

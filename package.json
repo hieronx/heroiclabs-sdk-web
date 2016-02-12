@@ -41,7 +41,8 @@
     "webpack": "^1.12.11",
     "xmlhttprequest":"^1.8.0",
     "jsdom": "^8.0.2",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "chai": "^3.5.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",

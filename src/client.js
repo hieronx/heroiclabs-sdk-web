@@ -12,22 +12,23 @@ export class Client {
       var uri;
       var gamerToken = '';
 
-      uri = HEROICLABS_API + request.url;
-      if (request.type === 'accounts') {
-        uri = HEROICLABS_ACCOUNTS + request.url;
+      uri = HEROICLABS_API + request._url;
+      if (request._type === 'accounts') {
+        uri = HEROICLABS_ACCOUNTS + request._url;
       }
 
-      if (request.session != null) {
-        gamerToken = request.session.gamerToken;
+      if (request._session != null) {
+        gamerToken = request._session._token;
       }
 
-      if (request.queryParams) {
+      if (request._queryParams) {
         uri += '?';
         let counter = 0;
-        for (let key of request.queryParams) {
-          uri += encodeURIComponent(key) + '=' + encodeURIComponent(request.queryParams[key]);
+        let keys = Object.keys(request._queryParams);
+        for (let key of keys) {
+          uri += encodeURIComponent(key) + '=' + encodeURIComponent(String(request._queryParams[key]));
           counter++;
-          if (counter < request.queryParams.length) {
+          if (counter < keys.length) {
             uri += '&';
           }
         }
@@ -36,42 +37,41 @@ export class Client {
       xhr.timeout = 5000;
       xhr.onreadystatechange = () => {
         xhr.onload = () => {
+          let response = null;
           if (xhr.status >= 200 && xhr.status < 300) {
-            if (request.responseCallback != null) {
-              let response = new Response(xhr, request, request.responseCallback(xhr));
-              response.freeze();
-              resolve(response);
+            if (request._responseCallback != null) {
+              response = new Response(xhr, request, request._responseCallback(xhr));
             } else {
-              let response = new Response(xhr, request);
-              response.freeze();
-              resolve(response);
+              response = new Response(xhr, request);
             }
+            Object.freeze(response);
+            resolve(response);
           } else {
-            let response = new Response(xhr, request);
-            response.freeze();
+            response = new Response(xhr, request);
+            Object.freeze(response);
             reject(response);
           }
         };
         xhr.onerror = function () {
           let response = new Response(xhr, request);
-          response.freeze();
+          Object.freeze(response);
           reject(response);
         };
         xhr.ontimeout = function () {
           let response = new Response(xhr, request);
-          response.freeze();
+          Object.freeze(response);
           reject(response);
         };
       };
 
-      xhr.open(request.method, uri, true);
+      xhr.open(request._method, uri, true);
 
       xhr.setRequestHeader('Authorization', 'Basic ' + btoa(this._apikey + ':' + gamerToken));
       xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
       xhr.setRequestHeader('Accept', 'application/json');
       // xhr.setRequestHeader('User-Agent', '');
 
-      xhr.send(JSON.stringify(request.body));
+      xhr.send(JSON.stringify(request._body));
     });
   }
 }
@@ -80,11 +80,13 @@ export class Response {
   constructor(jsXHR, request, body) {
     this.xhr = jsXHR;
     this.request = request;
-    this.body = jsXHR.responseBody;
-    if (body != null) {
-      this.body = body;
-    }
     this.status = jsXHR.status;
     this.message = jsXHR.statusText;
+
+    if (body != null) {
+      this.body = body;
+    } else if (jsXHR.responseText !== null && jsXHR.responseText.length > 0) {
+      this.body = JSON.parse(jsXHR.responseText);
+    }
   }
 }
