@@ -4,7 +4,8 @@
   "description": "Web SDK for the Heroic service.",
   "main": "lib/heroiclabs-sdk.js",
   "scripts": {
-    "test": "webpack && mocha -u tdd -t 5000"
+    "test": "webpack && mocha -u tdd -t 5000",
+    "docs": "webpack && esdoc -c ./esdoc.json"
   },
   "keywords": [
     "heroiclabs",
@@ -42,7 +43,8 @@
     "xmlhttprequest":"^1.8.0",
     "jsdom": "^8.0.2",
     "mocha": "^2.4.5",
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "esdoc": "^0.4.5"
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",

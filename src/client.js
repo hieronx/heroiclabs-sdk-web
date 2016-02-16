@@ -1,21 +1,72 @@
-const HEROICLABS_API = 'https://api.heroiclabs.com';
-const HEROICLABS_ACCOUNTS = 'https://accounts.heroiclabs.com';
+/*
+ * Copyright 2016 Heroic Labs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
+/**
+ * [HEROICLABS_API API server URL.]
+ * @type {String}
+ */
+const HEROICLABS_API = 'api.heroiclabs.com';
+
+/**
+ * [HEROICLABS_ACCOUNTS Accounts server URL.]
+ * @type {String}
+ */
+const HEROICLABS_ACCOUNTS = 'accounts.heroiclabs.com';
+
+/**
+ * Client responsible for making requests to the Heroic Labs service.
+ */
 export class Client {
+
+  /**
+   * @param  {String} apikey API key used in all requests made by this client.
+   * @return {Client} An instance of this object.
+   */
   constructor(apikey) {
     this._apikey = apikey;
+    this._apiUrl = HEROICLABS_API;
+    this._accountsUrl = HEROICLABS_ACCOUNTS;
   }
 
+  setApiServer(apiUrl) {
+    this._apiUrl = apiUrl;
+    return this;
+  }
+
+  setAccountsServer(accountsUrl) {
+    this._accountsUrl = accountsUrl;
+    return this;
+  }
+
+  /**
+   * Execute a given request.
+   * @param  {Request} request The request to execute.
+   * @return {Promise} A deferred promise object which will resolve into a Response object.
+   */
   execute(request) {
     return new Promise((resolve, reject) => {
       var xhr = new XMLHttpRequest();
       var uri;
       var gamerToken = '';
 
-      uri = HEROICLABS_API + request._url;
+      uri = this._apiUrl + request._url;
       if (request._type === 'accounts') {
-        uri = HEROICLABS_ACCOUNTS + request._url;
+        uri = this._accountsUrl + request._url;
       }
+      uri = 'https://' + uri;
 
       if (request._session != null) {
         gamerToken = request._session._token;
@@ -76,12 +127,40 @@ export class Client {
   }
 }
 
+/**
+ * Response from the Heroic Labs service.
+ */
 export class Response {
   constructor(jsXHR, request, body) {
+    /**
+     * [xhr Original XHR]
+     * @type {XMLHttpRequest}
+     */
     this.xhr = jsXHR;
+
+    /**
+     * [request Original sent request.]
+     * @type {Request}
+     */
     this.request = request;
+
+    /**
+     * [status HTTP Status]
+     * @type {Integer}
+     */
     this.status = jsXHR.status;
+
+    /**
+     * [message HTTP Status Message]
+     * @type {String}
+     */
     this.message = jsXHR.statusText;
+
+    /**
+     * [body Body of the Response. Could be different to the XHR Body.]
+     * @type {Object}
+     */
+    this.body = null;
 
     if (body != null) {
       this.body = body;

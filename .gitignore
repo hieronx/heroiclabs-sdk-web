@@ -158,4 +158,4 @@ bower_components
 
 # Build output
 webpack-build
-
+esdoc
