@@ -1,0 +1,3712 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "Client",
+            "range": [
+              629,
+              635
+            ],
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 8
+              },
+              "end": {
+                "line": 19,
+                "column": 14
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "Client",
+            "range": [
+              629,
+              635
+            ],
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 8
+              },
+              "end": {
+                "line": 19,
+                "column": 14
+              }
+            }
+          },
+          "range": [
+            629,
+            635
+          ],
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 8
+            },
+            "end": {
+              "line": 19,
+              "column": 14
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "Response",
+            "range": [
+              637,
+              645
+            ],
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 16
+              },
+              "end": {
+                "line": 19,
+                "column": 24
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "Response",
+            "range": [
+              637,
+              645
+            ],
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 16
+              },
+              "end": {
+                "line": 19,
+                "column": 24
+              }
+            }
+          },
+          "range": [
+            637,
+            645
+          ],
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 16
+            },
+            "end": {
+              "line": 19,
+              "column": 24
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./client",
+        "raw": "'./client'",
+        "range": [
+          652,
+          662
+        ],
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 31
+          },
+          "end": {
+            "line": 19,
+            "column": 41
+          }
+        }
+      },
+      "range": [
+        621,
+        663
+      ],
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 19,
+          "column": 42
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n ",
+          "range": [
+            0,
+            590
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 15,
+              "column": 3
+            }
+          }
+        },
+        {
+          "type": "Block",
+          "value": "eslint-disable max-len ",
+          "range": [
+            592,
+            619
+          ],
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 0
+            },
+            "end": {
+              "line": 17,
+              "column": 27
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "PingRequest",
+            "range": [
+              672,
+              683
+            ],
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 8
+              },
+              "end": {
+                "line": 20,
+                "column": 19
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "PingRequest",
+            "range": [
+              672,
+              683
+            ],
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 8
+              },
+              "end": {
+                "line": 20,
+                "column": 19
+              }
+            }
+          },
+          "range": [
+            672,
+            683
+          ],
+          "loc": {
+            "start": {
+              "line": 20,
+              "column": 8
+            },
+            "end": {
+              "line": 20,
+              "column": 19
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./ping",
+        "raw": "'./ping'",
+        "range": [
+          690,
+          698
+        ],
+        "loc": {
+          "start": {
+            "line": 20,
+            "column": 26
+          },
+          "end": {
+            "line": 20,
+            "column": 34
+          }
+        }
+      },
+      "range": [
+        664,
+        699
+      ],
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 35
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "ServerRequest",
+            "range": [
+              708,
+              721
+            ],
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 8
+              },
+              "end": {
+                "line": 21,
+                "column": 21
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "ServerRequest",
+            "range": [
+              708,
+              721
+            ],
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 8
+              },
+              "end": {
+                "line": 21,
+                "column": 21
+              }
+            }
+          },
+          "range": [
+            708,
+            721
+          ],
+          "loc": {
+            "start": {
+              "line": 21,
+              "column": 8
+            },
+            "end": {
+              "line": 21,
+              "column": 21
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./server",
+        "raw": "'./server'",
+        "range": [
+          728,
+          738
+        ],
+        "loc": {
+          "start": {
+            "line": 21,
+            "column": 28
+          },
+          "end": {
+            "line": 21,
+            "column": 38
+          }
+        }
+      },
+      "range": [
+        700,
+        739
+      ],
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
+          "column": 39
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LoginTangoRequest",
+            "range": [
+              748,
+              765
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 8
+              },
+              "end": {
+                "line": 22,
+                "column": 25
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LoginTangoRequest",
+            "range": [
+              748,
+              765
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 8
+              },
+              "end": {
+                "line": 22,
+                "column": 25
+              }
+            }
+          },
+          "range": [
+            748,
+            765
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 8
+            },
+            "end": {
+              "line": 22,
+              "column": 25
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LoginFacebookRequest",
+            "range": [
+              767,
+              787
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 27
+              },
+              "end": {
+                "line": 22,
+                "column": 47
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LoginFacebookRequest",
+            "range": [
+              767,
+              787
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 27
+              },
+              "end": {
+                "line": 22,
+                "column": 47
+              }
+            }
+          },
+          "range": [
+            767,
+            787
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 27
+            },
+            "end": {
+              "line": 22,
+              "column": 47
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LoginGoogleRequest",
+            "range": [
+              789,
+              807
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 49
+              },
+              "end": {
+                "line": 22,
+                "column": 67
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LoginGoogleRequest",
+            "range": [
+              789,
+              807
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 49
+              },
+              "end": {
+                "line": 22,
+                "column": 67
+              }
+            }
+          },
+          "range": [
+            789,
+            807
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 49
+            },
+            "end": {
+              "line": 22,
+              "column": 67
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LoginAnonymousRequest",
+            "range": [
+              809,
+              830
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 69
+              },
+              "end": {
+                "line": 22,
+                "column": 90
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LoginAnonymousRequest",
+            "range": [
+              809,
+              830
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 69
+              },
+              "end": {
+                "line": 22,
+                "column": 90
+              }
+            }
+          },
+          "range": [
+            809,
+            830
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 69
+            },
+            "end": {
+              "line": 22,
+              "column": 90
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LoginEmailRequest",
+            "range": [
+              832,
+              849
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 92
+              },
+              "end": {
+                "line": 22,
+                "column": 109
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LoginEmailRequest",
+            "range": [
+              832,
+              849
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 92
+              },
+              "end": {
+                "line": 22,
+                "column": 109
+              }
+            }
+          },
+          "range": [
+            832,
+            849
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 92
+            },
+            "end": {
+              "line": 22,
+              "column": 109
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "CreateEmailRequest",
+            "range": [
+              851,
+              869
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 111
+              },
+              "end": {
+                "line": 22,
+                "column": 129
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "CreateEmailRequest",
+            "range": [
+              851,
+              869
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 111
+              },
+              "end": {
+                "line": 22,
+                "column": 129
+              }
+            }
+          },
+          "range": [
+            851,
+            869
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 111
+            },
+            "end": {
+              "line": 22,
+              "column": 129
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "EmailPasswordResetRequest",
+            "range": [
+              871,
+              896
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 131
+              },
+              "end": {
+                "line": 22,
+                "column": 156
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "EmailPasswordResetRequest",
+            "range": [
+              871,
+              896
+            ],
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 131
+              },
+              "end": {
+                "line": 22,
+                "column": 156
+              }
+            }
+          },
+          "range": [
+            871,
+            896
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 131
+            },
+            "end": {
+              "line": 22,
+              "column": 156
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./account_login",
+        "raw": "'./account_login'",
+        "range": [
+          903,
+          920
+        ],
+        "loc": {
+          "start": {
+            "line": 22,
+            "column": 163
+          },
+          "end": {
+            "line": 22,
+            "column": 180
+          }
+        }
+      },
+      "range": [
+        740,
+        921
+      ],
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 0
+        },
+        "end": {
+          "line": 22,
+          "column": 181
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "CheckTangoRequest",
+            "range": [
+              930,
+              947
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 8
+              },
+              "end": {
+                "line": 23,
+                "column": 25
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "CheckTangoRequest",
+            "range": [
+              930,
+              947
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 8
+              },
+              "end": {
+                "line": 23,
+                "column": 25
+              }
+            }
+          },
+          "range": [
+            930,
+            947
+          ],
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 8
+            },
+            "end": {
+              "line": 23,
+              "column": 25
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "CheckFacebookRequest",
+            "range": [
+              949,
+              969
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 27
+              },
+              "end": {
+                "line": 23,
+                "column": 47
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "CheckFacebookRequest",
+            "range": [
+              949,
+              969
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 27
+              },
+              "end": {
+                "line": 23,
+                "column": 47
+              }
+            }
+          },
+          "range": [
+            949,
+            969
+          ],
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 27
+            },
+            "end": {
+              "line": 23,
+              "column": 47
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "CheckGoogleRequest",
+            "range": [
+              971,
+              989
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 49
+              },
+              "end": {
+                "line": 23,
+                "column": 67
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "CheckGoogleRequest",
+            "range": [
+              971,
+              989
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 49
+              },
+              "end": {
+                "line": 23,
+                "column": 67
+              }
+            }
+          },
+          "range": [
+            971,
+            989
+          ],
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 49
+            },
+            "end": {
+              "line": 23,
+              "column": 67
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "CheckAnonymousRequest",
+            "range": [
+              991,
+              1012
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 69
+              },
+              "end": {
+                "line": 23,
+                "column": 90
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "CheckAnonymousRequest",
+            "range": [
+              991,
+              1012
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 69
+              },
+              "end": {
+                "line": 23,
+                "column": 90
+              }
+            }
+          },
+          "range": [
+            991,
+            1012
+          ],
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 69
+            },
+            "end": {
+              "line": 23,
+              "column": 90
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "CheckEmailRequest",
+            "range": [
+              1014,
+              1031
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 92
+              },
+              "end": {
+                "line": 23,
+                "column": 109
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "CheckEmailRequest",
+            "range": [
+              1014,
+              1031
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 92
+              },
+              "end": {
+                "line": 23,
+                "column": 109
+              }
+            }
+          },
+          "range": [
+            1014,
+            1031
+          ],
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 92
+            },
+            "end": {
+              "line": 23,
+              "column": 109
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./account_check",
+        "raw": "'./account_check'",
+        "range": [
+          1038,
+          1055
+        ],
+        "loc": {
+          "start": {
+            "line": 23,
+            "column": 116
+          },
+          "end": {
+            "line": 23,
+            "column": 133
+          }
+        }
+      },
+      "range": [
+        922,
+        1056
+      ],
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 23,
+          "column": 134
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LinkTangoRequest",
+            "range": [
+              1065,
+              1081
+            ],
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 8
+              },
+              "end": {
+                "line": 24,
+                "column": 24
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LinkTangoRequest",
+            "range": [
+              1065,
+              1081
+            ],
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 8
+              },
+              "end": {
+                "line": 24,
+                "column": 24
+              }
+            }
+          },
+          "range": [
+            1065,
+            1081
+          ],
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 8
+            },
+            "end": {
+              "line": 24,
+              "column": 24
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LinkFacebookRequest",
+            "range": [
+              1083,
+              1102
+            ],
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 26
+              },
+              "end": {
+                "line": 24,
+                "column": 45
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LinkFacebookRequest",
+            "range": [
+              1083,
+              1102
+            ],
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 26
+              },
+              "end": {
+                "line": 24,
+                "column": 45
+              }
+            }
+          },
+          "range": [
+            1083,
+            1102
+          ],
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 26
+            },
+            "end": {
+              "line": 24,
+              "column": 45
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LinkGoogleRequest",
+            "range": [
+              1104,
+              1121
+            ],
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 47
+              },
+              "end": {
+                "line": 24,
+                "column": 64
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LinkGoogleRequest",
+            "range": [
+              1104,
+              1121
+            ],
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 47
+              },
+              "end": {
+                "line": 24,
+                "column": 64
+              }
+            }
+          },
+          "range": [
+            1104,
+            1121
+          ],
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 47
+            },
+            "end": {
+              "line": 24,
+              "column": 64
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LinkAnonymousRequest",
+            "range": [
+              1123,
+              1143
+            ],
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 66
+              },
+              "end": {
+                "line": 24,
+                "column": 86
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LinkAnonymousRequest",
+            "range": [
+              1123,
+              1143
+            ],
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 66
+              },
+              "end": {
+                "line": 24,
+                "column": 86
+              }
+            }
+          },
+          "range": [
+            1123,
+            1143
+          ],
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 66
+            },
+            "end": {
+              "line": 24,
+              "column": 86
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./account_link",
+        "raw": "'./account_link'",
+        "range": [
+          1150,
+          1166
+        ],
+        "loc": {
+          "start": {
+            "line": 24,
+            "column": 93
+          },
+          "end": {
+            "line": 24,
+            "column": 109
+          }
+        }
+      },
+      "range": [
+        1057,
+        1167
+      ],
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 24,
+          "column": 110
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "UnlinkTangoRequest",
+            "range": [
+              1176,
+              1194
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 8
+              },
+              "end": {
+                "line": 25,
+                "column": 26
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "UnlinkTangoRequest",
+            "range": [
+              1176,
+              1194
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 8
+              },
+              "end": {
+                "line": 25,
+                "column": 26
+              }
+            }
+          },
+          "range": [
+            1176,
+            1194
+          ],
+          "loc": {
+            "start": {
+              "line": 25,
+              "column": 8
+            },
+            "end": {
+              "line": 25,
+              "column": 26
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "UnlinkFacebookRequest",
+            "range": [
+              1196,
+              1217
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 28
+              },
+              "end": {
+                "line": 25,
+                "column": 49
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "UnlinkFacebookRequest",
+            "range": [
+              1196,
+              1217
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 28
+              },
+              "end": {
+                "line": 25,
+                "column": 49
+              }
+            }
+          },
+          "range": [
+            1196,
+            1217
+          ],
+          "loc": {
+            "start": {
+              "line": 25,
+              "column": 28
+            },
+            "end": {
+              "line": 25,
+              "column": 49
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "UnlinkGoogleRequest",
+            "range": [
+              1219,
+              1238
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 51
+              },
+              "end": {
+                "line": 25,
+                "column": 70
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "UnlinkGoogleRequest",
+            "range": [
+              1219,
+              1238
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 51
+              },
+              "end": {
+                "line": 25,
+                "column": 70
+              }
+            }
+          },
+          "range": [
+            1219,
+            1238
+          ],
+          "loc": {
+            "start": {
+              "line": 25,
+              "column": 51
+            },
+            "end": {
+              "line": 25,
+              "column": 70
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "UnlinkAnonymousRequest",
+            "range": [
+              1240,
+              1262
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 72
+              },
+              "end": {
+                "line": 25,
+                "column": 94
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "UnlinkAnonymousRequest",
+            "range": [
+              1240,
+              1262
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 72
+              },
+              "end": {
+                "line": 25,
+                "column": 94
+              }
+            }
+          },
+          "range": [
+            1240,
+            1262
+          ],
+          "loc": {
+            "start": {
+              "line": 25,
+              "column": 72
+            },
+            "end": {
+              "line": 25,
+              "column": 94
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "UnlinkEmailRequest",
+            "range": [
+              1264,
+              1282
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 96
+              },
+              "end": {
+                "line": 25,
+                "column": 114
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "UnlinkEmailRequest",
+            "range": [
+              1264,
+              1282
+            ],
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 96
+              },
+              "end": {
+                "line": 25,
+                "column": 114
+              }
+            }
+          },
+          "range": [
+            1264,
+            1282
+          ],
+          "loc": {
+            "start": {
+              "line": 25,
+              "column": 96
+            },
+            "end": {
+              "line": 25,
+              "column": 114
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./account_unlink",
+        "raw": "'./account_unlink'",
+        "range": [
+          1289,
+          1307
+        ],
+        "loc": {
+          "start": {
+            "line": 25,
+            "column": 121
+          },
+          "end": {
+            "line": 25,
+            "column": 139
+          }
+        }
+      },
+      "range": [
+        1168,
+        1308
+      ],
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 0
+        },
+        "end": {
+          "line": 25,
+          "column": 140
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "GameGetRequest",
+            "range": [
+              1317,
+              1331
+            ],
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 8
+              },
+              "end": {
+                "line": 26,
+                "column": 22
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "GameGetRequest",
+            "range": [
+              1317,
+              1331
+            ],
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 8
+              },
+              "end": {
+                "line": 26,
+                "column": 22
+              }
+            }
+          },
+          "range": [
+            1317,
+            1331
+          ],
+          "loc": {
+            "start": {
+              "line": 26,
+              "column": 8
+            },
+            "end": {
+              "line": 26,
+              "column": 22
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./game",
+        "raw": "'./game'",
+        "range": [
+          1338,
+          1346
+        ],
+        "loc": {
+          "start": {
+            "line": 26,
+            "column": 29
+          },
+          "end": {
+            "line": 26,
+            "column": 37
+          }
+        }
+      },
+      "range": [
+        1309,
+        1347
+      ],
+      "loc": {
+        "start": {
+          "line": 26,
+          "column": 0
+        },
+        "end": {
+          "line": 26,
+          "column": 38
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "GamerGetRequest",
+            "range": [
+              1356,
+              1371
+            ],
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 8
+              },
+              "end": {
+                "line": 27,
+                "column": 23
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "GamerGetRequest",
+            "range": [
+              1356,
+              1371
+            ],
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 8
+              },
+              "end": {
+                "line": 27,
+                "column": 23
+              }
+            }
+          },
+          "range": [
+            1356,
+            1371
+          ],
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 8
+            },
+            "end": {
+              "line": 27,
+              "column": 23
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "GamerUpdateRequest",
+            "range": [
+              1373,
+              1391
+            ],
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 25
+              },
+              "end": {
+                "line": 27,
+                "column": 43
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "GamerUpdateRequest",
+            "range": [
+              1373,
+              1391
+            ],
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 25
+              },
+              "end": {
+                "line": 27,
+                "column": 43
+              }
+            }
+          },
+          "range": [
+            1373,
+            1391
+          ],
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 25
+            },
+            "end": {
+              "line": 27,
+              "column": 43
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./gamer",
+        "raw": "'./gamer'",
+        "range": [
+          1398,
+          1407
+        ],
+        "loc": {
+          "start": {
+            "line": 27,
+            "column": 50
+          },
+          "end": {
+            "line": 27,
+            "column": 59
+          }
+        }
+      },
+      "range": [
+        1348,
+        1408
+      ],
+      "loc": {
+        "start": {
+          "line": 27,
+          "column": 0
+        },
+        "end": {
+          "line": 27,
+          "column": 60
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "StorageGetRequest",
+            "range": [
+              1417,
+              1434
+            ],
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 8
+              },
+              "end": {
+                "line": 28,
+                "column": 25
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "StorageGetRequest",
+            "range": [
+              1417,
+              1434
+            ],
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 8
+              },
+              "end": {
+                "line": 28,
+                "column": 25
+              }
+            }
+          },
+          "range": [
+            1417,
+            1434
+          ],
+          "loc": {
+            "start": {
+              "line": 28,
+              "column": 8
+            },
+            "end": {
+              "line": 28,
+              "column": 25
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "StoragePutRequest",
+            "range": [
+              1436,
+              1453
+            ],
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 27
+              },
+              "end": {
+                "line": 28,
+                "column": 44
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "StoragePutRequest",
+            "range": [
+              1436,
+              1453
+            ],
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 27
+              },
+              "end": {
+                "line": 28,
+                "column": 44
+              }
+            }
+          },
+          "range": [
+            1436,
+            1453
+          ],
+          "loc": {
+            "start": {
+              "line": 28,
+              "column": 27
+            },
+            "end": {
+              "line": 28,
+              "column": 44
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "StorageDeleteRequest",
+            "range": [
+              1455,
+              1475
+            ],
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 46
+              },
+              "end": {
+                "line": 28,
+                "column": 66
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "StorageDeleteRequest",
+            "range": [
+              1455,
+              1475
+            ],
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 46
+              },
+              "end": {
+                "line": 28,
+                "column": 66
+              }
+            }
+          },
+          "range": [
+            1455,
+            1475
+          ],
+          "loc": {
+            "start": {
+              "line": 28,
+              "column": 46
+            },
+            "end": {
+              "line": 28,
+              "column": 66
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./storage",
+        "raw": "'./storage'",
+        "range": [
+          1482,
+          1493
+        ],
+        "loc": {
+          "start": {
+            "line": 28,
+            "column": 73
+          },
+          "end": {
+            "line": 28,
+            "column": 84
+          }
+        }
+      },
+      "range": [
+        1409,
+        1494
+      ],
+      "loc": {
+        "start": {
+          "line": 28,
+          "column": 0
+        },
+        "end": {
+          "line": 28,
+          "column": 85
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "AchievementListRequest",
+            "range": [
+              1503,
+              1525
+            ],
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 8
+              },
+              "end": {
+                "line": 29,
+                "column": 30
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "AchievementListRequest",
+            "range": [
+              1503,
+              1525
+            ],
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 8
+              },
+              "end": {
+                "line": 29,
+                "column": 30
+              }
+            }
+          },
+          "range": [
+            1503,
+            1525
+          ],
+          "loc": {
+            "start": {
+              "line": 29,
+              "column": 8
+            },
+            "end": {
+              "line": 29,
+              "column": 30
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "AchievementUpdateRequest",
+            "range": [
+              1527,
+              1551
+            ],
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 32
+              },
+              "end": {
+                "line": 29,
+                "column": 56
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "AchievementUpdateRequest",
+            "range": [
+              1527,
+              1551
+            ],
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 32
+              },
+              "end": {
+                "line": 29,
+                "column": 56
+              }
+            }
+          },
+          "range": [
+            1527,
+            1551
+          ],
+          "loc": {
+            "start": {
+              "line": 29,
+              "column": 32
+            },
+            "end": {
+              "line": 29,
+              "column": 56
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./achievement",
+        "raw": "'./achievement'",
+        "range": [
+          1558,
+          1573
+        ],
+        "loc": {
+          "start": {
+            "line": 29,
+            "column": 63
+          },
+          "end": {
+            "line": 29,
+            "column": 78
+          }
+        }
+      },
+      "range": [
+        1495,
+        1574
+      ],
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 79
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LeaderboardListRequest",
+            "range": [
+              1583,
+              1605
+            ],
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 8
+              },
+              "end": {
+                "line": 30,
+                "column": 30
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LeaderboardListRequest",
+            "range": [
+              1583,
+              1605
+            ],
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 8
+              },
+              "end": {
+                "line": 30,
+                "column": 30
+              }
+            }
+          },
+          "range": [
+            1583,
+            1605
+          ],
+          "loc": {
+            "start": {
+              "line": 30,
+              "column": 8
+            },
+            "end": {
+              "line": 30,
+              "column": 30
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LeaderboardGetRequest",
+            "range": [
+              1607,
+              1628
+            ],
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 32
+              },
+              "end": {
+                "line": 30,
+                "column": 53
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LeaderboardGetRequest",
+            "range": [
+              1607,
+              1628
+            ],
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 32
+              },
+              "end": {
+                "line": 30,
+                "column": 53
+              }
+            }
+          },
+          "range": [
+            1607,
+            1628
+          ],
+          "loc": {
+            "start": {
+              "line": 30,
+              "column": 32
+            },
+            "end": {
+              "line": 30,
+              "column": 53
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LeaderboardAndRankGetRequest",
+            "range": [
+              1630,
+              1658
+            ],
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 55
+              },
+              "end": {
+                "line": 30,
+                "column": 83
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LeaderboardAndRankGetRequest",
+            "range": [
+              1630,
+              1658
+            ],
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 55
+              },
+              "end": {
+                "line": 30,
+                "column": 83
+              }
+            }
+          },
+          "range": [
+            1630,
+            1658
+          ],
+          "loc": {
+            "start": {
+              "line": 30,
+              "column": 55
+            },
+            "end": {
+              "line": 30,
+              "column": 83
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "LeaderboardUpdateRequest",
+            "range": [
+              1660,
+              1684
+            ],
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 85
+              },
+              "end": {
+                "line": 30,
+                "column": 109
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "LeaderboardUpdateRequest",
+            "range": [
+              1660,
+              1684
+            ],
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 85
+              },
+              "end": {
+                "line": 30,
+                "column": 109
+              }
+            }
+          },
+          "range": [
+            1660,
+            1684
+          ],
+          "loc": {
+            "start": {
+              "line": 30,
+              "column": 85
+            },
+            "end": {
+              "line": 30,
+              "column": 109
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./leaderboard",
+        "raw": "'./leaderboard'",
+        "range": [
+          1691,
+          1706
+        ],
+        "loc": {
+          "start": {
+            "line": 30,
+            "column": 116
+          },
+          "end": {
+            "line": 30,
+            "column": 131
+          }
+        }
+      },
+      "range": [
+        1575,
+        1707
+      ],
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 132
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MatchListRequest",
+            "range": [
+              1716,
+              1732
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 8
+              },
+              "end": {
+                "line": 31,
+                "column": 24
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MatchListRequest",
+            "range": [
+              1716,
+              1732
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 8
+              },
+              "end": {
+                "line": 31,
+                "column": 24
+              }
+            }
+          },
+          "range": [
+            1716,
+            1732
+          ],
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 8
+            },
+            "end": {
+              "line": 31,
+              "column": 24
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MatchesSinceRequest",
+            "range": [
+              1734,
+              1753
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 26
+              },
+              "end": {
+                "line": 31,
+                "column": 45
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MatchesSinceRequest",
+            "range": [
+              1734,
+              1753
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 26
+              },
+              "end": {
+                "line": 31,
+                "column": 45
+              }
+            }
+          },
+          "range": [
+            1734,
+            1753
+          ],
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 26
+            },
+            "end": {
+              "line": 31,
+              "column": 45
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MatchGetRequest",
+            "range": [
+              1755,
+              1770
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 47
+              },
+              "end": {
+                "line": 31,
+                "column": 62
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MatchGetRequest",
+            "range": [
+              1755,
+              1770
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 47
+              },
+              "end": {
+                "line": 31,
+                "column": 62
+              }
+            }
+          },
+          "range": [
+            1755,
+            1770
+          ],
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 47
+            },
+            "end": {
+              "line": 31,
+              "column": 62
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MatchTurnGetRequest",
+            "range": [
+              1772,
+              1791
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 64
+              },
+              "end": {
+                "line": 31,
+                "column": 83
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MatchTurnGetRequest",
+            "range": [
+              1772,
+              1791
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 64
+              },
+              "end": {
+                "line": 31,
+                "column": 83
+              }
+            }
+          },
+          "range": [
+            1772,
+            1791
+          ],
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 64
+            },
+            "end": {
+              "line": 31,
+              "column": 83
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MatchTurnSubmitRequest",
+            "range": [
+              1793,
+              1815
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 85
+              },
+              "end": {
+                "line": 31,
+                "column": 107
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MatchTurnSubmitRequest",
+            "range": [
+              1793,
+              1815
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 85
+              },
+              "end": {
+                "line": 31,
+                "column": 107
+              }
+            }
+          },
+          "range": [
+            1793,
+            1815
+          ],
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 85
+            },
+            "end": {
+              "line": 31,
+              "column": 107
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./match",
+        "raw": "'./match'",
+        "range": [
+          1822,
+          1831
+        ],
+        "loc": {
+          "start": {
+            "line": 31,
+            "column": 114
+          },
+          "end": {
+            "line": 31,
+            "column": 123
+          }
+        }
+      },
+      "range": [
+        1708,
+        1832
+      ],
+      "loc": {
+        "start": {
+          "line": 31,
+          "column": 0
+        },
+        "end": {
+          "line": 31,
+          "column": 124
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MatchTurnEndRequest",
+            "range": [
+              1841,
+              1860
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 8
+              },
+              "end": {
+                "line": 32,
+                "column": 27
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MatchTurnEndRequest",
+            "range": [
+              1841,
+              1860
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 8
+              },
+              "end": {
+                "line": 32,
+                "column": 27
+              }
+            }
+          },
+          "range": [
+            1841,
+            1860
+          ],
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 8
+            },
+            "end": {
+              "line": 32,
+              "column": 27
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MatchTurnLeaveRequest",
+            "range": [
+              1862,
+              1883
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 29
+              },
+              "end": {
+                "line": 32,
+                "column": 50
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MatchTurnLeaveRequest",
+            "range": [
+              1862,
+              1883
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 29
+              },
+              "end": {
+                "line": 32,
+                "column": 50
+              }
+            }
+          },
+          "range": [
+            1862,
+            1883
+          ],
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 29
+            },
+            "end": {
+              "line": 32,
+              "column": 50
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MatchCreateRequest",
+            "range": [
+              1885,
+              1903
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 52
+              },
+              "end": {
+                "line": 32,
+                "column": 70
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MatchCreateRequest",
+            "range": [
+              1885,
+              1903
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 52
+              },
+              "end": {
+                "line": 32,
+                "column": 70
+              }
+            }
+          },
+          "range": [
+            1885,
+            1903
+          ],
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 52
+            },
+            "end": {
+              "line": 32,
+              "column": 70
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MatchMakeRequest",
+            "range": [
+              1905,
+              1921
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 72
+              },
+              "end": {
+                "line": 32,
+                "column": 88
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MatchMakeRequest",
+            "range": [
+              1905,
+              1921
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 72
+              },
+              "end": {
+                "line": 32,
+                "column": 88
+              }
+            }
+          },
+          "range": [
+            1905,
+            1921
+          ],
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 72
+            },
+            "end": {
+              "line": 32,
+              "column": 88
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./match",
+        "raw": "'./match'",
+        "range": [
+          1928,
+          1937
+        ],
+        "loc": {
+          "start": {
+            "line": 32,
+            "column": 95
+          },
+          "end": {
+            "line": 32,
+            "column": 104
+          }
+        }
+      },
+      "range": [
+        1833,
+        1938
+      ],
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 0
+        },
+        "end": {
+          "line": 32,
+          "column": 105
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "SharedStorageGetRequest",
+            "range": [
+              1947,
+              1970
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 8
+              },
+              "end": {
+                "line": 33,
+                "column": 31
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "SharedStorageGetRequest",
+            "range": [
+              1947,
+              1970
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 8
+              },
+              "end": {
+                "line": 33,
+                "column": 31
+              }
+            }
+          },
+          "range": [
+            1947,
+            1970
+          ],
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 8
+            },
+            "end": {
+              "line": 33,
+              "column": 31
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "SharedStoragePutRequest",
+            "range": [
+              1972,
+              1995
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 33
+              },
+              "end": {
+                "line": 33,
+                "column": 56
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "SharedStoragePutRequest",
+            "range": [
+              1972,
+              1995
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 33
+              },
+              "end": {
+                "line": 33,
+                "column": 56
+              }
+            }
+          },
+          "range": [
+            1972,
+            1995
+          ],
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 33
+            },
+            "end": {
+              "line": 33,
+              "column": 56
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "SharedStoragePatchRequest",
+            "range": [
+              1997,
+              2022
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 58
+              },
+              "end": {
+                "line": 33,
+                "column": 83
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "SharedStoragePatchRequest",
+            "range": [
+              1997,
+              2022
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 58
+              },
+              "end": {
+                "line": 33,
+                "column": 83
+              }
+            }
+          },
+          "range": [
+            1997,
+            2022
+          ],
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 58
+            },
+            "end": {
+              "line": 33,
+              "column": 83
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "SharedStorageDeleteRequest",
+            "range": [
+              2024,
+              2050
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 85
+              },
+              "end": {
+                "line": 33,
+                "column": 111
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "SharedStorageDeleteRequest",
+            "range": [
+              2024,
+              2050
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 85
+              },
+              "end": {
+                "line": 33,
+                "column": 111
+              }
+            }
+          },
+          "range": [
+            2024,
+            2050
+          ],
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 85
+            },
+            "end": {
+              "line": 33,
+              "column": 111
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "SharedStorageSearchRequest",
+            "range": [
+              2052,
+              2078
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 113
+              },
+              "end": {
+                "line": 33,
+                "column": 139
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "SharedStorageSearchRequest",
+            "range": [
+              2052,
+              2078
+            ],
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 113
+              },
+              "end": {
+                "line": 33,
+                "column": 139
+              }
+            }
+          },
+          "range": [
+            2052,
+            2078
+          ],
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 113
+            },
+            "end": {
+              "line": 33,
+              "column": 139
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./shared_storage",
+        "raw": "'./shared_storage'",
+        "range": [
+          2085,
+          2103
+        ],
+        "loc": {
+          "start": {
+            "line": 33,
+            "column": 146
+          },
+          "end": {
+            "line": 33,
+            "column": 164
+          }
+        }
+      },
+      "range": [
+        1939,
+        2104
+      ],
+      "loc": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 33,
+          "column": 165
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "ExecuteScriptRequest",
+            "range": [
+              2113,
+              2133
+            ],
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 8
+              },
+              "end": {
+                "line": 34,
+                "column": 28
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "ExecuteScriptRequest",
+            "range": [
+              2113,
+              2133
+            ],
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 8
+              },
+              "end": {
+                "line": 34,
+                "column": 28
+              }
+            }
+          },
+          "range": [
+            2113,
+            2133
+          ],
+          "loc": {
+            "start": {
+              "line": 34,
+              "column": 8
+            },
+            "end": {
+              "line": 34,
+              "column": 28
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./script",
+        "raw": "'./script'",
+        "range": [
+          2140,
+          2150
+        ],
+        "loc": {
+          "start": {
+            "line": 34,
+            "column": 35
+          },
+          "end": {
+            "line": 34,
+            "column": 45
+          }
+        }
+      },
+      "range": [
+        2105,
+        2151
+      ],
+      "loc": {
+        "start": {
+          "line": 34,
+          "column": 0
+        },
+        "end": {
+          "line": 34,
+          "column": 46
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MessageListRequest",
+            "range": [
+              2160,
+              2178
+            ],
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 8
+              },
+              "end": {
+                "line": 35,
+                "column": 26
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MessageListRequest",
+            "range": [
+              2160,
+              2178
+            ],
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 8
+              },
+              "end": {
+                "line": 35,
+                "column": 26
+              }
+            }
+          },
+          "range": [
+            2160,
+            2178
+          ],
+          "loc": {
+            "start": {
+              "line": 35,
+              "column": 8
+            },
+            "end": {
+              "line": 35,
+              "column": 26
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MessageReadRequest",
+            "range": [
+              2180,
+              2198
+            ],
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 28
+              },
+              "end": {
+                "line": 35,
+                "column": 46
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MessageReadRequest",
+            "range": [
+              2180,
+              2198
+            ],
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 28
+              },
+              "end": {
+                "line": 35,
+                "column": 46
+              }
+            }
+          },
+          "range": [
+            2180,
+            2198
+          ],
+          "loc": {
+            "start": {
+              "line": 35,
+              "column": 28
+            },
+            "end": {
+              "line": 35,
+              "column": 46
+            }
+          }
+        },
+        {
+          "type": "ExportSpecifier",
+          "exported": {
+            "type": "Identifier",
+            "name": "MessageDeleteRequest",
+            "range": [
+              2200,
+              2220
+            ],
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 48
+              },
+              "end": {
+                "line": 35,
+                "column": 68
+              }
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "name": "MessageDeleteRequest",
+            "range": [
+              2200,
+              2220
+            ],
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 48
+              },
+              "end": {
+                "line": 35,
+                "column": 68
+              }
+            }
+          },
+          "range": [
+            2200,
+            2220
+          ],
+          "loc": {
+            "start": {
+              "line": 35,
+              "column": 48
+            },
+            "end": {
+              "line": 35,
+              "column": 68
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./message",
+        "raw": "'./message'",
+        "range": [
+          2227,
+          2238
+        ],
+        "loc": {
+          "start": {
+            "line": 35,
+            "column": 75
+          },
+          "end": {
+            "line": 35,
+            "column": 86
+          }
+        }
+      },
+      "range": [
+        2152,
+        2239
+      ],
+      "loc": {
+        "start": {
+          "line": 35,
+          "column": 0
+        },
+        "end": {
+          "line": 35,
+          "column": 87
+        }
+      },
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "eslint-enable max-len ",
+          "range": [
+            2241,
+            2267
+          ],
+          "loc": {
+            "start": {
+              "line": 37,
+              "column": 0
+            },
+            "end": {
+              "line": 37,
+              "column": 26
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    621,
+    2239
+  ],
+  "loc": {
+    "start": {
+      "line": 19,
+      "column": 0
+    },
+    "end": {
+      "line": 35,
+      "column": 87
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n ",
+      "range": [
+        0,
+        590
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "eslint-disable max-len ",
+      "range": [
+        592,
+        619
+      ],
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 0
+        },
+        "end": {
+          "line": 17,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "eslint-enable max-len ",
+      "range": [
+        2241,
+        2267
+      ],
+      "loc": {
+        "start": {
+          "line": 37,
+          "column": 0
+        },
+        "end": {
+          "line": 37,
+          "column": 26
+        }
+      }
+    }
+  ]
+}

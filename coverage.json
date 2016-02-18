@@ -1,0 +1,120 @@
+{
+  "coverage": "89.5%",
+  "expectCount": 162,
+  "actualCount": 145,
+  "files": {
+    "src/request.js": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        40,
+        30,
+        17,
+        41,
+        31,
+        18
+      ]
+    },
+    "src/achievement.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/account_check.js": {
+      "expectCount": 15,
+      "actualCount": 13,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "src/client.js": {
+      "expectCount": 12,
+      "actualCount": 9,
+      "undocumentLines": [
+        134,
+        49,
+        44
+      ]
+    },
+    "src/account_login.js": {
+      "expectCount": 22,
+      "actualCount": 20,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    },
+    "src/script.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "src/game.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/gamer.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "src/leaderboard.js": {
+      "expectCount": 13,
+      "actualCount": 13,
+      "undocumentLines": []
+    },
+    "src/account_link.js": {
+      "expectCount": 10,
+      "actualCount": 8,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "src/match.js": {
+      "expectCount": 21,
+      "actualCount": 21,
+      "undocumentLines": []
+    },
+    "src/message.js": {
+      "expectCount": 9,
+      "actualCount": 9,
+      "undocumentLines": []
+    },
+    "src/ping.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "src/server.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/session.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/shared_storage.js": {
+      "expectCount": 14,
+      "actualCount": 14,
+      "undocumentLines": []
+    },
+    "src/storage.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/account_unlink.js": {
+      "expectCount": 12,
+      "actualCount": 10,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    }
+  }
+}

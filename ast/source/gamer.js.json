@@ -1,0 +1,1166 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "AccountsRequest",
+            "range": [
+              600,
+              615
+            ],
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 8
+              },
+              "end": {
+                "line": 17,
+                "column": 23
+              }
+            }
+          },
+          "imported": {
+            "type": "Identifier",
+            "name": "AccountsRequest",
+            "range": [
+              600,
+              615
+            ],
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 8
+              },
+              "end": {
+                "line": 17,
+                "column": 23
+              }
+            }
+          },
+          "range": [
+            600,
+            615
+          ],
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 8
+            },
+            "end": {
+              "line": 17,
+              "column": 23
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./request",
+        "raw": "'./request'",
+        "range": [
+          622,
+          633
+        ],
+        "loc": {
+          "start": {
+            "line": 17,
+            "column": 30
+          },
+          "end": {
+            "line": 17,
+            "column": 41
+          }
+        }
+      },
+      "range": [
+        592,
+        634
+      ],
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 0
+        },
+        "end": {
+          "line": 17,
+          "column": 42
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n ",
+          "range": [
+            0,
+            590
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 15,
+              "column": 3
+            }
+          }
+        }
+      ],
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Get the account and linked profile information for the Gamer identified by the given Session.\n ",
+          "range": [
+            636,
+            740
+          ],
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 0
+            },
+            "end": {
+              "line": 21,
+              "column": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": {
+        "type": "ClassDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "GamerGetRequest",
+          "range": [
+            754,
+            769
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 13
+            },
+            "end": {
+              "line": 22,
+              "column": 28
+            }
+          }
+        },
+        "superClass": {
+          "type": "Identifier",
+          "name": "AccountsRequest",
+          "range": [
+            778,
+            793
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 37
+            },
+            "end": {
+              "line": 22,
+              "column": 52
+            }
+          }
+        },
+        "body": {
+          "type": "ClassBody",
+          "body": [
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "constructor",
+                "range": [
+                  953,
+                  964
+                ],
+                "loc": {
+                  "start": {
+                    "line": 27,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 27,
+                    "column": 13
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "session",
+                    "range": [
+                      965,
+                      972
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 27,
+                        "column": 14
+                      },
+                      "end": {
+                        "line": 27,
+                        "column": 21
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "Super",
+                          "range": [
+                            980,
+                            985
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 28,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 28,
+                              "column": 9
+                            }
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "Literal",
+                            "value": "GET",
+                            "raw": "'GET'",
+                            "range": [
+                              986,
+                              991
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 28,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 28,
+                                "column": 15
+                              }
+                            }
+                          },
+                          {
+                            "type": "Literal",
+                            "value": "/v0/gamer",
+                            "raw": "'/v0/gamer'",
+                            "range": [
+                              993,
+                              1004
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 28,
+                                "column": 17
+                              },
+                              "end": {
+                                "line": 28,
+                                "column": 28
+                              }
+                            }
+                          },
+                          {
+                            "type": "Identifier",
+                            "name": "session",
+                            "range": [
+                              1006,
+                              1013
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 28,
+                                "column": 30
+                              },
+                              "end": {
+                                "line": 28,
+                                "column": 37
+                              }
+                            }
+                          }
+                        ],
+                        "range": [
+                          980,
+                          1014
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 28,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 28,
+                            "column": 38
+                          }
+                        }
+                      },
+                      "range": [
+                        980,
+                        1015
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 28,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 28,
+                          "column": 39
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    974,
+                    1019
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 27,
+                      "column": 23
+                    },
+                    "end": {
+                      "line": 29,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  964,
+                  1019
+                ],
+                "loc": {
+                  "start": {
+                    "line": 27,
+                    "column": 13
+                  },
+                  "end": {
+                    "line": 29,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "constructor",
+              "computed": false,
+              "range": [
+                953,
+                1019
+              ],
+              "loc": {
+                "start": {
+                  "line": 27,
+                  "column": 2
+                },
+                "end": {
+                  "line": 29,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @return {GamerGetRequest} An instance of this object.\n   ",
+                  "range": [
+                    798,
+                    950
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 23,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 26,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": false
+            }
+          ],
+          "range": [
+            794,
+            1021
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 53
+            },
+            "end": {
+              "line": 30,
+              "column": 1
+            }
+          }
+        },
+        "range": [
+          748,
+          1021
+        ],
+        "loc": {
+          "start": {
+            "line": 22,
+            "column": 7
+          },
+          "end": {
+            "line": 30,
+            "column": 1
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Get the account and linked profile information for the Gamer identified by the given Session.\n ",
+            "range": [
+              636,
+              740
+            ],
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 0
+              },
+              "end": {
+                "line": 21,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Update account metadata, such as nickname.\n ",
+            "range": [
+              1023,
+              1076
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 0
+              },
+              "end": {
+                "line": 34,
+                "column": 3
+              }
+            }
+          }
+        ]
+      },
+      "specifiers": [],
+      "source": null,
+      "range": [
+        741,
+        1021
+      ],
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 1
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Get the account and linked profile information for the Gamer identified by the given Session.\n ",
+          "range": [
+            636,
+            740
+          ],
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 0
+            },
+            "end": {
+              "line": 21,
+              "column": 3
+            }
+          }
+        }
+      ],
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Update account metadata, such as nickname.\n ",
+          "range": [
+            1023,
+            1076
+          ],
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 0
+            },
+            "end": {
+              "line": 34,
+              "column": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": {
+        "type": "ClassDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "GamerUpdateRequest",
+          "range": [
+            1090,
+            1108
+          ],
+          "loc": {
+            "start": {
+              "line": 35,
+              "column": 13
+            },
+            "end": {
+              "line": 35,
+              "column": 31
+            }
+          }
+        },
+        "superClass": {
+          "type": "Identifier",
+          "name": "AccountsRequest",
+          "range": [
+            1117,
+            1132
+          ],
+          "loc": {
+            "start": {
+              "line": 35,
+              "column": 40
+            },
+            "end": {
+              "line": 35,
+              "column": 55
+            }
+          }
+        },
+        "body": {
+          "type": "ClassBody",
+          "body": [
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "constructor",
+                "range": [
+                  1363,
+                  1374
+                ],
+                "loc": {
+                  "start": {
+                    "line": 41,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 41,
+                    "column": 13
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "session",
+                    "range": [
+                      1375,
+                      1382
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 41,
+                        "column": 14
+                      },
+                      "end": {
+                        "line": 41,
+                        "column": 21
+                      }
+                    }
+                  },
+                  {
+                    "type": "Identifier",
+                    "name": "nickname",
+                    "range": [
+                      1384,
+                      1392
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 41,
+                        "column": 23
+                      },
+                      "end": {
+                        "line": 41,
+                        "column": 31
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "VariableDeclaration",
+                      "declarations": [
+                        {
+                          "type": "VariableDeclarator",
+                          "id": {
+                            "type": "Identifier",
+                            "name": "body",
+                            "range": [
+                              1404,
+                              1408
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 42,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 42,
+                                "column": 12
+                              }
+                            }
+                          },
+                          "init": {
+                            "type": "ObjectExpression",
+                            "properties": [
+                              {
+                                "type": "Property",
+                                "key": {
+                                  "type": "Literal",
+                                  "value": "nickname",
+                                  "raw": "'nickname'",
+                                  "range": [
+                                    1412,
+                                    1422
+                                  ],
+                                  "loc": {
+                                    "start": {
+                                      "line": 42,
+                                      "column": 16
+                                    },
+                                    "end": {
+                                      "line": 42,
+                                      "column": 26
+                                    }
+                                  }
+                                },
+                                "value": {
+                                  "type": "Identifier",
+                                  "name": "nickname",
+                                  "range": [
+                                    1424,
+                                    1432
+                                  ],
+                                  "loc": {
+                                    "start": {
+                                      "line": 42,
+                                      "column": 28
+                                    },
+                                    "end": {
+                                      "line": 42,
+                                      "column": 36
+                                    }
+                                  }
+                                },
+                                "kind": "init",
+                                "method": false,
+                                "shorthand": false,
+                                "computed": false,
+                                "range": [
+                                  1412,
+                                  1432
+                                ],
+                                "loc": {
+                                  "start": {
+                                    "line": 42,
+                                    "column": 16
+                                  },
+                                  "end": {
+                                    "line": 42,
+                                    "column": 36
+                                  }
+                                }
+                              }
+                            ],
+                            "range": [
+                              1411,
+                              1433
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 42,
+                                "column": 15
+                              },
+                              "end": {
+                                "line": 42,
+                                "column": 37
+                              }
+                            }
+                          },
+                          "range": [
+                            1404,
+                            1433
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 42,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 42,
+                              "column": 37
+                            }
+                          }
+                        }
+                      ],
+                      "kind": "var",
+                      "range": [
+                        1400,
+                        1434
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 42,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 42,
+                          "column": 38
+                        }
+                      }
+                    },
+                    {
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "Super",
+                          "range": [
+                            1439,
+                            1444
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 43,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 43,
+                              "column": 9
+                            }
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "Literal",
+                            "value": "POST",
+                            "raw": "'POST'",
+                            "range": [
+                              1445,
+                              1451
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 43,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 43,
+                                "column": 16
+                              }
+                            }
+                          },
+                          {
+                            "type": "Literal",
+                            "value": "/v0/gamer",
+                            "raw": "'/v0/gamer'",
+                            "range": [
+                              1453,
+                              1464
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 43,
+                                "column": 18
+                              },
+                              "end": {
+                                "line": 43,
+                                "column": 29
+                              }
+                            }
+                          },
+                          {
+                            "type": "Identifier",
+                            "name": "session",
+                            "range": [
+                              1466,
+                              1473
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 43,
+                                "column": 31
+                              },
+                              "end": {
+                                "line": 43,
+                                "column": 38
+                              }
+                            }
+                          },
+                          {
+                            "type": "Identifier",
+                            "name": "body",
+                            "range": [
+                              1475,
+                              1479
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 43,
+                                "column": 40
+                              },
+                              "end": {
+                                "line": 43,
+                                "column": 44
+                              }
+                            }
+                          }
+                        ],
+                        "range": [
+                          1439,
+                          1480
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 43,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 43,
+                            "column": 45
+                          }
+                        }
+                      },
+                      "range": [
+                        1439,
+                        1481
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 43,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 43,
+                          "column": 46
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    1394,
+                    1485
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 41,
+                      "column": 33
+                    },
+                    "end": {
+                      "line": 44,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  1374,
+                  1485
+                ],
+                "loc": {
+                  "start": {
+                    "line": 41,
+                    "column": 13
+                  },
+                  "end": {
+                    "line": 44,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "constructor",
+              "computed": false,
+              "range": [
+                1363,
+                1485
+              ],
+              "loc": {
+                "start": {
+                  "line": 41,
+                  "column": 2
+                },
+                "end": {
+                  "line": 44,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} nickname The nickname to assign to the gamer.\n   * @return {GamerUpdateRequest} An instance of this object.\n   ",
+                  "range": [
+                    1137,
+                    1360
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 36,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 40,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": false
+            }
+          ],
+          "range": [
+            1133,
+            1487
+          ],
+          "loc": {
+            "start": {
+              "line": 35,
+              "column": 56
+            },
+            "end": {
+              "line": 45,
+              "column": 1
+            }
+          }
+        },
+        "range": [
+          1084,
+          1487
+        ],
+        "loc": {
+          "start": {
+            "line": 35,
+            "column": 7
+          },
+          "end": {
+            "line": 45,
+            "column": 1
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Update account metadata, such as nickname.\n ",
+            "range": [
+              1023,
+              1076
+            ],
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 0
+              },
+              "end": {
+                "line": 34,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": []
+      },
+      "specifiers": [],
+      "source": null,
+      "range": [
+        1077,
+        1487
+      ],
+      "loc": {
+        "start": {
+          "line": 35,
+          "column": 0
+        },
+        "end": {
+          "line": 45,
+          "column": 1
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Update account metadata, such as nickname.\n ",
+          "range": [
+            1023,
+            1076
+          ],
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 0
+            },
+            "end": {
+              "line": 34,
+              "column": 3
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    592,
+    1487
+  ],
+  "loc": {
+    "start": {
+      "line": 17,
+      "column": 0
+    },
+    "end": {
+      "line": 45,
+      "column": 1
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n ",
+      "range": [
+        0,
+        590
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n * Get the account and linked profile information for the Gamer identified by the given Session.\n ",
+      "range": [
+        636,
+        740
+      ],
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @return {GamerGetRequest} An instance of this object.\n   ",
+      "range": [
+        798,
+        950
+      ],
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 2
+        },
+        "end": {
+          "line": 26,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n * Update account metadata, such as nickname.\n ",
+      "range": [
+        1023,
+        1076
+      ],
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 0
+        },
+        "end": {
+          "line": 34,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} nickname The nickname to assign to the gamer.\n   * @return {GamerUpdateRequest} An instance of this object.\n   ",
+      "range": [
+        1137,
+        1360
+      ],
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 2
+        },
+        "end": {
+          "line": 40,
+          "column": 5
+        }
+      }
+    }
+  ]
+}
