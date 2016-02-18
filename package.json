@@ -5,7 +5,8 @@
   "main": "lib/heroiclabs-sdk.js",
   "scripts": {
     "test": "webpack && mocha -u tdd -t 5000",
-    "docs": "webpack && esdoc -c ./esdoc.json"
+    "docs": "webpack && esdoc -c ./esdoc.json",
+    "release": "webpack && cp -R webpack-build/* lib/"
   },
   "keywords": [
     "heroiclabs",
