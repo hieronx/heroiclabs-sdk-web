@@ -30,7 +30,7 @@ export {AchievementListRequest, AchievementUpdateRequest} from './achievement';
 export {LeaderboardListRequest, LeaderboardGetRequest, LeaderboardAndRankGetRequest, LeaderboardUpdateRequest} from './leaderboard';
 export {MatchListRequest, MatchesSinceRequest, MatchGetRequest, MatchTurnGetRequest, MatchTurnSubmitRequest} from './match';
 export {MatchTurnEndRequest, MatchTurnLeaveRequest, MatchCreateRequest, MatchMakeRequest} from './match';
-export {SharedStorageGetRequest, SharedStoragePutRequest, SharedStoragePatchRequest, SharedStorageDeleteRequest, SharedStorageSearchRequest} from './shared_storage';
+export {SharedStorageGetRequest, SharedStoragePublicPutRequest, SharedStoragePublicPatchRequest, SharedStoragePublicDeleteRequest, SharedStorageSearchRequest} from './shared_storage';
 export {ExecuteScriptRequest} from './script';
 export {MessageListRequest, MessageReadRequest, MessageDeleteRequest} from './message';
 

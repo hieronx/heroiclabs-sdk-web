@@ -236,7 +236,7 @@ describe('', function() {
   });
 
   it('Put Shared Storage', function() {
-    var request = new w.SharedStoragePutRequest(session, 'storage', {'data' : 'payload'});
+    var request = new w.SharedStoragePublicPutRequest(session, 'storage', {'data' : 'payload'});
     return client.execute(request).then(function (r) {
       expect(r.status).to.be.equal(204);
     });
@@ -250,7 +250,7 @@ describe('', function() {
   });
 
   it('Patch Shared Storage', function() {
-    var request = new w.SharedStoragePatchRequest(session, 'storage', {'timestamp':timestamp});
+    var request = new w.SharedStoragePublicPatchRequest(session, 'storage', {'timestamp':timestamp});
     return client.execute(request).then(function (r) {
       expect(r.status).to.be.equal(204);
     });
@@ -269,7 +269,7 @@ describe('', function() {
   });
 
   it('Delete Shared Storage', function() {
-    var request = new w.SharedStorageDeleteRequest(session, 'storage');
+    var request = new w.SharedStoragePublicDeleteRequest(session, 'storage');
     return client.execute(request).then(function (r) {
       expect(r.status).to.be.equal(204);
     });

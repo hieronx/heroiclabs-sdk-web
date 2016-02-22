@@ -34,7 +34,7 @@ export class SharedStorageGetRequest extends ApiRequest {
 /**
  * Create or replace the Shared Storage 'public' segment value for the given key with the given value.
  */
-export class SharedStoragePutRequest extends ApiRequest {
+export class SharedStoragePublicPutRequest extends ApiRequest {
 
   /**
    * @param  {Session} session Session identifying the account making this request.
@@ -50,7 +50,7 @@ export class SharedStoragePutRequest extends ApiRequest {
 /**
  * Merge the Shared Storage 'public' segment value for the given key with the given value.
  */
-export class SharedStoragePatchRequest extends ApiRequest {
+export class SharedStoragePublicPatchRequest extends ApiRequest {
 
   /**
    * @param  {Session} session Session identifying the account making this request.
@@ -66,7 +66,7 @@ export class SharedStoragePatchRequest extends ApiRequest {
 /**
  * Delete the data stored in Shared Storage under a particular key's 'public' segment, if any.
  */
-export class SharedStorageDeleteRequest extends ApiRequest {
+export class SharedStoragePublicDeleteRequest extends ApiRequest {
 
   /**
    * @param  {Session} session Session identifying the account making this request.
