@@ -17,7 +17,7 @@ Simply add this to your `bower.json` or `package.json`'s `dependencies` block:
 
 ```json
 {
-    "heroiclabs":"^0.1.0"
+    "heroiclabs-sdk-web":"^0.1.1"
 }
 ```
 
