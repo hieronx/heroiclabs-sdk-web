@@ -1,6 +1,6 @@
 {
   "name": "heroiclabs-sdk-web",
-  "version": "0.1.3-dev",
+  "version": "0.1.3",
   "description": "Web SDK for the Heroic service.",
   "main": "lib/heroiclabs-sdk.js",
   "scripts": {

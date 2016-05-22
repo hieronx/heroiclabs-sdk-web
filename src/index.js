@@ -17,6 +17,7 @@
 /*eslint-disable max-len */
 
 export {Client, Response} from './client';
+export {Session} from './session';
 export {PingRequest} from './ping';
 export {ServerRequest} from './server';
 export {LoginTangoRequest, LoginFacebookRequest, LoginGoogleRequest, LoginAnonymousRequest, LoginEmailRequest, CreateEmailRequest, EmailPasswordResetRequest} from './account_login';
