@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: __dirname + '/webpack-build',
     filename: 'heroiclabs-sdk.js',
-    library: '[name]',
+    library: 'Heroic',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

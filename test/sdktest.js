@@ -46,7 +46,7 @@ before(function(done) {
         return new Buffer(str.toString(), 'binary').toString('base64');
       };
 
-      w = window.main;
+      w = window.Heroic;
       client = new w.Client(apikey);
       done(errors);
     }
