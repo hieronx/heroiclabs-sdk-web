@@ -315,7 +315,7 @@ describe('', function() {
   });
 
   it('Get Matches Since', function() {
-    var request = new w.MatchesSinceRequest(session, timestamp);
+    var request = new w.MatchesSinceRequest(session, 0);
     return client.execute(request).then(function (r) {
       expect(r.body.matches.length).to.be.equal(1);
       expect(r.body.matches[0].turns.length).to.be.equal(1);
@@ -324,6 +324,47 @@ describe('', function() {
 
   it('End Match', function() {
     var request = new w.MatchTurnEndRequest(session, matchId);
+    return client.execute(request).then(function (r) {
+      expect(r.status).to.be.equal(204);
+    });
+  });
+
+  it('Put Datastore', function() {
+    var request = new w.DatastorePutRequest(session, 'web', 'storage', {'data' : 'payload'});
+    return client.execute(request).then(function (r) {
+      expect(r.status).to.be.equal(204);
+    });
+  });
+
+  it('Get Datastore', function() {
+    var request = new w.DatastoreGetRequest(session, 'web', 'storage');
+    request.owner('me');
+    return client.execute(request).then(function (r) {
+      expect(r.body.data.data).to.be.equal('payload');
+    });
+  });
+
+  it('Patch Datastore', function() {
+    var request = new w.DatastoreUpdateRequest(session, 'web', 'storage', {'timestamp':timestamp});
+    return client.execute(request).then(function (r) {
+      expect(r.status).to.be.equal(204);
+    });
+  });
+
+  it('Search Datastore', function(done) {
+    setTimeout(function() {
+      var request = new w.DatastoreSearchRequest(session, 'web', 'value.data.timestamp:' + timestamp);
+      request.filterKey('storage');
+      client.execute(request).then(function (r) {
+        expect(r.body.results[0].data.data).to.be.equal('payload');
+        expect(r.body.results[0].data.timestamp).to.be.equal(timestamp);
+        done();
+      });
+    }, 1500);
+  });
+
+  it('Delete Datastore', function() {
+    var request = new w.DatastoreDeleteRequest(session, 'web', 'storage');
     return client.execute(request).then(function (r) {
       expect(r.status).to.be.equal(204);
     });

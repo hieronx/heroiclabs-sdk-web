@@ -34,5 +34,6 @@ export {MatchTurnEndRequest, MatchTurnLeaveRequest, MatchCreateRequest, MatchMak
 export {SharedStorageGetRequest, SharedStoragePublicPutRequest, SharedStoragePublicPatchRequest, SharedStoragePublicDeleteRequest, SharedStorageSearchRequest} from './shared_storage';
 export {ExecuteScriptRequest} from './script';
 export {MessageListRequest, MessageReadRequest, MessageDeleteRequest} from './message';
+export {DatastoreGetRequest, DatastorePutRequest, DatastoreUpdateRequest, DatastoreDeleteRequest, DatastoreSearchRequest} from './datastore';
 
 /*eslint-enable max-len */
