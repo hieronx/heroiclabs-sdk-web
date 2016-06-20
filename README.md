@@ -17,15 +17,15 @@ Simply add this to your `bower.json` or `package.json`'s `dependencies` block:
 
 ```json
 {
-    "heroiclabs-sdk-web":"^0.1.3"
+    "heroiclabs-sdk-web":"^0.1.4"
 }
 ```
 
 Once the SDK is imported, you can create a `Client` instance and begin making requests:
 
 ```java
-var client = new Client("your api key here");
-var pingRequest = new PingRequest();
+var client = new Heroic.Client("your api key here");
+var pingRequest = new Heroic.PingRequest();
 client.execute(pingRequest).then(function(successResponse) {
     // This is only triggered on successful requests.
     return true;
