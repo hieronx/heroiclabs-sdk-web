@@ -72,6 +72,36 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "heroiclabs-sdk-web/src/datastore.js~datastoredeleterequest",
+    "class/src/datastore.js~DatastoreDeleteRequest.html",
+    "<span>DatastoreDeleteRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/datastore.js</span>",
+    "class"
+  ],
+  [
+    "heroiclabs-sdk-web/src/datastore.js~datastoregetrequest",
+    "class/src/datastore.js~DatastoreGetRequest.html",
+    "<span>DatastoreGetRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/datastore.js</span>",
+    "class"
+  ],
+  [
+    "heroiclabs-sdk-web/src/datastore.js~datastoreputrequest",
+    "class/src/datastore.js~DatastorePutRequest.html",
+    "<span>DatastorePutRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/datastore.js</span>",
+    "class"
+  ],
+  [
+    "heroiclabs-sdk-web/src/datastore.js~datastoresearchrequest",
+    "class/src/datastore.js~DatastoreSearchRequest.html",
+    "<span>DatastoreSearchRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/datastore.js</span>",
+    "class"
+  ],
+  [
+    "heroiclabs-sdk-web/src/datastore.js~datastoreupdaterequest",
+    "class/src/datastore.js~DatastoreUpdateRequest.html",
+    "<span>DatastoreUpdateRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/datastore.js</span>",
+    "class"
+  ],
+  [
     "heroiclabs-sdk-web/src/account_login.js~emailpasswordresetrequest",
     "class/src/account_login.js~EmailPasswordResetRequest.html",
     "<span>EmailPasswordResetRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/account_login.js</span>",
@@ -294,27 +324,27 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "heroiclabs-sdk-web/src/shared_storage.js~sharedstoragedeleterequest",
-    "class/src/shared_storage.js~SharedStorageDeleteRequest.html",
-    "<span>SharedStorageDeleteRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/shared_storage.js</span>",
-    "class"
-  ],
-  [
     "heroiclabs-sdk-web/src/shared_storage.js~sharedstoragegetrequest",
     "class/src/shared_storage.js~SharedStorageGetRequest.html",
     "<span>SharedStorageGetRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/shared_storage.js</span>",
     "class"
   ],
   [
-    "heroiclabs-sdk-web/src/shared_storage.js~sharedstoragepatchrequest",
-    "class/src/shared_storage.js~SharedStoragePatchRequest.html",
-    "<span>SharedStoragePatchRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/shared_storage.js</span>",
+    "heroiclabs-sdk-web/src/shared_storage.js~sharedstoragepublicdeleterequest",
+    "class/src/shared_storage.js~SharedStoragePublicDeleteRequest.html",
+    "<span>SharedStoragePublicDeleteRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/shared_storage.js</span>",
     "class"
   ],
   [
-    "heroiclabs-sdk-web/src/shared_storage.js~sharedstorageputrequest",
-    "class/src/shared_storage.js~SharedStoragePutRequest.html",
-    "<span>SharedStoragePutRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/shared_storage.js</span>",
+    "heroiclabs-sdk-web/src/shared_storage.js~sharedstoragepublicpatchrequest",
+    "class/src/shared_storage.js~SharedStoragePublicPatchRequest.html",
+    "<span>SharedStoragePublicPatchRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/shared_storage.js</span>",
+    "class"
+  ],
+  [
+    "heroiclabs-sdk-web/src/shared_storage.js~sharedstoragepublicputrequest",
+    "class/src/shared_storage.js~SharedStoragePublicPutRequest.html",
+    "<span>SharedStoragePublicPutRequest</span> <span class=\"search-result-import-path\">heroiclabs-sdk-web/src/shared_storage.js</span>",
     "class"
   ],
   [
@@ -1026,6 +1056,96 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/datastore.js",
+    "file/src/datastore.js.html",
+    "src/datastore.js",
+    "file"
+  ],
+  [
+    "src/datastore.js~datastoredeleterequest#constructor",
+    "class/src/datastore.js~DatastoreDeleteRequest.html#instance-constructor-constructor",
+    "src/datastore.js~DatastoreDeleteRequest#constructor",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoregetrequest#constructor",
+    "class/src/datastore.js~DatastoreGetRequest.html#instance-constructor-constructor",
+    "src/datastore.js~DatastoreGetRequest#constructor",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoregetrequest#owner",
+    "class/src/datastore.js~DatastoreGetRequest.html#instance-method-owner",
+    "src/datastore.js~DatastoreGetRequest#owner",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoreputrequest#body",
+    "class/src/datastore.js~DatastorePutRequest.html#instance-method-body",
+    "src/datastore.js~DatastorePutRequest#body",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoreputrequest#constructor",
+    "class/src/datastore.js~DatastorePutRequest.html#instance-constructor-constructor",
+    "src/datastore.js~DatastorePutRequest#constructor",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoreputrequest#permissions",
+    "class/src/datastore.js~DatastorePutRequest.html#instance-method-permissions",
+    "src/datastore.js~DatastorePutRequest#permissions",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoresearchrequest#constructor",
+    "class/src/datastore.js~DatastoreSearchRequest.html#instance-constructor-constructor",
+    "src/datastore.js~DatastoreSearchRequest#constructor",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoresearchrequest#filterkey",
+    "class/src/datastore.js~DatastoreSearchRequest.html#instance-method-filterKey",
+    "src/datastore.js~DatastoreSearchRequest#filterKey",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoresearchrequest#limit",
+    "class/src/datastore.js~DatastoreSearchRequest.html#instance-method-limit",
+    "src/datastore.js~DatastoreSearchRequest#limit",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoresearchrequest#offset",
+    "class/src/datastore.js~DatastoreSearchRequest.html#instance-method-offset",
+    "src/datastore.js~DatastoreSearchRequest#offset",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoresearchrequest#sort",
+    "class/src/datastore.js~DatastoreSearchRequest.html#instance-method-sort",
+    "src/datastore.js~DatastoreSearchRequest#sort",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoreupdaterequest#body",
+    "class/src/datastore.js~DatastoreUpdateRequest.html#instance-method-body",
+    "src/datastore.js~DatastoreUpdateRequest#body",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoreupdaterequest#constructor",
+    "class/src/datastore.js~DatastoreUpdateRequest.html#instance-constructor-constructor",
+    "src/datastore.js~DatastoreUpdateRequest#constructor",
+    "method"
+  ],
+  [
+    "src/datastore.js~datastoreupdaterequest#permissions",
+    "class/src/datastore.js~DatastoreUpdateRequest.html#instance-method-permissions",
+    "src/datastore.js~DatastoreUpdateRequest#permissions",
+    "method"
+  ],
+  [
     "src/game.js",
     "file/src/game.js.html",
     "src/game.js",
@@ -1338,27 +1458,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/shared_storage.js~sharedstoragedeleterequest#constructor",
-    "class/src/shared_storage.js~SharedStorageDeleteRequest.html#instance-constructor-constructor",
-    "src/shared_storage.js~SharedStorageDeleteRequest#constructor",
-    "method"
-  ],
-  [
     "src/shared_storage.js~sharedstoragegetrequest#constructor",
     "class/src/shared_storage.js~SharedStorageGetRequest.html#instance-constructor-constructor",
     "src/shared_storage.js~SharedStorageGetRequest#constructor",
     "method"
   ],
   [
-    "src/shared_storage.js~sharedstoragepatchrequest#constructor",
-    "class/src/shared_storage.js~SharedStoragePatchRequest.html#instance-constructor-constructor",
-    "src/shared_storage.js~SharedStoragePatchRequest#constructor",
+    "src/shared_storage.js~sharedstoragepublicdeleterequest#constructor",
+    "class/src/shared_storage.js~SharedStoragePublicDeleteRequest.html#instance-constructor-constructor",
+    "src/shared_storage.js~SharedStoragePublicDeleteRequest#constructor",
     "method"
   ],
   [
-    "src/shared_storage.js~sharedstorageputrequest#constructor",
-    "class/src/shared_storage.js~SharedStoragePutRequest.html#instance-constructor-constructor",
-    "src/shared_storage.js~SharedStoragePutRequest#constructor",
+    "src/shared_storage.js~sharedstoragepublicpatchrequest#constructor",
+    "class/src/shared_storage.js~SharedStoragePublicPatchRequest.html#instance-constructor-constructor",
+    "src/shared_storage.js~SharedStoragePublicPatchRequest#constructor",
+    "method"
+  ],
+  [
+    "src/shared_storage.js~sharedstoragepublicputrequest#constructor",
+    "class/src/shared_storage.js~SharedStoragePublicPutRequest.html#instance-constructor-constructor",
+    "src/shared_storage.js~SharedStoragePublicPutRequest#constructor",
     "method"
   ],
   [

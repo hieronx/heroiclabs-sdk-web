@@ -61,6 +61,11 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/achievement.js~AchievementUpdateRequest.html">AchievementUpdateRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/client.js~Client.html">Client</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/client.js~Response.html">Response</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreDeleteRequest.html">DatastoreDeleteRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreGetRequest.html">DatastoreGetRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastorePutRequest.html">DatastorePutRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreUpdateRequest.html">DatastoreUpdateRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/game.js~GameGetRequest.html">GameGetRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gamer.js~GamerGetRequest.html">GamerGetRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gamer.js~GamerUpdateRequest.html">GamerUpdateRequest</a></span></span></li>
@@ -87,10 +92,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/script.js~ExecuteScriptRequest.html">ExecuteScriptRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/server.js~ServerRequest.html">ServerRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/session.js~Session.html">Session</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStorageDeleteRequest.html">SharedStorageDeleteRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStorageGetRequest.html">SharedStorageGetRequest</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePatchRequest.html">SharedStoragePatchRequest</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePutRequest.html">SharedStoragePutRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePublicDeleteRequest.html">SharedStoragePublicDeleteRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePublicPatchRequest.html">SharedStoragePublicPatchRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePublicPutRequest.html">SharedStoragePublicPutRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStorageSearchRequest.html">SharedStorageSearchRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/storage.js~StorageDeleteRequest.html">StorageDeleteRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/storage.js~StorageGetRequest.html">StorageGetRequest</a></span></span></li>
@@ -136,7 +141,7 @@ export class SharedStorageGetRequest extends ApiRequest {
 /**
  * Create or replace the Shared Storage &apos;public&apos; segment value for the given key with the given value.
  */
-export class SharedStoragePutRequest extends ApiRequest {
+export class SharedStoragePublicPutRequest extends ApiRequest {
 
   /**
    * @param  {Session} session Session identifying the account making this request.
@@ -152,7 +157,7 @@ export class SharedStoragePutRequest extends ApiRequest {
 /**
  * Merge the Shared Storage &apos;public&apos; segment value for the given key with the given value.
  */
-export class SharedStoragePatchRequest extends ApiRequest {
+export class SharedStoragePublicPatchRequest extends ApiRequest {
 
   /**
    * @param  {Session} session Session identifying the account making this request.
@@ -168,7 +173,7 @@ export class SharedStoragePatchRequest extends ApiRequest {
 /**
  * Delete the data stored in Shared Storage under a particular key&apos;s &apos;public&apos; segment, if any.
  */
-export class SharedStorageDeleteRequest extends ApiRequest {
+export class SharedStoragePublicDeleteRequest extends ApiRequest {
 
   /**
    * @param  {Session} session Session identifying the account making this request.

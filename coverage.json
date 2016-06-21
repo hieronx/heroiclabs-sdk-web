@@ -1,7 +1,7 @@
 {
-  "coverage": "89.5%",
-  "expectCount": 162,
-  "actualCount": 145,
+  "coverage": "90.6%",
+  "expectCount": 181,
+  "actualCount": 164,
   "files": {
     "src/request.js": {
       "expectCount": 6,
@@ -44,6 +44,11 @@
         20,
         21
       ]
+    },
+    "src/datastore.js": {
+      "expectCount": 19,
+      "actualCount": 19,
+      "undocumentLines": []
     },
     "src/script.js": {
       "expectCount": 4,

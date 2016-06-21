@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">SharedStoragePutRequest | API Document</title>
+  <title data-ice="title">DatastoreDeleteRequest | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -61,6 +61,11 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/achievement.js~AchievementUpdateRequest.html">AchievementUpdateRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/client.js~Client.html">Client</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/client.js~Response.html">Response</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreDeleteRequest.html">DatastoreDeleteRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreGetRequest.html">DatastoreGetRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastorePutRequest.html">DatastorePutRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreUpdateRequest.html">DatastoreUpdateRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/game.js~GameGetRequest.html">GameGetRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gamer.js~GamerGetRequest.html">GamerGetRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gamer.js~GamerUpdateRequest.html">GamerUpdateRequest</a></span></span></li>
@@ -87,10 +92,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/script.js~ExecuteScriptRequest.html">ExecuteScriptRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/server.js~ServerRequest.html">ServerRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/session.js~Session.html">Session</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStorageDeleteRequest.html">SharedStorageDeleteRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStorageGetRequest.html">SharedStorageGetRequest</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePatchRequest.html">SharedStoragePatchRequest</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePutRequest.html">SharedStoragePutRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePublicDeleteRequest.html">SharedStoragePublicDeleteRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePublicPatchRequest.html">SharedStoragePublicPatchRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePublicPutRequest.html">SharedStoragePublicPutRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStorageSearchRequest.html">SharedStorageSearchRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/storage.js~StorageDeleteRequest.html">StorageDeleteRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/storage.js~StorageGetRequest.html">StorageGetRequest</a></span></span></li>
@@ -100,23 +105,23 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {SharedStoragePutRequest} from &apos;<span><a href="file/src/shared_storage.js.html#lineNumber37">heroiclabs-sdk-web/src/shared_storage.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {DatastoreDeleteRequest} from &apos;<span><a href="file/src/datastore.js.html#lineNumber147">heroiclabs-sdk-web/src/datastore.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/shared_storage.js.html#lineNumber37">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/datastore.js.html#lineNumber147">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">SharedStoragePutRequest</h1>
+  <h1 data-ice="name">DatastoreDeleteRequest</h1>
 
   
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/request.js~Request.html">Request</a></span> &#x2192; <span><a href="class/src/request.js~ApiRequest.html">ApiRequest</a></span> &#x2192; SharedStoragePutRequest</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/request.js~Request.html">Request</a></span> &#x2192; <span><a href="class/src/request.js~ApiRequest.html">ApiRequest</a></span> &#x2192; DatastoreDeleteRequest</div></div>
   
   
   
@@ -126,7 +131,8 @@
 
   
   
-  <div class="description" data-ice="description"><p>Create or replace the Shared Storage &apos;public&apos; segment value for the given key with the given value.</p>
+  <div class="description" data-ice="description"><p>Delete a specific key from the given Datastore table,
+where the owner of the key is the gamer account making the request.</p>
 </div>
 
   
@@ -155,7 +161,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePutRequest.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(session: <span><a href="class/src/session.js~Session.html">Session</a></span>, key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="class/src/shared_storage.js~SharedStoragePutRequest.html">SharedStoragePutRequest</a></span></span>
+           <span data-ice="name"><span><a href="class/src/datastore.js~DatastoreDeleteRequest.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(session: <span><a href="class/src/session.js~Session.html">Session</a></span>, table: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="class/src/datastore.js~DatastoreDeleteRequest.html">DatastoreDeleteRequest</a></span></span>
         </p>
       </div>
       <div>
@@ -188,11 +194,11 @@
     
     
     
-    <span data-ice="name">constructor</span><span data-ice="signature">(session: <span><a href="class/src/session.js~Session.html">Session</a></span>, key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="class/src/shared_storage.js~SharedStoragePutRequest.html">SharedStoragePutRequest</a></span></span>
+    <span data-ice="name">constructor</span><span data-ice="signature">(session: <span><a href="class/src/session.js~Session.html">Session</a></span>, table: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="class/src/datastore.js~DatastoreDeleteRequest.html">DatastoreDeleteRequest</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/shared_storage.js.html#lineNumber45">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/datastore.js.html#lineNumber155">source</a></span></span>
     </span>
   </h3>
 
@@ -219,17 +225,17 @@
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">key</td>
+      <td data-ice="name" data-depth="0">table</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The storage key to put.</p>
+      <td data-ice="description"><p>The name of the table to delete from.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">data</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="name" data-depth="0">key</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The value to assign to the specified key&apos;s &apos;public&apos; segment.</p>
+      <td data-ice="description"><p>The name of the key to write to</p>
 </td>
     </tr>
 </tbody>
@@ -241,7 +247,7 @@
     <h4>Return:</h4>
     <table>
       <tr>
-        <td class="return-type" data-ice="returnType"><span><a href="class/src/shared_storage.js~SharedStoragePutRequest.html">SharedStoragePutRequest</a></span></td>
+        <td class="return-type" data-ice="returnType"><span><a href="class/src/datastore.js~DatastoreDeleteRequest.html">DatastoreDeleteRequest</a></span></td>
         <td class="return-desc" data-ice="returnDescription"><p>An instance of this object.</p>
 </td>
       </tr>

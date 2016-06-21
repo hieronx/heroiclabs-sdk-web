@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">MatchesSinceRequest | API Document</title>
+  <title data-ice="title">DatastoreSearchRequest | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -105,23 +105,23 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {MatchesSinceRequest} from &apos;<span><a href="file/src/match.js.html#lineNumber38">heroiclabs-sdk-web/src/match.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {DatastoreSearchRequest} from &apos;<span><a href="file/src/datastore.js.html#lineNumber163">heroiclabs-sdk-web/src/datastore.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/match.js.html#lineNumber38">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/datastore.js.html#lineNumber163">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">MatchesSinceRequest</h1>
+  <h1 data-ice="name">DatastoreSearchRequest</h1>
 
   
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/request.js~Request.html">Request</a></span> &#x2192; <span><a href="class/src/request.js~ApiRequest.html">ApiRequest</a></span> &#x2192; MatchesSinceRequest</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/request.js~Request.html">Request</a></span> &#x2192; <span><a href="class/src/request.js~ApiRequest.html">ApiRequest</a></span> &#x2192; DatastoreSearchRequest</div></div>
   
   
   
@@ -131,9 +131,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>Get a list of all matches with turn data newer than a given UTC timestamp.
-Only retrieve matches with turns newer than this UTC timestamp in milliseconds.
-Includes match metadata and the turns newer than the given time.</p>
+  <div class="description" data-ice="description"><p>Perform a search query on the data in a given Datastore table, using Lucene-like query syntax.</p>
 </div>
 
   
@@ -162,7 +160,7 @@ Includes match metadata and the turns newer than the given time.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/match.js~MatchesSinceRequest.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(session: <span><a href="class/src/session.js~Session.html">Session</a></span>, timestamp: <span>Integer</span>): <span><a href="class/src/match.js~MatchesSinceRequest.html">MatchesSinceRequest</a></span></span>
+           <span data-ice="name"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(session: <span><a href="class/src/session.js~Session.html">Session</a></span>, table: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, query: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
         </p>
       </div>
       <div>
@@ -180,7 +178,117 @@ Includes match metadata and the turns newer than the given time.</p>
 </table>
 </div>
 
-
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html#instance-method-filterKey">filterKey</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Restrict the query to run only over Shared Storage keys with the given name.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html#instance-method-limit">limit</a></span></span><span data-ice="signature">(limit: <span>Integer</span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Limit the number of results returned in a single response.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html#instance-method-offset">offset</a></span></span><span data-ice="signature">(offset: <span>Integer</span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Offset query results by the given number of entries.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html#instance-method-sort">sort</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Define a sort order for the results.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
 
 
 
@@ -195,11 +303,11 @@ Includes match metadata and the turns newer than the given time.</p>
     
     
     
-    <span data-ice="name">constructor</span><span data-ice="signature">(session: <span><a href="class/src/session.js~Session.html">Session</a></span>, timestamp: <span>Integer</span>): <span><a href="class/src/match.js~MatchesSinceRequest.html">MatchesSinceRequest</a></span></span>
+    <span data-ice="name">constructor</span><span data-ice="signature">(session: <span><a href="class/src/session.js~Session.html">Session</a></span>, table: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, query: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/match.js.html#lineNumber45">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/datastore.js.html#lineNumber171">source</a></span></span>
     </span>
   </h3>
 
@@ -226,10 +334,17 @@ Includes match metadata and the turns newer than the given time.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">timestamp</td>
-      <td data-ice="type"><span>Integer</span></td>
+      <td data-ice="name" data-depth="0">table</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The UTC timestamp in milliseconds to use as a lower time threshold.</p>
+      <td data-ice="description"><p>The name of the table to search from.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">query</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The query string to execute.</p>
 </td>
     </tr>
 </tbody>
@@ -241,7 +356,7 @@ Includes match metadata and the turns newer than the given time.</p>
     <h4>Return:</h4>
     <table>
       <tr>
-        <td class="return-type" data-ice="returnType"><span><a href="class/src/match.js~MatchesSinceRequest.html">MatchesSinceRequest</a></span></td>
+        <td class="return-type" data-ice="returnType"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></td>
         <td class="return-desc" data-ice="returnDescription"><p>An instance of this object.</p>
 </td>
       </tr>
@@ -265,7 +380,289 @@ Includes match metadata and the turns newer than the given time.</p>
 </div>
 </div>
 
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-filterKey">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">filterKey</span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/datastore.js.html#lineNumber182">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Restrict the query to run only over Shared Storage keys with the given name. Defaults to no filter,
+the query will run over all Shared Storage records.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">key</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The key filter to use.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></td>
+        <td class="return-desc" data-ice="returnDescription"><p>Current instance of this object, can be used to chain function calls.</p>
+</td>
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-limit">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">limit</span><span data-ice="signature">(limit: <span>Integer</span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/datastore.js.html#lineNumber215">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Limit the number of results returned in a single response. Must be between 0 and 100, inclusive. Default 10.
+Using a limit of 0 will return no results, but can be useful for aggregation or similar scenarios
+where the result count is useful by itself.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">limit</td>
+      <td data-ice="type"><span>Integer</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The maximum number of results to return in a response.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></td>
+        <td class="return-desc" data-ice="returnDescription"><p>Current instance of this object, can be used to chain function calls.</p>
+</td>
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-offset">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">offset</span><span data-ice="signature">(offset: <span>Integer</span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/datastore.js.html#lineNumber203">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Offset query results by the given number of entries. Useful for paginating query results.
+Default 0 (first page). Must be greater than or equal to 0.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">offset</td>
+      <td data-ice="type"><span>Integer</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The query result offset to use.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></td>
+        <td class="return-desc" data-ice="returnDescription"><p>Current instance of this object, can be used to chain function calls.</p>
+</td>
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-sort">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">sort</span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/datastore.js.html#lineNumber192">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Define a sort order for the results. Defaults to no sort, natural ordering is used.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">key</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The sort order definition to use.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></td>
+        <td class="return-desc" data-ice="returnDescription"><p>Current instance of this object, can be used to chain function calls.</p>
+</td>
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">

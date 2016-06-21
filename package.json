@@ -1,11 +1,12 @@
 {
   "name": "heroiclabs-sdk-web",
-  "version": "0.1.0",
+  "version": "0.1.5-dev",
   "description": "Web SDK for the Heroic service.",
   "main": "lib/heroiclabs-sdk.js",
   "scripts": {
     "test": "webpack && mocha -u tdd -t 5000",
-    "docs": "webpack && esdoc -c ./esdoc.json"
+    "docs": "webpack && esdoc -c ./esdoc.json",
+    "release": "webpack && cp -R webpack-build/* lib/"
   },
   "keywords": [
     "heroiclabs",

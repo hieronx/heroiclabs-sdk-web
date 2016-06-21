@@ -2551,6 +2551,770 @@
     "kind": "file",
     "static": true,
     "variation": null,
+    "name": "src/datastore.js",
+    "memberof": null,
+    "longname": "src/datastore.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * Get the value stored in Shared Storage under a particular key.\n */\nexport class DatastoreGetRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} table The name of the table to read from.\n   * @param  {String} key The key to get the corresponding value for.\n   * @return {DatastoreGetRequest} An instance of this object.\n   */\n  constructor(session, table, key) {\n    super('GET', '/v0/datastore/' + table + '/' + key, session);\n    this._table = table;\n    this._key = key;\n  }\n\n  /**\n   * Sets the key owner.\n   * @param  {Integer} owner The owner to retrieve the key for.\n   * Must be a Gamer ID, or the value \"me\" representing the current user.\n   * @return {DatastoreSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  owner(owner) {\n    this._url = '/v0/datastore/' + this._table + '/' + this._key + '/' + owner;\n    return this;\n  }\n}\n\n/**\n * Set the value of a specific key in the given Datastore table, where the key owner is the gamer making the request.\n * If the key does not exist, it will be created.\n */\nexport class DatastorePutRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} table The name of the table to write to.\n   * @param  {String} key The name of the key to write to\n   * @param  {Object} data Any existing data for the specified key will be completely replaced.\n   * @return {DatastorePutRequest} An instance of this object.\n   */\n  constructor(session, table, key, data) {\n    super('PUT', '/v0/datastore/' + table + '/' + key, session, {});\n    this.body(data);\n  }\n\n  /**\n   * Set the value of a specific key in the given Datastore table, where the key owner is the gamer making the request.\n   * If the key does not exist, it will be created.\n   * @param  {Object} data Data to store.\n   * @return {DatastorePutRequest} Current instance of this object, can be used to chain function calls.\n   */\n  body(data) {\n    this._body.data = data;\n    return this;\n  }\n\n  /**\n   * Permissions for this object. The permissions object may be omitted.\n   * The write operation will then use default permissions set for the table for newly created keys,\n   * or preserve existing permissions set on the key for updated keys.\n   * @param  {number} read Read permission. Valid values are `0`, `1` and `2`.\n   * @param  {number} write Write permission. Valid values are `0` and `1`.\n   * @return {DatastorePutRequest} Current instance of this object, can be used to chain function calls.\n   */\n  permissions(read, write) {\n    this._body.permissions = {\n      'read': read,\n      'write': write\n    };\n    return this;\n  }\n}\n\n/**\n * Update the value of a specific key in the given Datastore table, where the key owner is the gamer making the request.\n * If the key does not exist, it will be created.\n * Any existing data for the specified key will be merged with the new data.\n * Fields specified in the new input will replace their old values, if any.\n * Fields present in the existing data but missing in the new input will remain unchanged.\n */\nexport class DatastoreUpdateRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} table The name of the table to write to.\n   * @param  {String} key The name of the key to write to\n   * @param  {Object} data Any existing data for the specified key will be completely replaced.\n   * @return {DatastorePutRequest} An instance of this object.\n   */\n  constructor(session, table, key, data) {\n    super('PATCH', '/v0/datastore/' + table + '/' + key, session, {});\n    this.body(data);\n  }\n\n  /**\n   * Set the value of a specific key in the given Datastore table, where the key owner is the gamer making the request.\n   * If the key does not exist, it will be created.\n   * @param  {Object} data Data to store.\n   * @return {DatastoreUpdateRequest} Current instance of this object, can be used to chain function calls.\n   */\n  body(data) {\n    this._body.data = data;\n    return this;\n  }\n\n  /**\n   * Permissions for this object. The permissions object may be omitted.\n   * The write operation will then use default permissions set for the table for newly created keys,\n   * or preserve existing permissions set on the key for updated keys.\n   * @param  {number} read Read permission. Valid values are `0`, `1` and `2`.\n   * @param  {number} write Write permission. Valid values are `0` and `1`.\n   * @return {DatastoreUpdateRequest} Current instance of this object, can be used to chain function calls.\n   */\n  permissions(read, write) {\n    this._body.permissions = {\n      'read': read,\n      'write': write\n    };\n    return this;\n  }\n}\n\n/**\n * Delete a specific key from the given Datastore table,\n * where the owner of the key is the gamer account making the request.\n */\nexport class DatastoreDeleteRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} table The name of the table to delete from.\n   * @param  {String} key The name of the key to write to\n   * @return {DatastoreDeleteRequest} An instance of this object.\n   */\n  constructor(session, table, key) {\n    super('DELETE', '/v0/datastore/' + table + '/' + key, session);\n  }\n}\n\n/**\n * Perform a search query on the data in a given Datastore table, using Lucene-like query syntax.\n */\nexport class DatastoreSearchRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} table The name of the table to search from.\n   * @param  {String} query The query string to execute.\n   * @return {DatastoreSearchRequest} An instance of this object.\n   */\n  constructor(session, table, query) {\n    var queryParams = {'query': query};\n    super('GET', '/v0/datastore/' + table, session, null, queryParams);\n  }\n\n  /**\n   * Restrict the query to run only over Shared Storage keys with the given name. Defaults to no filter,\n   * the query will run over all Shared Storage records.\n   * @param  {String} key The key filter to use.\n   * @return {DatastoreSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  filterKey(key) {\n    this._queryParams['filter_key'] = key;\n    return this;\n  }\n\n  /**\n   * Define a sort order for the results. Defaults to no sort, natural ordering is used.\n   * @param  {String} key The sort order definition to use.\n   * @return {DatastoreSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  sort(key) {\n    this._queryParams.sort = key;\n    return this;\n  }\n\n  /**\n   * Offset query results by the given number of entries. Useful for paginating query results.\n   * Default 0 (first page). Must be greater than or equal to 0.\n   * @param  {Integer} offset The query result offset to use.\n   * @return {DatastoreSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  offset(offset) {\n    this._queryParams.offset = offset;\n    return this;\n  }\n\n  /**\n   * Limit the number of results returned in a single response. Must be between 0 and 100, inclusive. Default 10.\n   * Using a limit of 0 will return no results, but can be useful for aggregation or similar scenarios\n   * where the result count is useful by itself.\n   * @param  {Integer} limit The maximum number of results to return in a response.\n   * @return {DatastoreSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  limit(limit) {\n    this._queryParams.limit = limit;\n    return this;\n  }\n}\n"
+  },
+  {
+    "__docId__": 101,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "DatastoreGetRequest",
+    "memberof": "src/datastore.js",
+    "longname": "src/datastore.js~DatastoreGetRequest",
+    "access": null,
+    "export": true,
+    "importPath": "heroiclabs-sdk-web/src/datastore.js",
+    "importStyle": "{DatastoreGetRequest}",
+    "description": "Get the value stored in Shared Storage under a particular key.",
+    "lineNumber": 22,
+    "interface": false,
+    "extends": [
+      "src/request.js~ApiRequest"
+    ]
+  },
+  {
+    "__docId__": 102,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/datastore.js~DatastoreGetRequest",
+    "longname": "src/datastore.js~DatastoreGetRequest#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 30,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Session"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "session",
+        "description": "Session identifying the account making this request."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "table",
+        "description": "The name of the table to read from."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "The key to get the corresponding value for."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreGetRequest"
+      ],
+      "spread": false,
+      "description": "An instance of this object."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 103,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_table",
+    "memberof": "src/datastore.js~DatastoreGetRequest",
+    "longname": "src/datastore.js~DatastoreGetRequest#_table",
+    "access": null,
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 104,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_key",
+    "memberof": "src/datastore.js~DatastoreGetRequest",
+    "longname": "src/datastore.js~DatastoreGetRequest#_key",
+    "access": null,
+    "description": null,
+    "lineNumber": 33,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 105,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "owner",
+    "memberof": "src/datastore.js~DatastoreGetRequest",
+    "longname": "src/datastore.js~DatastoreGetRequest#owner",
+    "access": null,
+    "description": "Sets the key owner.",
+    "lineNumber": 42,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Integer"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "owner",
+        "description": "The owner to retrieve the key for.\nMust be a Gamer ID, or the value \"me\" representing the current user."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreSearchRequest"
+      ],
+      "spread": false,
+      "description": "Current instance of this object, can be used to chain function calls."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 106,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_url",
+    "memberof": "src/datastore.js~DatastoreGetRequest",
+    "longname": "src/datastore.js~DatastoreGetRequest#_url",
+    "access": null,
+    "description": null,
+    "lineNumber": 43,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 107,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "DatastorePutRequest",
+    "memberof": "src/datastore.js",
+    "longname": "src/datastore.js~DatastorePutRequest",
+    "access": null,
+    "export": true,
+    "importPath": "heroiclabs-sdk-web/src/datastore.js",
+    "importStyle": "{DatastorePutRequest}",
+    "description": "Set the value of a specific key in the given Datastore table, where the key owner is the gamer making the request.\nIf the key does not exist, it will be created.",
+    "lineNumber": 52,
+    "interface": false,
+    "extends": [
+      "src/request.js~ApiRequest"
+    ]
+  },
+  {
+    "__docId__": 108,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/datastore.js~DatastorePutRequest",
+    "longname": "src/datastore.js~DatastorePutRequest#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 61,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Session"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "session",
+        "description": "Session identifying the account making this request."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "table",
+        "description": "The name of the table to write to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "The name of the key to write to"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "Any existing data for the specified key will be completely replaced."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastorePutRequest"
+      ],
+      "spread": false,
+      "description": "An instance of this object."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 109,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "body",
+    "memberof": "src/datastore.js~DatastorePutRequest",
+    "longname": "src/datastore.js~DatastorePutRequest#body",
+    "access": null,
+    "description": "Set the value of a specific key in the given Datastore table, where the key owner is the gamer making the request.\nIf the key does not exist, it will be created.",
+    "lineNumber": 72,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "Data to store."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastorePutRequest"
+      ],
+      "spread": false,
+      "description": "Current instance of this object, can be used to chain function calls."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 110,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "permissions",
+    "memberof": "src/datastore.js~DatastorePutRequest",
+    "longname": "src/datastore.js~DatastorePutRequest#permissions",
+    "access": null,
+    "description": "Permissions for this object. The permissions object may be omitted.\nThe write operation will then use default permissions set for the table for newly created keys,\nor preserve existing permissions set on the key for updated keys.",
+    "lineNumber": 85,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "read",
+        "description": "Read permission. Valid values are `0`, `1` and `2`."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "write",
+        "description": "Write permission. Valid values are `0` and `1`."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastorePutRequest"
+      ],
+      "spread": false,
+      "description": "Current instance of this object, can be used to chain function calls."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 111,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "DatastoreUpdateRequest",
+    "memberof": "src/datastore.js",
+    "longname": "src/datastore.js~DatastoreUpdateRequest",
+    "access": null,
+    "export": true,
+    "importPath": "heroiclabs-sdk-web/src/datastore.js",
+    "importStyle": "{DatastoreUpdateRequest}",
+    "description": "Update the value of a specific key in the given Datastore table, where the key owner is the gamer making the request.\nIf the key does not exist, it will be created.\nAny existing data for the specified key will be merged with the new data.\nFields specified in the new input will replace their old values, if any.\nFields present in the existing data but missing in the new input will remain unchanged.",
+    "lineNumber": 101,
+    "interface": false,
+    "extends": [
+      "src/request.js~ApiRequest"
+    ]
+  },
+  {
+    "__docId__": 112,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/datastore.js~DatastoreUpdateRequest",
+    "longname": "src/datastore.js~DatastoreUpdateRequest#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 110,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Session"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "session",
+        "description": "Session identifying the account making this request."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "table",
+        "description": "The name of the table to write to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "The name of the key to write to"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "Any existing data for the specified key will be completely replaced."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastorePutRequest"
+      ],
+      "spread": false,
+      "description": "An instance of this object."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 113,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "body",
+    "memberof": "src/datastore.js~DatastoreUpdateRequest",
+    "longname": "src/datastore.js~DatastoreUpdateRequest#body",
+    "access": null,
+    "description": "Set the value of a specific key in the given Datastore table, where the key owner is the gamer making the request.\nIf the key does not exist, it will be created.",
+    "lineNumber": 121,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "Data to store."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreUpdateRequest"
+      ],
+      "spread": false,
+      "description": "Current instance of this object, can be used to chain function calls."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 114,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "permissions",
+    "memberof": "src/datastore.js~DatastoreUpdateRequest",
+    "longname": "src/datastore.js~DatastoreUpdateRequest#permissions",
+    "access": null,
+    "description": "Permissions for this object. The permissions object may be omitted.\nThe write operation will then use default permissions set for the table for newly created keys,\nor preserve existing permissions set on the key for updated keys.",
+    "lineNumber": 134,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "read",
+        "description": "Read permission. Valid values are `0`, `1` and `2`."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "write",
+        "description": "Write permission. Valid values are `0` and `1`."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreUpdateRequest"
+      ],
+      "spread": false,
+      "description": "Current instance of this object, can be used to chain function calls."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 115,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "DatastoreDeleteRequest",
+    "memberof": "src/datastore.js",
+    "longname": "src/datastore.js~DatastoreDeleteRequest",
+    "access": null,
+    "export": true,
+    "importPath": "heroiclabs-sdk-web/src/datastore.js",
+    "importStyle": "{DatastoreDeleteRequest}",
+    "description": "Delete a specific key from the given Datastore table,\nwhere the owner of the key is the gamer account making the request.",
+    "lineNumber": 147,
+    "interface": false,
+    "extends": [
+      "src/request.js~ApiRequest"
+    ]
+  },
+  {
+    "__docId__": 116,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/datastore.js~DatastoreDeleteRequest",
+    "longname": "src/datastore.js~DatastoreDeleteRequest#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 155,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Session"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "session",
+        "description": "Session identifying the account making this request."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "table",
+        "description": "The name of the table to delete from."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "The name of the key to write to"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreDeleteRequest"
+      ],
+      "spread": false,
+      "description": "An instance of this object."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 117,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "DatastoreSearchRequest",
+    "memberof": "src/datastore.js",
+    "longname": "src/datastore.js~DatastoreSearchRequest",
+    "access": null,
+    "export": true,
+    "importPath": "heroiclabs-sdk-web/src/datastore.js",
+    "importStyle": "{DatastoreSearchRequest}",
+    "description": "Perform a search query on the data in a given Datastore table, using Lucene-like query syntax.",
+    "lineNumber": 163,
+    "interface": false,
+    "extends": [
+      "src/request.js~ApiRequest"
+    ]
+  },
+  {
+    "__docId__": 118,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/datastore.js~DatastoreSearchRequest",
+    "longname": "src/datastore.js~DatastoreSearchRequest#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 171,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Session"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "session",
+        "description": "Session identifying the account making this request."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "table",
+        "description": "The name of the table to search from."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "query",
+        "description": "The query string to execute."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreSearchRequest"
+      ],
+      "spread": false,
+      "description": "An instance of this object."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 119,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "filterKey",
+    "memberof": "src/datastore.js~DatastoreSearchRequest",
+    "longname": "src/datastore.js~DatastoreSearchRequest#filterKey",
+    "access": null,
+    "description": "Restrict the query to run only over Shared Storage keys with the given name. Defaults to no filter,\nthe query will run over all Shared Storage records.",
+    "lineNumber": 182,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "The key filter to use."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreSearchRequest"
+      ],
+      "spread": false,
+      "description": "Current instance of this object, can be used to chain function calls."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 120,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "sort",
+    "memberof": "src/datastore.js~DatastoreSearchRequest",
+    "longname": "src/datastore.js~DatastoreSearchRequest#sort",
+    "access": null,
+    "description": "Define a sort order for the results. Defaults to no sort, natural ordering is used.",
+    "lineNumber": 192,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "The sort order definition to use."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreSearchRequest"
+      ],
+      "spread": false,
+      "description": "Current instance of this object, can be used to chain function calls."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 121,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "offset",
+    "memberof": "src/datastore.js~DatastoreSearchRequest",
+    "longname": "src/datastore.js~DatastoreSearchRequest#offset",
+    "access": null,
+    "description": "Offset query results by the given number of entries. Useful for paginating query results.\nDefault 0 (first page). Must be greater than or equal to 0.",
+    "lineNumber": 203,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Integer"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "offset",
+        "description": "The query result offset to use."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreSearchRequest"
+      ],
+      "spread": false,
+      "description": "Current instance of this object, can be used to chain function calls."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 122,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "limit",
+    "memberof": "src/datastore.js~DatastoreSearchRequest",
+    "longname": "src/datastore.js~DatastoreSearchRequest#limit",
+    "access": null,
+    "description": "Limit the number of results returned in a single response. Must be between 0 and 100, inclusive. Default 10.\nUsing a limit of 0 will return no results, but can be useful for aggregation or similar scenarios\nwhere the result count is useful by itself.",
+    "lineNumber": 215,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Integer"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "limit",
+        "description": "The maximum number of results to return in a response."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "DatastoreSearchRequest"
+      ],
+      "spread": false,
+      "description": "Current instance of this object, can be used to chain function calls."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 123,
+    "kind": "file",
+    "static": true,
+    "variation": null,
     "name": "src/game.js",
     "memberof": null,
     "longname": "src/game.js",
@@ -2560,7 +3324,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * Get metadata for the Game identified by the API key configured in the client executing this request.\n */\nexport class GameGetRequest extends ApiRequest {\n\n  /**\n   * @return {PingRequest} An instance of this object.\n   */\n  constructor() {\n    super('GET', '/v0/game');\n  }\n}\n"
   },
   {
-    "__docId__": 101,
+    "__docId__": 124,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2579,7 +3343,7 @@
     ]
   },
   {
-    "__docId__": 102,
+    "__docId__": 125,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -2601,7 +3365,7 @@
     "generator": false
   },
   {
-    "__docId__": 103,
+    "__docId__": 126,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2614,7 +3378,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {AccountsRequest} from './request';\n\n/**\n * Get the account and linked profile information for the Gamer identified by the given Session.\n */\nexport class GamerGetRequest extends AccountsRequest {\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @return {GamerGetRequest} An instance of this object.\n   */\n  constructor(session) {\n    super('GET', '/v0/gamer', session);\n  }\n}\n\n/**\n * Update account metadata, such as nickname.\n */\nexport class GamerUpdateRequest extends AccountsRequest {\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} nickname The nickname to assign to the gamer.\n   * @return {GamerUpdateRequest} An instance of this object.\n   */\n  constructor(session, nickname) {\n    var body = {'nickname': nickname};\n    super('POST', '/v0/gamer', session, body);\n  }\n}\n"
   },
   {
-    "__docId__": 104,
+    "__docId__": 127,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2633,7 +3397,7 @@
     ]
   },
   {
-    "__docId__": 105,
+    "__docId__": 128,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -2666,7 +3430,7 @@
     "generator": false
   },
   {
-    "__docId__": 106,
+    "__docId__": 129,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2685,7 +3449,7 @@
     ]
   },
   {
-    "__docId__": 107,
+    "__docId__": 130,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -2728,7 +3492,7 @@
     "generator": false
   },
   {
-    "__docId__": 108,
+    "__docId__": 131,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2738,10 +3502,10 @@
     "access": null,
     "description": null,
     "lineNumber": 19,
-    "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\n/*eslint-disable max-len */\n\nexport {Client, Response} from './client';\nexport {PingRequest} from './ping';\nexport {ServerRequest} from './server';\nexport {LoginTangoRequest, LoginFacebookRequest, LoginGoogleRequest, LoginAnonymousRequest, LoginEmailRequest, CreateEmailRequest, EmailPasswordResetRequest} from './account_login';\nexport {CheckTangoRequest, CheckFacebookRequest, CheckGoogleRequest, CheckAnonymousRequest, CheckEmailRequest} from './account_check';\nexport {LinkTangoRequest, LinkFacebookRequest, LinkGoogleRequest, LinkAnonymousRequest} from './account_link';\nexport {UnlinkTangoRequest, UnlinkFacebookRequest, UnlinkGoogleRequest, UnlinkAnonymousRequest, UnlinkEmailRequest} from './account_unlink';\nexport {GameGetRequest} from './game';\nexport {GamerGetRequest, GamerUpdateRequest} from './gamer';\nexport {StorageGetRequest, StoragePutRequest, StorageDeleteRequest} from './storage';\nexport {AchievementListRequest, AchievementUpdateRequest} from './achievement';\nexport {LeaderboardListRequest, LeaderboardGetRequest, LeaderboardAndRankGetRequest, LeaderboardUpdateRequest} from './leaderboard';\nexport {MatchListRequest, MatchesSinceRequest, MatchGetRequest, MatchTurnGetRequest, MatchTurnSubmitRequest} from './match';\nexport {MatchTurnEndRequest, MatchTurnLeaveRequest, MatchCreateRequest, MatchMakeRequest} from './match';\nexport {SharedStorageGetRequest, SharedStoragePutRequest, SharedStoragePatchRequest, SharedStorageDeleteRequest, SharedStorageSearchRequest} from './shared_storage';\nexport {ExecuteScriptRequest} from './script';\nexport {MessageListRequest, MessageReadRequest, MessageDeleteRequest} from './message';\n\n/*eslint-enable max-len */\n"
+    "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\n/*eslint-disable max-len */\n\nexport {Client, Response} from './client';\nexport {Session} from './session';\nexport {PingRequest} from './ping';\nexport {ServerRequest} from './server';\nexport {LoginTangoRequest, LoginFacebookRequest, LoginGoogleRequest, LoginAnonymousRequest, LoginEmailRequest, CreateEmailRequest, EmailPasswordResetRequest} from './account_login';\nexport {CheckTangoRequest, CheckFacebookRequest, CheckGoogleRequest, CheckAnonymousRequest, CheckEmailRequest} from './account_check';\nexport {LinkTangoRequest, LinkFacebookRequest, LinkGoogleRequest, LinkAnonymousRequest} from './account_link';\nexport {UnlinkTangoRequest, UnlinkFacebookRequest, UnlinkGoogleRequest, UnlinkAnonymousRequest, UnlinkEmailRequest} from './account_unlink';\nexport {GameGetRequest} from './game';\nexport {GamerGetRequest, GamerUpdateRequest} from './gamer';\nexport {StorageGetRequest, StoragePutRequest, StorageDeleteRequest} from './storage';\nexport {AchievementListRequest, AchievementUpdateRequest} from './achievement';\nexport {LeaderboardListRequest, LeaderboardGetRequest, LeaderboardAndRankGetRequest, LeaderboardUpdateRequest} from './leaderboard';\nexport {MatchListRequest, MatchesSinceRequest, MatchGetRequest, MatchTurnGetRequest, MatchTurnSubmitRequest} from './match';\nexport {MatchTurnEndRequest, MatchTurnLeaveRequest, MatchCreateRequest, MatchMakeRequest} from './match';\nexport {SharedStorageGetRequest, SharedStoragePublicPutRequest, SharedStoragePublicPatchRequest, SharedStoragePublicDeleteRequest, SharedStorageSearchRequest} from './shared_storage';\nexport {ExecuteScriptRequest} from './script';\nexport {MessageListRequest, MessageReadRequest, MessageDeleteRequest} from './message';\nexport {DatastoreGetRequest, DatastorePutRequest, DatastoreUpdateRequest, DatastoreDeleteRequest, DatastoreSearchRequest} from './datastore';\n\n/*eslint-enable max-len */\n"
   },
   {
-    "__docId__": 109,
+    "__docId__": 132,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2754,7 +3518,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * List all available leaderboards.\n */\nexport class LeaderboardListRequest extends ApiRequest {\n\n  /**\n   * @return {LeaderboardListRequest} An instance of this object.\n   */\n  constructor() {\n    super('GET', '/v0/game/leaderboard');\n  }\n}\n\n/**\n * Get a leaderboard, along with some subset of its entries.\n */\nexport class LeaderboardGetRequest extends ApiRequest {\n\n  /**\n   * @param  {String} leaderboardId The leaderboard ID to get data for.\n   * @return {LeaderboardGetRequest} An instance of this object.\n   */\n  constructor(leaderboardId) {\n    super('GET', '/v0/game/leaderboard/' + leaderboardId, null, null, {});\n  }\n\n  /**\n   * Set an offset to shift the 'page' of returned entries start point. Optional.\n   * Default 0 (first page). Must be greater than or equal to 0\n   * @param  {Integer} offset The offset value to use, default 0, must be greater than or equal to 0.\n   * @return {LeaderboardGetRequest} Current instance of this object, can be used to chain function calls.\n   */\n  offset(offset) {\n    this._queryParams.offset = offset;\n    return this;\n  }\n\n  /**\n   * Set a 'page' size limit for returned entries. Optional.\n   * Default 50. Must be between 10 and 50, inclusive.\n   * @param  {Integer} limit The limit size to use, default 50, must be between 10 and 50, inclusive.\n   * @return {LeaderboardGetRequest} Current instance of this object, can be used to chain function calls.\n   */\n  limit(limit) {\n    this._queryParams.limit = limit;\n    return this;\n  }\n\n  /**\n   * Indicate that the entries contained in the leaderboard response should include their attached\n   * scoretags, if any are present.\n   * @return {LeaderboardGetRequest} Current instance of this object, can be used to chain function calls.\n   */\n  withScoretags() {\n    this._queryParams['with_scoretags'] = true;\n    return this;\n  }\n}\n\n/**\n * Get a leaderboard, along with some subset of its entries, and the rank information for the current account.\n */\nexport class LeaderboardAndRankGetRequest extends LeaderboardGetRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} leaderboardId The leaderboard ID to get data for.\n   * @return {LeaderboardAndRankGetRequest} An instance of this object.\n   */\n  constructor(session, leaderboardId) {\n    super(leaderboardId);\n    this._url = '/v0/gamer/leaderboard/' + leaderboardId;\n    this._session = session;\n  }\n\n  /**\n   * Indicate that the entries 'page' contained in the leaderboard response should be 'scrolled' to\n   * contain the current account. Equivalent to autoOffset(true)\n   * @return {LeaderboardAndRankGetRequest} Current instance of this object, can be used to chain function calls.\n   */\n  autoOffset() {\n    this._queryParams['auto_offset'] = true;\n    return this;\n  }\n}\n\n/**\n * Submit a new score to a leaderboard.\n */\nexport class LeaderboardUpdateRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} leaderboardId The leaderboard ID to update.\n   * @param  {Integer} score The new score to submit.\n   * @return {LeaderboardUpdateRequest} An instance of this object.\n   */\n  constructor(session, leaderboardId, score) {\n    var body = {'score': score};\n    super('POST', '/v0/gamer/leaderboard/' + leaderboardId, session, body);\n  }\n\n  /**\n   * Set a scoretags object that will be serialized and stored alongside the leaderboard entry.\n   * @param  {Object} scoretags The scoretags to store.\n   * @return {LeaderboardUpdateRequest} Current instance of this object, can be used to chain function calls.\n   */\n  scoretags(scoretags) {\n    this._body.scoretags = scoretags;\n    return this;\n  }\n}\n"
   },
   {
-    "__docId__": 110,
+    "__docId__": 133,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2773,7 +3537,7 @@
     ]
   },
   {
-    "__docId__": 111,
+    "__docId__": 134,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -2795,7 +3559,7 @@
     "generator": false
   },
   {
-    "__docId__": 112,
+    "__docId__": 135,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2814,7 +3578,7 @@
     ]
   },
   {
-    "__docId__": 113,
+    "__docId__": 136,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -2847,7 +3611,7 @@
     "generator": false
   },
   {
-    "__docId__": 114,
+    "__docId__": 137,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2880,7 +3644,7 @@
     "generator": false
   },
   {
-    "__docId__": 115,
+    "__docId__": 138,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2913,7 +3677,7 @@
     "generator": false
   },
   {
-    "__docId__": 116,
+    "__docId__": 139,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2935,7 +3699,7 @@
     "generator": false
   },
   {
-    "__docId__": 117,
+    "__docId__": 140,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2954,7 +3718,7 @@
     ]
   },
   {
-    "__docId__": 118,
+    "__docId__": 141,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -2997,7 +3761,7 @@
     "generator": false
   },
   {
-    "__docId__": 119,
+    "__docId__": 142,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -3015,7 +3779,7 @@
     }
   },
   {
-    "__docId__": 120,
+    "__docId__": 143,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -3033,7 +3797,7 @@
     }
   },
   {
-    "__docId__": 121,
+    "__docId__": 144,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3055,7 +3819,7 @@
     "generator": false
   },
   {
-    "__docId__": 122,
+    "__docId__": 145,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3074,7 +3838,7 @@
     ]
   },
   {
-    "__docId__": 123,
+    "__docId__": 146,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3127,7 +3891,7 @@
     "generator": false
   },
   {
-    "__docId__": 124,
+    "__docId__": 147,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3160,7 +3924,7 @@
     "generator": false
   },
   {
-    "__docId__": 125,
+    "__docId__": 148,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3173,7 +3937,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * List all matches the current gamer is part of.\n */\nexport class MatchListRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @return {MatchListRequest} An instance of this object.\n   */\n  constructor(session) {\n    super('GET', '/v0/gamer/match', session);\n  }\n}\n\n/**\n * Get a list of all matches with turn data newer than a given UTC timestamp.\n * Only retrieve matches with turns newer than this UTC timestamp in milliseconds.\n * Includes match metadata and the turns newer than the given time.\n */\nexport class MatchesSinceRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {Integer} timestamp The UTC timestamp in milliseconds to use as a lower time threshold.\n   * @return {MatchesSinceRequest} An instance of this object.\n   */\n  constructor(session, timestamp) {\n    var queryParam = {'since': timestamp};\n    super('GET', '/v0/gamer/matches/', session, null, queryParam);\n  }\n}\n\n/**\n * Get metadata about a specific match.\n */\nexport class MatchGetRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} matchId The match ID to retrieve.\n   * @return {MatchGetRequest} An instance of this object.\n   */\n  constructor(session, matchId) {\n    super('GET', '/v0/gamer/match/' + matchId, session);\n  }\n}\n\n/**\n * Get some or all of the turns for a given match.\n */\nexport class MatchTurnGetRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} matchId The match ID to retrieve.\n   * @param  {Integer} sinceTurnNumber Retrieve all turns newer than this turn number.\n   * @return {MatchTurnGetRequest} An instance of this object.\n   */\n  constructor(session, matchId, sinceTurnNumber) {\n    super('GET', '/v0/gamer/match/' + matchId + '/turn/' + sinceTurnNumber, session);\n  }\n}\n\n/**\n * Submit a new turn to the specified match.\n */\nexport class MatchTurnSubmitRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} matchId The match ID to submit.\n   * @param  {Integer} lastSeenTurnNumber The last turn number seen by this client for the match.\n   * @param  {String} nextGamerId The gamer ID of the gamer who must submit a turn next.\n   * @param  {Object} turnData The turn data itself.\n   * @return {MatchTurnSubmitRequest} An instance of this object.\n   */\n  constructor(session, matchId, lastSeenTurnNumber, nextGamerId, turnData) {\n    var body = {\n      'last_turn': lastSeenTurnNumber,\n      'next_gamer_id': nextGamerId,\n      'data': turnData\n    };\n    super('POST', '/v0/gamer/match/' + matchId + '/turn', session, body);\n  }\n}\n\n/**\n * End a match.\n */\nexport class MatchTurnEndRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} matchId The match ID to end.\n   * @return {MatchTurnEndRequest} An instance of this object.\n   */\n  constructor(session, matchId) {\n    var body = {'action': 'end'};\n    super('POST', '/v0/gamer/match/' + matchId, session, body);\n  }\n}\n\n/**\n * Leave a match.\n */\nexport class MatchTurnLeaveRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} matchId The match ID to leave.\n   * @return {MatchTurnLeaveRequest} An instance of this object.\n   */\n  constructor(session, matchId) {\n    var body = {'action': 'end'};\n    super('POST', '/v0/gamer/match/' + matchId, session, body);\n  }\n}\n\n/**\n * Explicitly create a new match, skipping the matchmaking service.\n */\nexport class MatchCreateRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String[]} gamerIds The array of gamer IDs to add to the match, NOT including the current gamer ID.\n   * @return {MatchCreateRequest} An instance of this object.\n   */\n  constructor(session, gamerIds) {\n    var body = {'gamers': gamerIds, 'filters': []};\n    super('PUT', '/v0/gamer/match', session, body);\n  }\n\n  /**\n   * Add a new gamer ID as a participant for the match being created.\n   * @param  {String} gamer Gamer ID to add to the match.\n   * @return {MatchCreateRequest} Current instance of this object, can be used to chain function calls.\n   */\n  addGamer(gamer) {\n    this._body.gamers.push(gamer);\n    return this;\n  }\n\n  /**\n   * Add filter to use to narrow down the pool of potential opponents.\n   * @param  {String} filter Filter string to add to the list of filters.\n   * @return {MatchCreateRequest} Current instance of this object, can be used to chain function calls.\n   */\n  addFilter(filter) {\n    this._body.filters.push(filter);\n    return this;\n  }\n}\n\n/**\n * Request a new match through the matchmaking service.\n */\nexport class MatchMakeRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {Integer} players Total number of players required in the match.\n   * @return {MatchMakeRequest} An instance of this object.\n   */\n  constructor(session, players) {\n    var body = {'players': players, 'filters': []};\n    super('POST', '/v0/gamer/match', session, body);\n  }\n\n  /**\n   * Add filter to use to narrow down the pool of potential opponents.\n   * @param  {String} filter Filter string to add to the list of filters.\n   * @return {MatchCreateRequest} Current instance of this object, can be used to chain function calls.\n   */\n  addFilter(filter) {\n    this._body.filters.push(filter);\n    return this;\n  }\n}\n"
   },
   {
-    "__docId__": 126,
+    "__docId__": 149,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3192,7 +3956,7 @@
     ]
   },
   {
-    "__docId__": 127,
+    "__docId__": 150,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3225,7 +3989,7 @@
     "generator": false
   },
   {
-    "__docId__": 128,
+    "__docId__": 151,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3244,7 +4008,7 @@
     ]
   },
   {
-    "__docId__": 129,
+    "__docId__": 152,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3287,7 +4051,7 @@
     "generator": false
   },
   {
-    "__docId__": 130,
+    "__docId__": 153,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3306,7 +4070,7 @@
     ]
   },
   {
-    "__docId__": 131,
+    "__docId__": 154,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3349,7 +4113,7 @@
     "generator": false
   },
   {
-    "__docId__": 132,
+    "__docId__": 155,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3368,7 +4132,7 @@
     ]
   },
   {
-    "__docId__": 133,
+    "__docId__": 156,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3421,7 +4185,7 @@
     "generator": false
   },
   {
-    "__docId__": 134,
+    "__docId__": 157,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3440,7 +4204,7 @@
     ]
   },
   {
-    "__docId__": 135,
+    "__docId__": 158,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3513,7 +4277,7 @@
     "generator": false
   },
   {
-    "__docId__": 136,
+    "__docId__": 159,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3532,7 +4296,7 @@
     ]
   },
   {
-    "__docId__": 137,
+    "__docId__": 160,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3575,7 +4339,7 @@
     "generator": false
   },
   {
-    "__docId__": 138,
+    "__docId__": 161,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3594,7 +4358,7 @@
     ]
   },
   {
-    "__docId__": 139,
+    "__docId__": 162,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3637,7 +4401,7 @@
     "generator": false
   },
   {
-    "__docId__": 140,
+    "__docId__": 163,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3656,7 +4420,7 @@
     ]
   },
   {
-    "__docId__": 141,
+    "__docId__": 164,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3699,7 +4463,7 @@
     "generator": false
   },
   {
-    "__docId__": 142,
+    "__docId__": 165,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3732,7 +4496,7 @@
     "generator": false
   },
   {
-    "__docId__": 143,
+    "__docId__": 166,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3765,7 +4529,7 @@
     "generator": false
   },
   {
-    "__docId__": 144,
+    "__docId__": 167,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3784,7 +4548,7 @@
     ]
   },
   {
-    "__docId__": 145,
+    "__docId__": 168,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3827,7 +4591,7 @@
     "generator": false
   },
   {
-    "__docId__": 146,
+    "__docId__": 169,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3860,7 +4624,7 @@
     "generator": false
   },
   {
-    "__docId__": 147,
+    "__docId__": 170,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3873,7 +4637,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * List all or some subset of messages in the current account's mailbox.\n */\nexport class MessageListRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @return {MessageListRequest} An instance of this object.\n   */\n  constructor(session) {\n    super('GET', '/v0/gamer/message', session, null, {});\n  }\n\n  /**\n   * Only return messages created after this UTC timestamp in milliseconds.\n   * @param  {Integer} timestamp A UTC timestamp in milliseconds, messages created before this won't be returned.\n   * @return {MessageListRequest} Current instance of this object, can be used to chain function calls.\n   */\n  since(timestamp) {\n    this._queryParams.since = timestamp;\n    return this;\n  }\n\n  /**\n   * Indicate that the messages returned should include their respective body data.\n   * @return {MessageListRequest} Current instance of this object, can be used to chain function calls.\n   */\n  withBody() {\n    this._queryParams['with_body'] = true;\n    return this;\n  }\n}\n\n/**\n * Retrieve a single message from the account's mailbox, and mark it as read if it was unread.\n */\nexport class MessageReadRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} messageId The message ID to get and mark as read.\n   * @return {MessageReadRequest} An instance of this object.\n   */\n  constructor(session, messageId) {\n    super('GET', '/v0/gamer/message/' + messageId, session, null, {});\n  }\n\n  /**\n   * Indicate that the message returned should include its body data.\n   * @return {MessageReadRequest} Current instance of this object, can be used to chain function calls.\n   */\n  withNoBody() {\n    this._queryParams['with_body'] = false;\n    return this;\n  }\n}\n\n/**\n * Delete a single message from the account's mailbox.\n */\nexport class MessageDeleteRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} messageId The message ID to delete.\n   * @return {MessageDeleteRequest} An instance of this object.\n   */\n  constructor(session, messageId) {\n    super('DELETE', '/v0/gamer/message/' + messageId, session);\n  }\n}\n"
   },
   {
-    "__docId__": 148,
+    "__docId__": 171,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3892,7 +4656,7 @@
     ]
   },
   {
-    "__docId__": 149,
+    "__docId__": 172,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3925,7 +4689,7 @@
     "generator": false
   },
   {
-    "__docId__": 150,
+    "__docId__": 173,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3958,7 +4722,7 @@
     "generator": false
   },
   {
-    "__docId__": 151,
+    "__docId__": 174,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3980,7 +4744,7 @@
     "generator": false
   },
   {
-    "__docId__": 152,
+    "__docId__": 175,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3999,7 +4763,7 @@
     ]
   },
   {
-    "__docId__": 153,
+    "__docId__": 176,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4042,7 +4806,7 @@
     "generator": false
   },
   {
-    "__docId__": 154,
+    "__docId__": 177,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -4064,7 +4828,7 @@
     "generator": false
   },
   {
-    "__docId__": 155,
+    "__docId__": 178,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4083,7 +4847,7 @@
     ]
   },
   {
-    "__docId__": 156,
+    "__docId__": 179,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4126,7 +4890,7 @@
     "generator": false
   },
   {
-    "__docId__": 157,
+    "__docId__": 180,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -4139,7 +4903,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * Ping the service to check that it's available, reachable, the client API key is valid,\n * and the given Session (if any) is valid.\n */\nexport class PingRequest extends ApiRequest {\n\n  /**\n   * @return {PingRequest} An instance of this object.\n   */\n  constructor() {\n    super('GET', '/v0/');\n  }\n\n  /**\n   * Set a Session to use as part of the request and checks for validity of the Session.\n   * @param  {Session} session Session identifying the account making this request.\n   * @return {PingRequest} Current instance of this object, can be used to chain function calls.\n   */\n  session(session) {\n    if (session != null && !session.hasOwnProperty('_token')) {\n      throw new Error('Invalid Session Object');\n    }\n\n    this._session = session;\n    return this;\n  }\n}\n"
   },
   {
-    "__docId__": 158,
+    "__docId__": 181,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4158,7 +4922,7 @@
     ]
   },
   {
-    "__docId__": 159,
+    "__docId__": 182,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4180,7 +4944,7 @@
     "generator": false
   },
   {
-    "__docId__": 160,
+    "__docId__": 183,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -4213,7 +4977,7 @@
     "generator": false
   },
   {
-    "__docId__": 161,
+    "__docId__": 184,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4231,7 +4995,7 @@
     }
   },
   {
-    "__docId__": 162,
+    "__docId__": 185,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -4244,7 +5008,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nclass Request {\n  constructor(type, method, url, session, body, queryParams) {\n    this._type = type;\n    this._method = method;\n    this._url = url;\n    this._session = session;\n    this._body = body;\n    this._queryParams = queryParams;\n\n    this._responseCallback = null; // response callback function;\n  }\n}\n\nexport class ApiRequest extends Request {\n  constructor(method, url, session, body, queryParams) {\n    if (session != null && !session.hasOwnProperty('_token')) {\n      throw new Error('Invalid Session Object');\n    }\n\n    super('api', method, url, session, body, queryParams);\n  }\n}\n\nexport class AccountsRequest extends Request {\n  constructor(method, url, session, body, queryParams) {\n    if (session != null && !session.hasOwnProperty('_token')) {\n      throw new Error('Invalid Session Object');\n    }\n\n    super('accounts', method, url, session, body, queryParams);\n  }\n}\n"
   },
   {
-    "__docId__": 163,
+    "__docId__": 186,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4261,7 +5025,7 @@
     "interface": false
   },
   {
-    "__docId__": 164,
+    "__docId__": 187,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4313,7 +5077,7 @@
     "generator": false
   },
   {
-    "__docId__": 165,
+    "__docId__": 188,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4331,7 +5095,7 @@
     }
   },
   {
-    "__docId__": 166,
+    "__docId__": 189,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4349,7 +5113,7 @@
     }
   },
   {
-    "__docId__": 167,
+    "__docId__": 190,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4367,7 +5131,7 @@
     }
   },
   {
-    "__docId__": 168,
+    "__docId__": 191,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4385,7 +5149,7 @@
     }
   },
   {
-    "__docId__": 169,
+    "__docId__": 192,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4403,7 +5167,7 @@
     }
   },
   {
-    "__docId__": 170,
+    "__docId__": 193,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4421,7 +5185,7 @@
     }
   },
   {
-    "__docId__": 171,
+    "__docId__": 194,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4439,7 +5203,7 @@
     }
   },
   {
-    "__docId__": 172,
+    "__docId__": 195,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4459,7 +5223,7 @@
     ]
   },
   {
-    "__docId__": 173,
+    "__docId__": 196,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4505,7 +5269,7 @@
     "generator": false
   },
   {
-    "__docId__": 174,
+    "__docId__": 197,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4525,7 +5289,7 @@
     ]
   },
   {
-    "__docId__": 175,
+    "__docId__": 198,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4571,7 +5335,7 @@
     "generator": false
   },
   {
-    "__docId__": 176,
+    "__docId__": 199,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -4584,7 +5348,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * Execute a specified Script in the service.\n */\nexport class ExecuteScriptRequest extends ApiRequest {\n\n  /**\n   * @param  {String} scriptId The ID of the script to execute.\n   * @return {ExecuteScriptRequest} An instance of this object.\n   */\n  constructor(scriptId) {\n    var url = '/v0/game/script/' + scriptId;\n    super('POST', url);\n  }\n\n  /**\n   * Set a Session to use with this request.\n   * @param  {Session} session Session identifying the account making this request.\n   * @return {ExecuteScriptRequest} Current instance of this object, can be used to chain function calls.\n   */\n  session(session) {\n    this._session = session;\n    return this;\n  }\n\n  /**\n   * Set the script input. Input is empty by default.\n   * @param  {Object} data The object to pass to the script as input.\n   * @return {ExecuteScriptRequest} Current instance of this object, can be used to chain function calls.\n   */\n  data(data) {\n    this._body = data;\n    return this;\n  }\n}\n"
   },
   {
-    "__docId__": 177,
+    "__docId__": 200,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4603,7 +5367,7 @@
     ]
   },
   {
-    "__docId__": 178,
+    "__docId__": 201,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4636,7 +5400,7 @@
     "generator": false
   },
   {
-    "__docId__": 179,
+    "__docId__": 202,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -4669,7 +5433,7 @@
     "generator": false
   },
   {
-    "__docId__": 180,
+    "__docId__": 203,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4687,7 +5451,7 @@
     }
   },
   {
-    "__docId__": 181,
+    "__docId__": 204,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -4720,7 +5484,7 @@
     "generator": false
   },
   {
-    "__docId__": 182,
+    "__docId__": 205,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4738,7 +5502,7 @@
     }
   },
   {
-    "__docId__": 183,
+    "__docId__": 206,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -4751,7 +5515,7 @@
     "content": "/*\n\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * Get metadata for the Server. May include information about the specific instance serving the request.\n */\nexport class ServerRequest extends ApiRequest {\n\n  /**\n   * @return {PingRequest} An instance of this object.\n   */\n  constructor() {\n    super('GET', '/v0/server');\n  }\n}\n"
   },
   {
-    "__docId__": 184,
+    "__docId__": 207,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4770,7 +5534,7 @@
     ]
   },
   {
-    "__docId__": 185,
+    "__docId__": 208,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4792,7 +5556,7 @@
     "generator": false
   },
   {
-    "__docId__": 186,
+    "__docId__": 209,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -4805,7 +5569,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\n/**\n * Sessions identify gamers in the context of the Heroic Labs service.\n */\nexport class Session {\n\n  /**\n   * @param  {String} token The token string received during a login operation.\n   * @return {Session} An instance of this object.\n   */\n  constructor(token) {\n    this._token = token;\n  }\n}\n"
   },
   {
-    "__docId__": 187,
+    "__docId__": 210,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4821,7 +5585,7 @@
     "interface": false
   },
   {
-    "__docId__": 188,
+    "__docId__": 211,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4854,7 +5618,7 @@
     "generator": false
   },
   {
-    "__docId__": 189,
+    "__docId__": 212,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -4872,7 +5636,7 @@
     }
   },
   {
-    "__docId__": 190,
+    "__docId__": 213,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -4882,10 +5646,10 @@
     "access": null,
     "description": null,
     "lineNumber": 17,
-    "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * Get the value stored in Shared Storage under a particular key.\n */\nexport class SharedStorageGetRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The key to get the corresponding value for.\n   * @return {SharedStorageGetRequest} An instance of this object.\n   */\n  constructor(session, key) {\n    super('GET', '/v0/gamer/shared/' + key, session);\n  }\n}\n\n/**\n * Create or replace the Shared Storage 'public' segment value for the given key with the given value.\n */\nexport class SharedStoragePutRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The storage key to put.\n   * @param  {Object} data The value to assign to the specified key's 'public' segment.\n   * @return {SharedStoragePutRequest} An instance of this object.\n   */\n  constructor(session, key, data) {\n    super('PUT', '/v0/gamer/shared/' + key + '/public', session, data);\n  }\n}\n\n/**\n * Merge the Shared Storage 'public' segment value for the given key with the given value.\n */\nexport class SharedStoragePatchRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The key to create or replace the value for.\n   * @param  {Object} data The entity that will be merged into that key's 'public' segment.\n   * @return {SharedStoragePatchRequest} An instance of this object.\n   */\n  constructor(session, key, data) {\n    super('PATCH', '/v0/gamer/shared/' + key + '/public', session, data);\n  }\n}\n\n/**\n * Delete the data stored in Shared Storage under a particular key's 'public' segment, if any.\n */\nexport class SharedStorageDeleteRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} The key to delete the corresponding 'public' segment value for.\n   * @return {SharedStorageDeleteRequest} An instance of this object.\n   */\n  constructor(session, key) {\n    super('DELETE', '/v0/gamer/shared/' + key + '/public', session);\n  }\n}\n\n/**\n * Run a query over Shared Storage data.\n */\nexport class SharedStorageSearchRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} query The query string to execute.\n   * @return {SharedStorageSearchRequest} An instance of this object.\n   */\n  constructor(session, query) {\n    var queryParams = {'query': query};\n    super('GET', '/v0/gamer/shared/', session, null, queryParams);\n  }\n\n  /**\n   * Restrict the query to run only over Shared Storage keys with the given name. Defaults to no filter,\n   * the query will run over all Shared Storage records.\n   * @param  {String} key The key filter to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  filterKey(key) {\n    this._queryParams['filter_key'] = key;\n    return this;\n  }\n\n  /**\n   * Define a sort order for the results. Defaults to no sort, natural ordering is used.\n   * @param  {String} key The sort order definition to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  sort(key) {\n    this._queryParams.sort = key;\n    return this;\n  }\n\n  /**\n   * Offset query results by the given number of entries. Useful for paginating query results.\n   * Default 0 (first page). Must be greater than or equal to 0.\n   * @param  {Integer} offset The query result offset to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  offset(offset) {\n    this._queryParams.offset = offset;\n    return this;\n  }\n\n  /**\n   * Limit the number of results returned in a single response. Must be between 0 and 100, inclusive. Default 10.\n   * Using a limit of 0 will return no results, but can be useful for aggregation or similar scenarios\n   * where the result count is useful by itself.\n   * @param  {Integer} limit The maximum number of results to return in a response.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  limit(limit) {\n    this._queryParams.limit = limit;\n    return this;\n  }\n}\n"
+    "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * Get the value stored in Shared Storage under a particular key.\n */\nexport class SharedStorageGetRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The key to get the corresponding value for.\n   * @return {SharedStorageGetRequest} An instance of this object.\n   */\n  constructor(session, key) {\n    super('GET', '/v0/gamer/shared/' + key, session);\n  }\n}\n\n/**\n * Create or replace the Shared Storage 'public' segment value for the given key with the given value.\n */\nexport class SharedStoragePublicPutRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The storage key to put.\n   * @param  {Object} data The value to assign to the specified key's 'public' segment.\n   * @return {SharedStoragePutRequest} An instance of this object.\n   */\n  constructor(session, key, data) {\n    super('PUT', '/v0/gamer/shared/' + key + '/public', session, data);\n  }\n}\n\n/**\n * Merge the Shared Storage 'public' segment value for the given key with the given value.\n */\nexport class SharedStoragePublicPatchRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The key to create or replace the value for.\n   * @param  {Object} data The entity that will be merged into that key's 'public' segment.\n   * @return {SharedStoragePatchRequest} An instance of this object.\n   */\n  constructor(session, key, data) {\n    super('PATCH', '/v0/gamer/shared/' + key + '/public', session, data);\n  }\n}\n\n/**\n * Delete the data stored in Shared Storage under a particular key's 'public' segment, if any.\n */\nexport class SharedStoragePublicDeleteRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} The key to delete the corresponding 'public' segment value for.\n   * @return {SharedStorageDeleteRequest} An instance of this object.\n   */\n  constructor(session, key) {\n    super('DELETE', '/v0/gamer/shared/' + key + '/public', session);\n  }\n}\n\n/**\n * Run a query over Shared Storage data.\n */\nexport class SharedStorageSearchRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} query The query string to execute.\n   * @return {SharedStorageSearchRequest} An instance of this object.\n   */\n  constructor(session, query) {\n    var queryParams = {'query': query};\n    super('GET', '/v0/gamer/shared/', session, null, queryParams);\n  }\n\n  /**\n   * Restrict the query to run only over Shared Storage keys with the given name. Defaults to no filter,\n   * the query will run over all Shared Storage records.\n   * @param  {String} key The key filter to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  filterKey(key) {\n    this._queryParams['filter_key'] = key;\n    return this;\n  }\n\n  /**\n   * Define a sort order for the results. Defaults to no sort, natural ordering is used.\n   * @param  {String} key The sort order definition to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  sort(key) {\n    this._queryParams.sort = key;\n    return this;\n  }\n\n  /**\n   * Offset query results by the given number of entries. Useful for paginating query results.\n   * Default 0 (first page). Must be greater than or equal to 0.\n   * @param  {Integer} offset The query result offset to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  offset(offset) {\n    this._queryParams.offset = offset;\n    return this;\n  }\n\n  /**\n   * Limit the number of results returned in a single response. Must be between 0 and 100, inclusive. Default 10.\n   * Using a limit of 0 will return no results, but can be useful for aggregation or similar scenarios\n   * where the result count is useful by itself.\n   * @param  {Integer} limit The maximum number of results to return in a response.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   */\n  limit(limit) {\n    this._queryParams.limit = limit;\n    return this;\n  }\n}\n"
   },
   {
-    "__docId__": 191,
+    "__docId__": 214,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4904,7 +5668,7 @@
     ]
   },
   {
-    "__docId__": 192,
+    "__docId__": 215,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -4947,17 +5711,17 @@
     "generator": false
   },
   {
-    "__docId__": 193,
+    "__docId__": 216,
     "kind": "class",
     "static": true,
     "variation": null,
-    "name": "SharedStoragePutRequest",
+    "name": "SharedStoragePublicPutRequest",
     "memberof": "src/shared_storage.js",
-    "longname": "src/shared_storage.js~SharedStoragePutRequest",
+    "longname": "src/shared_storage.js~SharedStoragePublicPutRequest",
     "access": null,
     "export": true,
     "importPath": "heroiclabs-sdk-web/src/shared_storage.js",
-    "importStyle": "{SharedStoragePutRequest}",
+    "importStyle": "{SharedStoragePublicPutRequest}",
     "description": "Create or replace the Shared Storage 'public' segment value for the given key with the given value.",
     "lineNumber": 37,
     "interface": false,
@@ -4966,13 +5730,13 @@
     ]
   },
   {
-    "__docId__": 194,
+    "__docId__": 217,
     "kind": "constructor",
     "static": false,
     "variation": null,
     "name": "constructor",
-    "memberof": "src/shared_storage.js~SharedStoragePutRequest",
-    "longname": "src/shared_storage.js~SharedStoragePutRequest#constructor",
+    "memberof": "src/shared_storage.js~SharedStoragePublicPutRequest",
+    "longname": "src/shared_storage.js~SharedStoragePublicPutRequest#constructor",
     "access": null,
     "description": "",
     "lineNumber": 45,
@@ -5019,17 +5783,17 @@
     "generator": false
   },
   {
-    "__docId__": 195,
+    "__docId__": 218,
     "kind": "class",
     "static": true,
     "variation": null,
-    "name": "SharedStoragePatchRequest",
+    "name": "SharedStoragePublicPatchRequest",
     "memberof": "src/shared_storage.js",
-    "longname": "src/shared_storage.js~SharedStoragePatchRequest",
+    "longname": "src/shared_storage.js~SharedStoragePublicPatchRequest",
     "access": null,
     "export": true,
     "importPath": "heroiclabs-sdk-web/src/shared_storage.js",
-    "importStyle": "{SharedStoragePatchRequest}",
+    "importStyle": "{SharedStoragePublicPatchRequest}",
     "description": "Merge the Shared Storage 'public' segment value for the given key with the given value.",
     "lineNumber": 53,
     "interface": false,
@@ -5038,13 +5802,13 @@
     ]
   },
   {
-    "__docId__": 196,
+    "__docId__": 219,
     "kind": "constructor",
     "static": false,
     "variation": null,
     "name": "constructor",
-    "memberof": "src/shared_storage.js~SharedStoragePatchRequest",
-    "longname": "src/shared_storage.js~SharedStoragePatchRequest#constructor",
+    "memberof": "src/shared_storage.js~SharedStoragePublicPatchRequest",
+    "longname": "src/shared_storage.js~SharedStoragePublicPatchRequest#constructor",
     "access": null,
     "description": "",
     "lineNumber": 61,
@@ -5091,17 +5855,17 @@
     "generator": false
   },
   {
-    "__docId__": 197,
+    "__docId__": 220,
     "kind": "class",
     "static": true,
     "variation": null,
-    "name": "SharedStorageDeleteRequest",
+    "name": "SharedStoragePublicDeleteRequest",
     "memberof": "src/shared_storage.js",
-    "longname": "src/shared_storage.js~SharedStorageDeleteRequest",
+    "longname": "src/shared_storage.js~SharedStoragePublicDeleteRequest",
     "access": null,
     "export": true,
     "importPath": "heroiclabs-sdk-web/src/shared_storage.js",
-    "importStyle": "{SharedStorageDeleteRequest}",
+    "importStyle": "{SharedStoragePublicDeleteRequest}",
     "description": "Delete the data stored in Shared Storage under a particular key's 'public' segment, if any.",
     "lineNumber": 69,
     "interface": false,
@@ -5110,13 +5874,13 @@
     ]
   },
   {
-    "__docId__": 198,
+    "__docId__": 221,
     "kind": "constructor",
     "static": false,
     "variation": null,
     "name": "constructor",
-    "memberof": "src/shared_storage.js~SharedStorageDeleteRequest",
-    "longname": "src/shared_storage.js~SharedStorageDeleteRequest#constructor",
+    "memberof": "src/shared_storage.js~SharedStoragePublicDeleteRequest",
+    "longname": "src/shared_storage.js~SharedStoragePublicDeleteRequest#constructor",
     "access": null,
     "description": "",
     "lineNumber": 76,
@@ -5153,7 +5917,7 @@
     "generator": false
   },
   {
-    "__docId__": 199,
+    "__docId__": 222,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -5172,7 +5936,7 @@
     ]
   },
   {
-    "__docId__": 200,
+    "__docId__": 223,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -5215,7 +5979,7 @@
     "generator": false
   },
   {
-    "__docId__": 201,
+    "__docId__": 224,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5248,7 +6012,7 @@
     "generator": false
   },
   {
-    "__docId__": 202,
+    "__docId__": 225,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5281,7 +6045,7 @@
     "generator": false
   },
   {
-    "__docId__": 203,
+    "__docId__": 226,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5314,7 +6078,7 @@
     "generator": false
   },
   {
-    "__docId__": 204,
+    "__docId__": 227,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5347,7 +6111,7 @@
     "generator": false
   },
   {
-    "__docId__": 205,
+    "__docId__": 228,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -5360,7 +6124,7 @@
     "content": "/*\n * Copyright 2016 Heroic Labs\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nimport {ApiRequest} from './request';\n\n/**\n * Get the value stored in Cloud Storage under a particular key.\n */\nexport class StorageGetRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The key to get the corresponding value for.\n   * @return {StorageGetRequest} An instance of this object.\n   */\n  constructor(session, key) {\n    super('GET', '/v0/gamer/storage/' + key, session);\n    this._responseCallback = function (xhr) {\n      var body = JSON.parse(xhr.responseText);\n      if (body.content_type === 'application/json') {\n        body.value = JSON.parse(body.value);\n      }\n      return body;\n    };\n  }\n}\n\n/**\n * Create or replace the Cloud Storage value for the given key with the given value.\n */\nexport class StoragePutRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The key to create or replace the value for.\n   * @param  {Object} data The entity that will be stored under that key.\n   * @return {StoragePutRequest} An instance of this object.\n   */\n  constructor(session, key, data) {\n    super('PUT', '/v0/gamer/storage/' + key, session, data);\n  }\n}\n\n/**\n * Delete the data stored in Cloud Storage under a particular key, if any.\n */\nexport class StorageDeleteRequest extends ApiRequest {\n\n  /**\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The key to delete the corresponding value for.\n   * @return {StorageDeleteRequest} An instance of this object.\n   */\n  constructor(session, key) {\n    super('DELETE', '/v0/gamer/storage/' + key, session);\n  }\n}\n"
   },
   {
-    "__docId__": 206,
+    "__docId__": 229,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -5379,7 +6143,7 @@
     ]
   },
   {
-    "__docId__": 207,
+    "__docId__": 230,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -5422,7 +6186,7 @@
     "generator": false
   },
   {
-    "__docId__": 208,
+    "__docId__": 231,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -5441,7 +6205,7 @@
     ]
   },
   {
-    "__docId__": 209,
+    "__docId__": 232,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -5494,7 +6258,7 @@
     "generator": false
   },
   {
-    "__docId__": 210,
+    "__docId__": 233,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -5513,7 +6277,7 @@
     ]
   },
   {
-    "__docId__": 211,
+    "__docId__": 234,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -5556,7 +6320,7 @@
     "generator": false
   },
   {
-    "__docId__": 213,
+    "__docId__": 236,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5569,7 +6333,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 214,
+    "__docId__": 237,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5582,7 +6346,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 215,
+    "__docId__": 238,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5595,7 +6359,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 216,
+    "__docId__": 239,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5608,7 +6372,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 217,
+    "__docId__": 240,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5621,7 +6385,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 218,
+    "__docId__": 241,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5634,7 +6398,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 219,
+    "__docId__": 242,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5647,7 +6411,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 220,
+    "__docId__": 243,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5660,7 +6424,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 221,
+    "__docId__": 244,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5673,7 +6437,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 222,
+    "__docId__": 245,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5686,7 +6450,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 223,
+    "__docId__": 246,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5699,7 +6463,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 224,
+    "__docId__": 247,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5712,7 +6476,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 225,
+    "__docId__": 248,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5725,7 +6489,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 226,
+    "__docId__": 249,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5738,7 +6502,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 227,
+    "__docId__": 250,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5751,7 +6515,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 228,
+    "__docId__": 251,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5764,7 +6528,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 229,
+    "__docId__": 252,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5777,7 +6541,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 230,
+    "__docId__": 253,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5790,7 +6554,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 231,
+    "__docId__": 254,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5803,7 +6567,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 232,
+    "__docId__": 255,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5816,7 +6580,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 233,
+    "__docId__": 256,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5829,7 +6593,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 234,
+    "__docId__": 257,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5842,7 +6606,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 235,
+    "__docId__": 258,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5855,7 +6619,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 236,
+    "__docId__": 259,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5868,7 +6632,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 237,
+    "__docId__": 260,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5881,7 +6645,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 238,
+    "__docId__": 261,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5894,7 +6658,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 239,
+    "__docId__": 262,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5907,7 +6671,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 240,
+    "__docId__": 263,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5920,7 +6684,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 241,
+    "__docId__": 264,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5933,7 +6697,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 242,
+    "__docId__": 265,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5946,7 +6710,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 243,
+    "__docId__": 266,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5959,7 +6723,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 244,
+    "__docId__": 267,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5972,7 +6736,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 245,
+    "__docId__": 268,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5985,7 +6749,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 246,
+    "__docId__": 269,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -5998,7 +6762,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 247,
+    "__docId__": 270,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6011,7 +6775,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 248,
+    "__docId__": 271,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6024,7 +6788,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 249,
+    "__docId__": 272,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6037,7 +6801,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 250,
+    "__docId__": 273,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6050,7 +6814,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 251,
+    "__docId__": 274,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6063,7 +6827,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 252,
+    "__docId__": 275,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6076,7 +6840,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 253,
+    "__docId__": 276,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6089,7 +6853,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 254,
+    "__docId__": 277,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6102,7 +6866,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 255,
+    "__docId__": 278,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6115,7 +6879,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 256,
+    "__docId__": 279,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6128,7 +6892,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 257,
+    "__docId__": 280,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6141,7 +6905,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 258,
+    "__docId__": 281,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6154,7 +6918,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 259,
+    "__docId__": 282,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6167,7 +6931,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 261,
+    "__docId__": 284,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6180,7 +6944,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 262,
+    "__docId__": 285,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6193,7 +6957,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 263,
+    "__docId__": 286,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6206,7 +6970,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 264,
+    "__docId__": 287,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6219,7 +6983,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 265,
+    "__docId__": 288,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6232,7 +6996,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 266,
+    "__docId__": 289,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6245,7 +7009,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 267,
+    "__docId__": 290,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -6258,7 +7022,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 268,
+    "__docId__": 291,
     "kind": "external",
     "static": true,
     "variation": null,

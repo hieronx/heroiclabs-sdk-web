@@ -61,6 +61,11 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/achievement.js~AchievementUpdateRequest.html">AchievementUpdateRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/client.js~Client.html">Client</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/client.js~Response.html">Response</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreDeleteRequest.html">DatastoreDeleteRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreGetRequest.html">DatastoreGetRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastorePutRequest.html">DatastorePutRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreSearchRequest.html">DatastoreSearchRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/datastore.js~DatastoreUpdateRequest.html">DatastoreUpdateRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/game.js~GameGetRequest.html">GameGetRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gamer.js~GamerGetRequest.html">GamerGetRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gamer.js~GamerUpdateRequest.html">GamerUpdateRequest</a></span></span></li>
@@ -87,10 +92,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/script.js~ExecuteScriptRequest.html">ExecuteScriptRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/server.js~ServerRequest.html">ServerRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/session.js~Session.html">Session</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStorageDeleteRequest.html">SharedStorageDeleteRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStorageGetRequest.html">SharedStorageGetRequest</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePatchRequest.html">SharedStoragePatchRequest</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePutRequest.html">SharedStoragePutRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePublicDeleteRequest.html">SharedStoragePublicDeleteRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePublicPatchRequest.html">SharedStoragePublicPatchRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStoragePublicPutRequest.html">SharedStoragePublicPutRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/shared_storage.js~SharedStorageSearchRequest.html">SharedStorageSearchRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/storage.js~StorageDeleteRequest.html">StorageDeleteRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/storage.js~StorageGetRequest.html">StorageGetRequest</a></span></span></li>
@@ -109,12 +114,12 @@
 <p>The client SDK is available on <a href="">Bower</a> and on <a href="">NPM</a>.</p>
 <p>Simply add this to your <code>bower.json</code> or <code>package.json</code>&apos;s <code>dependencies</code> block:</p>
 <pre><code class="lang-json"><code class="source-code prettyprint">{
-    &quot;heroiclabs&quot;:&quot;^0.1.0&quot;
+    &quot;heroiclabs-sdk-web&quot;:&quot;^0.1.4&quot;
 }</code>
 </code></pre>
 <p>Once the SDK is imported, you can create a <code>Client</code> instance and begin making requests:</p>
-<pre><code class="lang-java"><code class="source-code prettyprint">var client = new Client(&quot;your api key here&quot;);
-var pingRequest = new PingRequest();
+<pre><code class="lang-java"><code class="source-code prettyprint">var client = new Heroic.Client(&quot;your api key here&quot;);
+var pingRequest = new Heroic.PingRequest();
 client.execute(pingRequest).then(function(successResponse) {
     // This is only triggered on successful requests.
     return true;

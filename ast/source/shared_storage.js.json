@@ -589,10 +589,10 @@
         "type": "ClassDeclaration",
         "id": {
           "type": "Identifier",
-          "name": "SharedStoragePutRequest",
+          "name": "SharedStoragePublicPutRequest",
           "range": [
             1212,
-            1235
+            1241
           ],
           "loc": {
             "start": {
@@ -601,7 +601,7 @@
             },
             "end": {
               "line": 37,
-              "column": 36
+              "column": 42
             }
           }
         },
@@ -609,17 +609,17 @@
           "type": "Identifier",
           "name": "ApiRequest",
           "range": [
-            1244,
-            1254
+            1250,
+            1260
           ],
           "loc": {
             "start": {
               "line": 37,
-              "column": 45
+              "column": 51
             },
             "end": {
               "line": 37,
-              "column": 55
+              "column": 61
             }
           }
         },
@@ -632,8 +632,8 @@
                 "type": "Identifier",
                 "name": "constructor",
                 "range": [
-                  1561,
-                  1572
+                  1567,
+                  1578
                 ],
                 "loc": {
                   "start": {
@@ -654,8 +654,8 @@
                     "type": "Identifier",
                     "name": "session",
                     "range": [
-                      1573,
-                      1580
+                      1579,
+                      1586
                     ],
                     "loc": {
                       "start": {
@@ -672,8 +672,8 @@
                     "type": "Identifier",
                     "name": "key",
                     "range": [
-                      1582,
-                      1585
+                      1588,
+                      1591
                     ],
                     "loc": {
                       "start": {
@@ -690,8 +690,8 @@
                     "type": "Identifier",
                     "name": "data",
                     "range": [
-                      1587,
-                      1591
+                      1593,
+                      1597
                     ],
                     "loc": {
                       "start": {
@@ -715,8 +715,8 @@
                         "callee": {
                           "type": "Super",
                           "range": [
-                            1599,
-                            1604
+                            1605,
+                            1610
                           ],
                           "loc": {
                             "start": {
@@ -735,8 +735,8 @@
                             "value": "PUT",
                             "raw": "'PUT'",
                             "range": [
-                              1605,
-                              1610
+                              1611,
+                              1616
                             ],
                             "loc": {
                               "start": {
@@ -760,8 +760,8 @@
                                 "value": "/v0/gamer/shared/",
                                 "raw": "'/v0/gamer/shared/'",
                                 "range": [
-                                  1612,
-                                  1631
+                                  1618,
+                                  1637
                                 ],
                                 "loc": {
                                   "start": {
@@ -778,8 +778,8 @@
                                 "type": "Identifier",
                                 "name": "key",
                                 "range": [
-                                  1634,
-                                  1637
+                                  1640,
+                                  1643
                                 ],
                                 "loc": {
                                   "start": {
@@ -793,8 +793,8 @@
                                 }
                               },
                               "range": [
-                                1612,
-                                1637
+                                1618,
+                                1643
                               ],
                               "loc": {
                                 "start": {
@@ -812,8 +812,8 @@
                               "value": "/public",
                               "raw": "'/public'",
                               "range": [
-                                1640,
-                                1649
+                                1646,
+                                1655
                               ],
                               "loc": {
                                 "start": {
@@ -827,8 +827,8 @@
                               }
                             },
                             "range": [
-                              1612,
-                              1649
+                              1618,
+                              1655
                             ],
                             "loc": {
                               "start": {
@@ -845,8 +845,8 @@
                             "type": "Identifier",
                             "name": "session",
                             "range": [
-                              1651,
-                              1658
+                              1657,
+                              1664
                             ],
                             "loc": {
                               "start": {
@@ -863,8 +863,8 @@
                             "type": "Identifier",
                             "name": "data",
                             "range": [
-                              1660,
-                              1664
+                              1666,
+                              1670
                             ],
                             "loc": {
                               "start": {
@@ -879,8 +879,8 @@
                           }
                         ],
                         "range": [
-                          1599,
-                          1665
+                          1605,
+                          1671
                         ],
                         "loc": {
                           "start": {
@@ -894,8 +894,8 @@
                         }
                       },
                       "range": [
-                        1599,
-                        1666
+                        1605,
+                        1672
                       ],
                       "loc": {
                         "start": {
@@ -910,8 +910,8 @@
                     }
                   ],
                   "range": [
-                    1593,
-                    1670
+                    1599,
+                    1676
                   ],
                   "loc": {
                     "start": {
@@ -927,8 +927,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  1572,
-                  1670
+                  1578,
+                  1676
                 ],
                 "loc": {
                   "start": {
@@ -944,8 +944,8 @@
               "kind": "constructor",
               "computed": false,
               "range": [
-                1561,
-                1670
+                1567,
+                1676
               ],
               "loc": {
                 "start": {
@@ -962,8 +962,8 @@
                   "type": "Block",
                   "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The storage key to put.\n   * @param  {Object} data The value to assign to the specified key's 'public' segment.\n   * @return {SharedStoragePutRequest} An instance of this object.\n   ",
                   "range": [
-                    1260,
-                    1558
+                    1266,
+                    1564
                   ],
                   "loc": {
                     "start": {
@@ -981,13 +981,13 @@
             }
           ],
           "range": [
-            1255,
-            1672
+            1261,
+            1678
           ],
           "loc": {
             "start": {
               "line": 37,
-              "column": 56
+              "column": 62
             },
             "end": {
               "line": 48,
@@ -997,7 +997,7 @@
         },
         "range": [
           1206,
-          1672
+          1678
         ],
         "loc": {
           "start": {
@@ -1034,8 +1034,8 @@
             "type": "Block",
             "value": "*\n * Merge the Shared Storage 'public' segment value for the given key with the given value.\n ",
             "range": [
-              1674,
-              1772
+              1680,
+              1778
             ],
             "loc": {
               "start": {
@@ -1054,7 +1054,7 @@
       "source": null,
       "range": [
         1199,
-        1672
+        1678
       ],
       "loc": {
         "start": {
@@ -1091,8 +1091,8 @@
           "type": "Block",
           "value": "*\n * Merge the Shared Storage 'public' segment value for the given key with the given value.\n ",
           "range": [
-            1674,
-            1772
+            1680,
+            1778
           ],
           "loc": {
             "start": {
@@ -1113,10 +1113,10 @@
         "type": "ClassDeclaration",
         "id": {
           "type": "Identifier",
-          "name": "SharedStoragePatchRequest",
+          "name": "SharedStoragePublicPatchRequest",
           "range": [
-            1786,
-            1811
+            1792,
+            1823
           ],
           "loc": {
             "start": {
@@ -1125,7 +1125,7 @@
             },
             "end": {
               "line": 53,
-              "column": 38
+              "column": 44
             }
           }
         },
@@ -1133,17 +1133,17 @@
           "type": "Identifier",
           "name": "ApiRequest",
           "range": [
-            1820,
-            1830
+            1832,
+            1842
           ],
           "loc": {
             "start": {
               "line": 53,
-              "column": 47
+              "column": 53
             },
             "end": {
               "line": 53,
-              "column": 57
+              "column": 63
             }
           }
         },
@@ -1156,8 +1156,8 @@
                 "type": "Identifier",
                 "name": "constructor",
                 "range": [
-                  2163,
-                  2174
+                  2175,
+                  2186
                 ],
                 "loc": {
                   "start": {
@@ -1178,8 +1178,8 @@
                     "type": "Identifier",
                     "name": "session",
                     "range": [
-                      2175,
-                      2182
+                      2187,
+                      2194
                     ],
                     "loc": {
                       "start": {
@@ -1196,8 +1196,8 @@
                     "type": "Identifier",
                     "name": "key",
                     "range": [
-                      2184,
-                      2187
+                      2196,
+                      2199
                     ],
                     "loc": {
                       "start": {
@@ -1214,8 +1214,8 @@
                     "type": "Identifier",
                     "name": "data",
                     "range": [
-                      2189,
-                      2193
+                      2201,
+                      2205
                     ],
                     "loc": {
                       "start": {
@@ -1239,8 +1239,8 @@
                         "callee": {
                           "type": "Super",
                           "range": [
-                            2201,
-                            2206
+                            2213,
+                            2218
                           ],
                           "loc": {
                             "start": {
@@ -1259,8 +1259,8 @@
                             "value": "PATCH",
                             "raw": "'PATCH'",
                             "range": [
-                              2207,
-                              2214
+                              2219,
+                              2226
                             ],
                             "loc": {
                               "start": {
@@ -1284,8 +1284,8 @@
                                 "value": "/v0/gamer/shared/",
                                 "raw": "'/v0/gamer/shared/'",
                                 "range": [
-                                  2216,
-                                  2235
+                                  2228,
+                                  2247
                                 ],
                                 "loc": {
                                   "start": {
@@ -1302,8 +1302,8 @@
                                 "type": "Identifier",
                                 "name": "key",
                                 "range": [
-                                  2238,
-                                  2241
+                                  2250,
+                                  2253
                                 ],
                                 "loc": {
                                   "start": {
@@ -1317,8 +1317,8 @@
                                 }
                               },
                               "range": [
-                                2216,
-                                2241
+                                2228,
+                                2253
                               ],
                               "loc": {
                                 "start": {
@@ -1336,8 +1336,8 @@
                               "value": "/public",
                               "raw": "'/public'",
                               "range": [
-                                2244,
-                                2253
+                                2256,
+                                2265
                               ],
                               "loc": {
                                 "start": {
@@ -1351,8 +1351,8 @@
                               }
                             },
                             "range": [
-                              2216,
-                              2253
+                              2228,
+                              2265
                             ],
                             "loc": {
                               "start": {
@@ -1369,8 +1369,8 @@
                             "type": "Identifier",
                             "name": "session",
                             "range": [
-                              2255,
-                              2262
+                              2267,
+                              2274
                             ],
                             "loc": {
                               "start": {
@@ -1387,8 +1387,8 @@
                             "type": "Identifier",
                             "name": "data",
                             "range": [
-                              2264,
-                              2268
+                              2276,
+                              2280
                             ],
                             "loc": {
                               "start": {
@@ -1403,8 +1403,8 @@
                           }
                         ],
                         "range": [
-                          2201,
-                          2269
+                          2213,
+                          2281
                         ],
                         "loc": {
                           "start": {
@@ -1418,8 +1418,8 @@
                         }
                       },
                       "range": [
-                        2201,
-                        2270
+                        2213,
+                        2282
                       ],
                       "loc": {
                         "start": {
@@ -1434,8 +1434,8 @@
                     }
                   ],
                   "range": [
-                    2195,
-                    2274
+                    2207,
+                    2286
                   ],
                   "loc": {
                     "start": {
@@ -1451,8 +1451,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  2174,
-                  2274
+                  2186,
+                  2286
                 ],
                 "loc": {
                   "start": {
@@ -1468,8 +1468,8 @@
               "kind": "constructor",
               "computed": false,
               "range": [
-                2163,
-                2274
+                2175,
+                2286
               ],
               "loc": {
                 "start": {
@@ -1486,8 +1486,8 @@
                   "type": "Block",
                   "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The key to create or replace the value for.\n   * @param  {Object} data The entity that will be merged into that key's 'public' segment.\n   * @return {SharedStoragePatchRequest} An instance of this object.\n   ",
                   "range": [
-                    1836,
-                    2160
+                    1848,
+                    2172
                   ],
                   "loc": {
                     "start": {
@@ -1505,13 +1505,13 @@
             }
           ],
           "range": [
-            1831,
-            2276
+            1843,
+            2288
           ],
           "loc": {
             "start": {
               "line": 53,
-              "column": 58
+              "column": 64
             },
             "end": {
               "line": 64,
@@ -1520,8 +1520,8 @@
           }
         },
         "range": [
-          1780,
-          2276
+          1786,
+          2288
         ],
         "loc": {
           "start": {
@@ -1538,8 +1538,8 @@
             "type": "Block",
             "value": "*\n * Merge the Shared Storage 'public' segment value for the given key with the given value.\n ",
             "range": [
-              1674,
-              1772
+              1680,
+              1778
             ],
             "loc": {
               "start": {
@@ -1558,8 +1558,8 @@
             "type": "Block",
             "value": "*\n * Delete the data stored in Shared Storage under a particular key's 'public' segment, if any.\n ",
             "range": [
-              2278,
-              2380
+              2290,
+              2392
             ],
             "loc": {
               "start": {
@@ -1577,8 +1577,8 @@
       "specifiers": [],
       "source": null,
       "range": [
-        1773,
-        2276
+        1779,
+        2288
       ],
       "loc": {
         "start": {
@@ -1595,8 +1595,8 @@
           "type": "Block",
           "value": "*\n * Merge the Shared Storage 'public' segment value for the given key with the given value.\n ",
           "range": [
-            1674,
-            1772
+            1680,
+            1778
           ],
           "loc": {
             "start": {
@@ -1615,8 +1615,8 @@
           "type": "Block",
           "value": "*\n * Delete the data stored in Shared Storage under a particular key's 'public' segment, if any.\n ",
           "range": [
-            2278,
-            2380
+            2290,
+            2392
           ],
           "loc": {
             "start": {
@@ -1637,10 +1637,10 @@
         "type": "ClassDeclaration",
         "id": {
           "type": "Identifier",
-          "name": "SharedStorageDeleteRequest",
+          "name": "SharedStoragePublicDeleteRequest",
           "range": [
-            2394,
-            2420
+            2406,
+            2438
           ],
           "loc": {
             "start": {
@@ -1649,7 +1649,7 @@
             },
             "end": {
               "line": 69,
-              "column": 39
+              "column": 45
             }
           }
         },
@@ -1657,17 +1657,17 @@
           "type": "Identifier",
           "name": "ApiRequest",
           "range": [
-            2429,
-            2439
+            2447,
+            2457
           ],
           "loc": {
             "start": {
               "line": 69,
-              "column": 48
+              "column": 54
             },
             "end": {
               "line": 69,
-              "column": 58
+              "column": 64
             }
           }
         },
@@ -1680,8 +1680,8 @@
                 "type": "Identifier",
                 "name": "constructor",
                 "range": [
-                  2697,
-                  2708
+                  2715,
+                  2726
                 ],
                 "loc": {
                   "start": {
@@ -1702,8 +1702,8 @@
                     "type": "Identifier",
                     "name": "session",
                     "range": [
-                      2709,
-                      2716
+                      2727,
+                      2734
                     ],
                     "loc": {
                       "start": {
@@ -1720,8 +1720,8 @@
                     "type": "Identifier",
                     "name": "key",
                     "range": [
-                      2718,
-                      2721
+                      2736,
+                      2739
                     ],
                     "loc": {
                       "start": {
@@ -1745,8 +1745,8 @@
                         "callee": {
                           "type": "Super",
                           "range": [
-                            2729,
-                            2734
+                            2747,
+                            2752
                           ],
                           "loc": {
                             "start": {
@@ -1765,8 +1765,8 @@
                             "value": "DELETE",
                             "raw": "'DELETE'",
                             "range": [
-                              2735,
-                              2743
+                              2753,
+                              2761
                             ],
                             "loc": {
                               "start": {
@@ -1790,8 +1790,8 @@
                                 "value": "/v0/gamer/shared/",
                                 "raw": "'/v0/gamer/shared/'",
                                 "range": [
-                                  2745,
-                                  2764
+                                  2763,
+                                  2782
                                 ],
                                 "loc": {
                                   "start": {
@@ -1808,8 +1808,8 @@
                                 "type": "Identifier",
                                 "name": "key",
                                 "range": [
-                                  2767,
-                                  2770
+                                  2785,
+                                  2788
                                 ],
                                 "loc": {
                                   "start": {
@@ -1823,8 +1823,8 @@
                                 }
                               },
                               "range": [
-                                2745,
-                                2770
+                                2763,
+                                2788
                               ],
                               "loc": {
                                 "start": {
@@ -1842,8 +1842,8 @@
                               "value": "/public",
                               "raw": "'/public'",
                               "range": [
-                                2773,
-                                2782
+                                2791,
+                                2800
                               ],
                               "loc": {
                                 "start": {
@@ -1857,8 +1857,8 @@
                               }
                             },
                             "range": [
-                              2745,
-                              2782
+                              2763,
+                              2800
                             ],
                             "loc": {
                               "start": {
@@ -1875,8 +1875,8 @@
                             "type": "Identifier",
                             "name": "session",
                             "range": [
-                              2784,
-                              2791
+                              2802,
+                              2809
                             ],
                             "loc": {
                               "start": {
@@ -1891,8 +1891,8 @@
                           }
                         ],
                         "range": [
-                          2729,
-                          2792
+                          2747,
+                          2810
                         ],
                         "loc": {
                           "start": {
@@ -1906,8 +1906,8 @@
                         }
                       },
                       "range": [
-                        2729,
-                        2793
+                        2747,
+                        2811
                       ],
                       "loc": {
                         "start": {
@@ -1922,8 +1922,8 @@
                     }
                   ],
                   "range": [
-                    2723,
-                    2797
+                    2741,
+                    2815
                   ],
                   "loc": {
                     "start": {
@@ -1939,8 +1939,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  2708,
-                  2797
+                  2726,
+                  2815
                 ],
                 "loc": {
                   "start": {
@@ -1956,8 +1956,8 @@
               "kind": "constructor",
               "computed": false,
               "range": [
-                2697,
-                2797
+                2715,
+                2815
               ],
               "loc": {
                 "start": {
@@ -1974,8 +1974,8 @@
                   "type": "Block",
                   "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} The key to delete the corresponding 'public' segment value for.\n   * @return {SharedStorageDeleteRequest} An instance of this object.\n   ",
                   "range": [
-                    2445,
-                    2694
+                    2463,
+                    2712
                   ],
                   "loc": {
                     "start": {
@@ -1993,13 +1993,13 @@
             }
           ],
           "range": [
-            2440,
-            2799
+            2458,
+            2817
           ],
           "loc": {
             "start": {
               "line": 69,
-              "column": 59
+              "column": 65
             },
             "end": {
               "line": 79,
@@ -2008,8 +2008,8 @@
           }
         },
         "range": [
-          2388,
-          2799
+          2400,
+          2817
         ],
         "loc": {
           "start": {
@@ -2026,8 +2026,8 @@
             "type": "Block",
             "value": "*\n * Delete the data stored in Shared Storage under a particular key's 'public' segment, if any.\n ",
             "range": [
-              2278,
-              2380
+              2290,
+              2392
             ],
             "loc": {
               "start": {
@@ -2046,8 +2046,8 @@
             "type": "Block",
             "value": "*\n * Run a query over Shared Storage data.\n ",
             "range": [
-              2801,
-              2849
+              2819,
+              2867
             ],
             "loc": {
               "start": {
@@ -2065,8 +2065,8 @@
       "specifiers": [],
       "source": null,
       "range": [
-        2381,
-        2799
+        2393,
+        2817
       ],
       "loc": {
         "start": {
@@ -2083,8 +2083,8 @@
           "type": "Block",
           "value": "*\n * Delete the data stored in Shared Storage under a particular key's 'public' segment, if any.\n ",
           "range": [
-            2278,
-            2380
+            2290,
+            2392
           ],
           "loc": {
             "start": {
@@ -2103,8 +2103,8 @@
           "type": "Block",
           "value": "*\n * Run a query over Shared Storage data.\n ",
           "range": [
-            2801,
-            2849
+            2819,
+            2867
           ],
           "loc": {
             "start": {
@@ -2127,8 +2127,8 @@
           "type": "Identifier",
           "name": "SharedStorageSearchRequest",
           "range": [
-            2863,
-            2889
+            2881,
+            2907
           ],
           "loc": {
             "start": {
@@ -2145,8 +2145,8 @@
           "type": "Identifier",
           "name": "ApiRequest",
           "range": [
-            2898,
-            2908
+            2916,
+            2926
           ],
           "loc": {
             "start": {
@@ -2168,8 +2168,8 @@
                 "type": "Identifier",
                 "name": "constructor",
                 "range": [
-                  3137,
-                  3148
+                  3155,
+                  3166
                 ],
                 "loc": {
                   "start": {
@@ -2190,8 +2190,8 @@
                     "type": "Identifier",
                     "name": "session",
                     "range": [
-                      3149,
-                      3156
+                      3167,
+                      3174
                     ],
                     "loc": {
                       "start": {
@@ -2208,8 +2208,8 @@
                     "type": "Identifier",
                     "name": "query",
                     "range": [
-                      3158,
-                      3163
+                      3176,
+                      3181
                     ],
                     "loc": {
                       "start": {
@@ -2235,8 +2235,8 @@
                             "type": "Identifier",
                             "name": "queryParams",
                             "range": [
-                              3175,
-                              3186
+                              3193,
+                              3204
                             ],
                             "loc": {
                               "start": {
@@ -2259,8 +2259,8 @@
                                   "value": "query",
                                   "raw": "'query'",
                                   "range": [
-                                    3190,
-                                    3197
+                                    3208,
+                                    3215
                                   ],
                                   "loc": {
                                     "start": {
@@ -2277,8 +2277,8 @@
                                   "type": "Identifier",
                                   "name": "query",
                                   "range": [
-                                    3199,
-                                    3204
+                                    3217,
+                                    3222
                                   ],
                                   "loc": {
                                     "start": {
@@ -2296,8 +2296,8 @@
                                 "shorthand": false,
                                 "computed": false,
                                 "range": [
-                                  3190,
-                                  3204
+                                  3208,
+                                  3222
                                 ],
                                 "loc": {
                                   "start": {
@@ -2312,8 +2312,8 @@
                               }
                             ],
                             "range": [
-                              3189,
-                              3205
+                              3207,
+                              3223
                             ],
                             "loc": {
                               "start": {
@@ -2327,8 +2327,8 @@
                             }
                           },
                           "range": [
-                            3175,
-                            3205
+                            3193,
+                            3223
                           ],
                           "loc": {
                             "start": {
@@ -2344,8 +2344,8 @@
                       ],
                       "kind": "var",
                       "range": [
-                        3171,
-                        3206
+                        3189,
+                        3224
                       ],
                       "loc": {
                         "start": {
@@ -2365,8 +2365,8 @@
                         "callee": {
                           "type": "Super",
                           "range": [
-                            3211,
-                            3216
+                            3229,
+                            3234
                           ],
                           "loc": {
                             "start": {
@@ -2385,8 +2385,8 @@
                             "value": "GET",
                             "raw": "'GET'",
                             "range": [
-                              3217,
-                              3222
+                              3235,
+                              3240
                             ],
                             "loc": {
                               "start": {
@@ -2404,8 +2404,8 @@
                             "value": "/v0/gamer/shared/",
                             "raw": "'/v0/gamer/shared/'",
                             "range": [
-                              3224,
-                              3243
+                              3242,
+                              3261
                             ],
                             "loc": {
                               "start": {
@@ -2422,8 +2422,8 @@
                             "type": "Identifier",
                             "name": "session",
                             "range": [
-                              3245,
-                              3252
+                              3263,
+                              3270
                             ],
                             "loc": {
                               "start": {
@@ -2441,8 +2441,8 @@
                             "value": null,
                             "raw": "null",
                             "range": [
-                              3254,
-                              3258
+                              3272,
+                              3276
                             ],
                             "loc": {
                               "start": {
@@ -2459,8 +2459,8 @@
                             "type": "Identifier",
                             "name": "queryParams",
                             "range": [
-                              3260,
-                              3271
+                              3278,
+                              3289
                             ],
                             "loc": {
                               "start": {
@@ -2475,8 +2475,8 @@
                           }
                         ],
                         "range": [
-                          3211,
-                          3272
+                          3229,
+                          3290
                         ],
                         "loc": {
                           "start": {
@@ -2490,8 +2490,8 @@
                         }
                       },
                       "range": [
-                        3211,
-                        3273
+                        3229,
+                        3291
                       ],
                       "loc": {
                         "start": {
@@ -2506,8 +2506,8 @@
                     }
                   ],
                   "range": [
-                    3165,
-                    3277
+                    3183,
+                    3295
                   ],
                   "loc": {
                     "start": {
@@ -2523,8 +2523,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  3148,
-                  3277
+                  3166,
+                  3295
                 ],
                 "loc": {
                   "start": {
@@ -2540,8 +2540,8 @@
               "kind": "constructor",
               "computed": false,
               "range": [
-                3137,
-                3277
+                3155,
+                3295
               ],
               "loc": {
                 "start": {
@@ -2558,8 +2558,8 @@
                   "type": "Block",
                   "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} query The query string to execute.\n   * @return {SharedStorageSearchRequest} An instance of this object.\n   ",
                   "range": [
-                    2914,
-                    3134
+                    2932,
+                    3152
                   ],
                   "loc": {
                     "start": {
@@ -2578,8 +2578,8 @@
                   "type": "Block",
                   "value": "*\n   * Restrict the query to run only over Shared Storage keys with the given name. Defaults to no filter,\n   * the query will run over all Shared Storage records.\n   * @param  {String} key The key filter to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
                   "range": [
-                    3281,
-                    3613
+                    3299,
+                    3631
                   ],
                   "loc": {
                     "start": {
@@ -2601,8 +2601,8 @@
                 "type": "Identifier",
                 "name": "filterKey",
                 "range": [
-                  3616,
-                  3625
+                  3634,
+                  3643
                 ],
                 "loc": {
                   "start": {
@@ -2623,8 +2623,8 @@
                     "type": "Identifier",
                     "name": "key",
                     "range": [
-                      3626,
-                      3629
+                      3644,
+                      3647
                     ],
                     "loc": {
                       "start": {
@@ -2655,8 +2655,8 @@
                             "object": {
                               "type": "ThisExpression",
                               "range": [
-                                3637,
-                                3641
+                                3655,
+                                3659
                               ],
                               "loc": {
                                 "start": {
@@ -2673,8 +2673,8 @@
                               "type": "Identifier",
                               "name": "_queryParams",
                               "range": [
-                                3642,
-                                3654
+                                3660,
+                                3672
                               ],
                               "loc": {
                                 "start": {
@@ -2688,8 +2688,8 @@
                               }
                             },
                             "range": [
-                              3637,
-                              3654
+                              3655,
+                              3672
                             ],
                             "loc": {
                               "start": {
@@ -2707,8 +2707,8 @@
                             "value": "filter_key",
                             "raw": "'filter_key'",
                             "range": [
-                              3655,
-                              3667
+                              3673,
+                              3685
                             ],
                             "loc": {
                               "start": {
@@ -2722,8 +2722,8 @@
                             }
                           },
                           "range": [
-                            3637,
-                            3668
+                            3655,
+                            3686
                           ],
                           "loc": {
                             "start": {
@@ -2740,8 +2740,8 @@
                           "type": "Identifier",
                           "name": "key",
                           "range": [
-                            3671,
-                            3674
+                            3689,
+                            3692
                           ],
                           "loc": {
                             "start": {
@@ -2755,8 +2755,8 @@
                           }
                         },
                         "range": [
-                          3637,
-                          3674
+                          3655,
+                          3692
                         ],
                         "loc": {
                           "start": {
@@ -2770,8 +2770,8 @@
                         }
                       },
                       "range": [
-                        3637,
-                        3675
+                        3655,
+                        3693
                       ],
                       "loc": {
                         "start": {
@@ -2789,8 +2789,8 @@
                       "argument": {
                         "type": "ThisExpression",
                         "range": [
-                          3687,
-                          3691
+                          3705,
+                          3709
                         ],
                         "loc": {
                           "start": {
@@ -2804,8 +2804,8 @@
                         }
                       },
                       "range": [
-                        3680,
-                        3692
+                        3698,
+                        3710
                       ],
                       "loc": {
                         "start": {
@@ -2820,8 +2820,8 @@
                     }
                   ],
                   "range": [
-                    3631,
-                    3696
+                    3649,
+                    3714
                   ],
                   "loc": {
                     "start": {
@@ -2837,8 +2837,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  3625,
-                  3696
+                  3643,
+                  3714
                 ],
                 "loc": {
                   "start": {
@@ -2854,8 +2854,8 @@
               "kind": "method",
               "computed": false,
               "range": [
-                3616,
-                3696
+                3634,
+                3714
               ],
               "loc": {
                 "start": {
@@ -2872,8 +2872,8 @@
                   "type": "Block",
                   "value": "*\n   * Restrict the query to run only over Shared Storage keys with the given name. Defaults to no filter,\n   * the query will run over all Shared Storage records.\n   * @param  {String} key The key filter to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
                   "range": [
-                    3281,
-                    3613
+                    3299,
+                    3631
                   ],
                   "loc": {
                     "start": {
@@ -2892,8 +2892,8 @@
                   "type": "Block",
                   "value": "*\n   * Define a sort order for the results. Defaults to no sort, natural ordering is used.\n   * @param  {String} key The sort order definition to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
                   "range": [
-                    3700,
-                    3970
+                    3718,
+                    3988
                   ],
                   "loc": {
                     "start": {
@@ -2915,8 +2915,8 @@
                 "type": "Identifier",
                 "name": "sort",
                 "range": [
-                  3973,
-                  3977
+                  3991,
+                  3995
                 ],
                 "loc": {
                   "start": {
@@ -2937,8 +2937,8 @@
                     "type": "Identifier",
                     "name": "key",
                     "range": [
-                      3978,
-                      3981
+                      3996,
+                      3999
                     ],
                     "loc": {
                       "start": {
@@ -2969,8 +2969,8 @@
                             "object": {
                               "type": "ThisExpression",
                               "range": [
-                                3989,
-                                3993
+                                4007,
+                                4011
                               ],
                               "loc": {
                                 "start": {
@@ -2987,8 +2987,8 @@
                               "type": "Identifier",
                               "name": "_queryParams",
                               "range": [
-                                3994,
-                                4006
+                                4012,
+                                4024
                               ],
                               "loc": {
                                 "start": {
@@ -3002,8 +3002,8 @@
                               }
                             },
                             "range": [
-                              3989,
-                              4006
+                              4007,
+                              4024
                             ],
                             "loc": {
                               "start": {
@@ -3020,8 +3020,8 @@
                             "type": "Identifier",
                             "name": "sort",
                             "range": [
-                              4007,
-                              4011
+                              4025,
+                              4029
                             ],
                             "loc": {
                               "start": {
@@ -3035,8 +3035,8 @@
                             }
                           },
                           "range": [
-                            3989,
-                            4011
+                            4007,
+                            4029
                           ],
                           "loc": {
                             "start": {
@@ -3053,8 +3053,8 @@
                           "type": "Identifier",
                           "name": "key",
                           "range": [
-                            4014,
-                            4017
+                            4032,
+                            4035
                           ],
                           "loc": {
                             "start": {
@@ -3068,8 +3068,8 @@
                           }
                         },
                         "range": [
-                          3989,
-                          4017
+                          4007,
+                          4035
                         ],
                         "loc": {
                           "start": {
@@ -3083,8 +3083,8 @@
                         }
                       },
                       "range": [
-                        3989,
-                        4018
+                        4007,
+                        4036
                       ],
                       "loc": {
                         "start": {
@@ -3102,8 +3102,8 @@
                       "argument": {
                         "type": "ThisExpression",
                         "range": [
-                          4030,
-                          4034
+                          4048,
+                          4052
                         ],
                         "loc": {
                           "start": {
@@ -3117,8 +3117,8 @@
                         }
                       },
                       "range": [
-                        4023,
-                        4035
+                        4041,
+                        4053
                       ],
                       "loc": {
                         "start": {
@@ -3133,8 +3133,8 @@
                     }
                   ],
                   "range": [
-                    3983,
-                    4039
+                    4001,
+                    4057
                   ],
                   "loc": {
                     "start": {
@@ -3150,8 +3150,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  3977,
-                  4039
+                  3995,
+                  4057
                 ],
                 "loc": {
                   "start": {
@@ -3167,8 +3167,8 @@
               "kind": "method",
               "computed": false,
               "range": [
-                3973,
-                4039
+                3991,
+                4057
               ],
               "loc": {
                 "start": {
@@ -3185,8 +3185,8 @@
                   "type": "Block",
                   "value": "*\n   * Define a sort order for the results. Defaults to no sort, natural ordering is used.\n   * @param  {String} key The sort order definition to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
                   "range": [
-                    3700,
-                    3970
+                    3718,
+                    3988
                   ],
                   "loc": {
                     "start": {
@@ -3205,8 +3205,8 @@
                   "type": "Block",
                   "value": "*\n   * Offset query results by the given number of entries. Useful for paginating query results.\n   * Default 0 (first page). Must be greater than or equal to 0.\n   * @param  {Integer} offset The query result offset to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
                   "range": [
-                    4043,
-                    4386
+                    4061,
+                    4404
                   ],
                   "loc": {
                     "start": {
@@ -3228,8 +3228,8 @@
                 "type": "Identifier",
                 "name": "offset",
                 "range": [
-                  4389,
-                  4395
+                  4407,
+                  4413
                 ],
                 "loc": {
                   "start": {
@@ -3250,8 +3250,8 @@
                     "type": "Identifier",
                     "name": "offset",
                     "range": [
-                      4396,
-                      4402
+                      4414,
+                      4420
                     ],
                     "loc": {
                       "start": {
@@ -3282,8 +3282,8 @@
                             "object": {
                               "type": "ThisExpression",
                               "range": [
-                                4410,
-                                4414
+                                4428,
+                                4432
                               ],
                               "loc": {
                                 "start": {
@@ -3300,8 +3300,8 @@
                               "type": "Identifier",
                               "name": "_queryParams",
                               "range": [
-                                4415,
-                                4427
+                                4433,
+                                4445
                               ],
                               "loc": {
                                 "start": {
@@ -3315,8 +3315,8 @@
                               }
                             },
                             "range": [
-                              4410,
-                              4427
+                              4428,
+                              4445
                             ],
                             "loc": {
                               "start": {
@@ -3333,8 +3333,8 @@
                             "type": "Identifier",
                             "name": "offset",
                             "range": [
-                              4428,
-                              4434
+                              4446,
+                              4452
                             ],
                             "loc": {
                               "start": {
@@ -3348,8 +3348,8 @@
                             }
                           },
                           "range": [
-                            4410,
-                            4434
+                            4428,
+                            4452
                           ],
                           "loc": {
                             "start": {
@@ -3366,8 +3366,8 @@
                           "type": "Identifier",
                           "name": "offset",
                           "range": [
-                            4437,
-                            4443
+                            4455,
+                            4461
                           ],
                           "loc": {
                             "start": {
@@ -3381,8 +3381,8 @@
                           }
                         },
                         "range": [
-                          4410,
-                          4443
+                          4428,
+                          4461
                         ],
                         "loc": {
                           "start": {
@@ -3396,8 +3396,8 @@
                         }
                       },
                       "range": [
-                        4410,
-                        4444
+                        4428,
+                        4462
                       ],
                       "loc": {
                         "start": {
@@ -3415,8 +3415,8 @@
                       "argument": {
                         "type": "ThisExpression",
                         "range": [
-                          4456,
-                          4460
+                          4474,
+                          4478
                         ],
                         "loc": {
                           "start": {
@@ -3430,8 +3430,8 @@
                         }
                       },
                       "range": [
-                        4449,
-                        4461
+                        4467,
+                        4479
                       ],
                       "loc": {
                         "start": {
@@ -3446,8 +3446,8 @@
                     }
                   ],
                   "range": [
-                    4404,
-                    4465
+                    4422,
+                    4483
                   ],
                   "loc": {
                     "start": {
@@ -3463,8 +3463,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  4395,
-                  4465
+                  4413,
+                  4483
                 ],
                 "loc": {
                   "start": {
@@ -3480,8 +3480,8 @@
               "kind": "method",
               "computed": false,
               "range": [
-                4389,
-                4465
+                4407,
+                4483
               ],
               "loc": {
                 "start": {
@@ -3498,8 +3498,8 @@
                   "type": "Block",
                   "value": "*\n   * Offset query results by the given number of entries. Useful for paginating query results.\n   * Default 0 (first page). Must be greater than or equal to 0.\n   * @param  {Integer} offset The query result offset to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
                   "range": [
-                    4043,
-                    4386
+                    4061,
+                    4404
                   ],
                   "loc": {
                     "start": {
@@ -3518,8 +3518,8 @@
                   "type": "Block",
                   "value": "*\n   * Limit the number of results returned in a single response. Must be between 0 and 100, inclusive. Default 10.\n   * Using a limit of 0 will return no results, but can be useful for aggregation or similar scenarios\n   * where the result count is useful by itself.\n   * @param  {Integer} limit The maximum number of results to return in a response.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
                   "range": [
-                    4469,
-                    4940
+                    4487,
+                    4958
                   ],
                   "loc": {
                     "start": {
@@ -3541,8 +3541,8 @@
                 "type": "Identifier",
                 "name": "limit",
                 "range": [
-                  4943,
-                  4948
+                  4961,
+                  4966
                 ],
                 "loc": {
                   "start": {
@@ -3563,8 +3563,8 @@
                     "type": "Identifier",
                     "name": "limit",
                     "range": [
-                      4949,
-                      4954
+                      4967,
+                      4972
                     ],
                     "loc": {
                       "start": {
@@ -3595,8 +3595,8 @@
                             "object": {
                               "type": "ThisExpression",
                               "range": [
-                                4962,
-                                4966
+                                4980,
+                                4984
                               ],
                               "loc": {
                                 "start": {
@@ -3613,8 +3613,8 @@
                               "type": "Identifier",
                               "name": "_queryParams",
                               "range": [
-                                4967,
-                                4979
+                                4985,
+                                4997
                               ],
                               "loc": {
                                 "start": {
@@ -3628,8 +3628,8 @@
                               }
                             },
                             "range": [
-                              4962,
-                              4979
+                              4980,
+                              4997
                             ],
                             "loc": {
                               "start": {
@@ -3646,8 +3646,8 @@
                             "type": "Identifier",
                             "name": "limit",
                             "range": [
-                              4980,
-                              4985
+                              4998,
+                              5003
                             ],
                             "loc": {
                               "start": {
@@ -3661,8 +3661,8 @@
                             }
                           },
                           "range": [
-                            4962,
-                            4985
+                            4980,
+                            5003
                           ],
                           "loc": {
                             "start": {
@@ -3679,8 +3679,8 @@
                           "type": "Identifier",
                           "name": "limit",
                           "range": [
-                            4988,
-                            4993
+                            5006,
+                            5011
                           ],
                           "loc": {
                             "start": {
@@ -3694,8 +3694,8 @@
                           }
                         },
                         "range": [
-                          4962,
-                          4993
+                          4980,
+                          5011
                         ],
                         "loc": {
                           "start": {
@@ -3709,8 +3709,8 @@
                         }
                       },
                       "range": [
-                        4962,
-                        4994
+                        4980,
+                        5012
                       ],
                       "loc": {
                         "start": {
@@ -3728,8 +3728,8 @@
                       "argument": {
                         "type": "ThisExpression",
                         "range": [
-                          5006,
-                          5010
+                          5024,
+                          5028
                         ],
                         "loc": {
                           "start": {
@@ -3743,8 +3743,8 @@
                         }
                       },
                       "range": [
-                        4999,
-                        5011
+                        5017,
+                        5029
                       ],
                       "loc": {
                         "start": {
@@ -3759,8 +3759,8 @@
                     }
                   ],
                   "range": [
-                    4956,
-                    5015
+                    4974,
+                    5033
                   ],
                   "loc": {
                     "start": {
@@ -3776,8 +3776,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  4948,
-                  5015
+                  4966,
+                  5033
                 ],
                 "loc": {
                   "start": {
@@ -3793,8 +3793,8 @@
               "kind": "method",
               "computed": false,
               "range": [
-                4943,
-                5015
+                4961,
+                5033
               ],
               "loc": {
                 "start": {
@@ -3811,8 +3811,8 @@
                   "type": "Block",
                   "value": "*\n   * Limit the number of results returned in a single response. Must be between 0 and 100, inclusive. Default 10.\n   * Using a limit of 0 will return no results, but can be useful for aggregation or similar scenarios\n   * where the result count is useful by itself.\n   * @param  {Integer} limit The maximum number of results to return in a response.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
                   "range": [
-                    4469,
-                    4940
+                    4487,
+                    4958
                   ],
                   "loc": {
                     "start": {
@@ -3830,8 +3830,8 @@
             }
           ],
           "range": [
-            2909,
-            5017
+            2927,
+            5035
           ],
           "loc": {
             "start": {
@@ -3845,8 +3845,8 @@
           }
         },
         "range": [
-          2857,
-          5017
+          2875,
+          5035
         ],
         "loc": {
           "start": {
@@ -3863,8 +3863,8 @@
             "type": "Block",
             "value": "*\n * Run a query over Shared Storage data.\n ",
             "range": [
-              2801,
-              2849
+              2819,
+              2867
             ],
             "loc": {
               "start": {
@@ -3883,8 +3883,8 @@
       "specifiers": [],
       "source": null,
       "range": [
-        2850,
-        5017
+        2868,
+        5035
       ],
       "loc": {
         "start": {
@@ -3901,8 +3901,8 @@
           "type": "Block",
           "value": "*\n * Run a query over Shared Storage data.\n ",
           "range": [
-            2801,
-            2849
+            2819,
+            2867
           ],
           "loc": {
             "start": {
@@ -3921,7 +3921,7 @@
   "sourceType": "module",
   "range": [
     592,
-    5017
+    5035
   ],
   "loc": {
     "start": {
@@ -4010,8 +4010,8 @@
       "type": "Block",
       "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The storage key to put.\n   * @param  {Object} data The value to assign to the specified key's 'public' segment.\n   * @return {SharedStoragePutRequest} An instance of this object.\n   ",
       "range": [
-        1260,
-        1558
+        1266,
+        1564
       ],
       "loc": {
         "start": {
@@ -4028,8 +4028,8 @@
       "type": "Block",
       "value": "*\n * Merge the Shared Storage 'public' segment value for the given key with the given value.\n ",
       "range": [
-        1674,
-        1772
+        1680,
+        1778
       ],
       "loc": {
         "start": {
@@ -4046,8 +4046,8 @@
       "type": "Block",
       "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} key The key to create or replace the value for.\n   * @param  {Object} data The entity that will be merged into that key's 'public' segment.\n   * @return {SharedStoragePatchRequest} An instance of this object.\n   ",
       "range": [
-        1836,
-        2160
+        1848,
+        2172
       ],
       "loc": {
         "start": {
@@ -4064,8 +4064,8 @@
       "type": "Block",
       "value": "*\n * Delete the data stored in Shared Storage under a particular key's 'public' segment, if any.\n ",
       "range": [
-        2278,
-        2380
+        2290,
+        2392
       ],
       "loc": {
         "start": {
@@ -4082,8 +4082,8 @@
       "type": "Block",
       "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} The key to delete the corresponding 'public' segment value for.\n   * @return {SharedStorageDeleteRequest} An instance of this object.\n   ",
       "range": [
-        2445,
-        2694
+        2463,
+        2712
       ],
       "loc": {
         "start": {
@@ -4100,8 +4100,8 @@
       "type": "Block",
       "value": "*\n * Run a query over Shared Storage data.\n ",
       "range": [
-        2801,
-        2849
+        2819,
+        2867
       ],
       "loc": {
         "start": {
@@ -4118,8 +4118,8 @@
       "type": "Block",
       "value": "*\n   * @param  {Session} session Session identifying the account making this request.\n   * @param  {String} query The query string to execute.\n   * @return {SharedStorageSearchRequest} An instance of this object.\n   ",
       "range": [
-        2914,
-        3134
+        2932,
+        3152
       ],
       "loc": {
         "start": {
@@ -4136,8 +4136,8 @@
       "type": "Block",
       "value": "*\n   * Restrict the query to run only over Shared Storage keys with the given name. Defaults to no filter,\n   * the query will run over all Shared Storage records.\n   * @param  {String} key The key filter to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
       "range": [
-        3281,
-        3613
+        3299,
+        3631
       ],
       "loc": {
         "start": {
@@ -4154,8 +4154,8 @@
       "type": "Block",
       "value": "*\n   * Define a sort order for the results. Defaults to no sort, natural ordering is used.\n   * @param  {String} key The sort order definition to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
       "range": [
-        3700,
-        3970
+        3718,
+        3988
       ],
       "loc": {
         "start": {
@@ -4172,8 +4172,8 @@
       "type": "Block",
       "value": "*\n   * Offset query results by the given number of entries. Useful for paginating query results.\n   * Default 0 (first page). Must be greater than or equal to 0.\n   * @param  {Integer} offset The query result offset to use.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
       "range": [
-        4043,
-        4386
+        4061,
+        4404
       ],
       "loc": {
         "start": {
@@ -4190,8 +4190,8 @@
       "type": "Block",
       "value": "*\n   * Limit the number of results returned in a single response. Must be between 0 and 100, inclusive. Default 10.\n   * Using a limit of 0 will return no results, but can be useful for aggregation or similar scenarios\n   * where the result count is useful by itself.\n   * @param  {Integer} limit The maximum number of results to return in a response.\n   * @return {SharedStorageSearchRequest} Current instance of this object, can be used to chain function calls.\n   ",
       "range": [
-        4469,
-        4940
+        4487,
+        4958
       ],
       "loc": {
         "start": {
